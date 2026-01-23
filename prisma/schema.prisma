@@ -1,0 +1,77 @@
+generator client {
+    provider = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+    output = "/home/ubuntu/cpe_engenharia/nextjs_space/node_modules/.prisma/client"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  password      String
+  role          String    @default("admin")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Lead {
+  id            String    @id @default(cuid())
+  name          String
+  email         String
+  phone         String?
+  message       String
+  source        String    @default("contact")
+  status        String    @default("new")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Quote {
+  id            String    @id @default(cuid())
+  name          String
+  email         String
+  phone         String
+  company       String?
+  serviceType   String
+  location      String
+  projectArea   String?
+  deadline      String?
+  budget        String?
+  description   String
+  attachmentUrl String?
+  attachmentKey String?
+  status        String    @default("pending")
+  notes         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Project {
+  id            String    @id @default(cuid())
+  title         String
+  slug          String    @unique
+  category      String
+  description   String
+  location      String?
+  area          String?
+  year          String?
+  imageUrl      String
+  images        String[]
+  featured      Boolean   @default(false)
+  published     Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model ChatMessage {
+  id            String    @id @default(cuid())
+  sessionId     String
+  role          String
+  content       String
+  createdAt     DateTime  @default(now())
+}
