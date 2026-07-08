@@ -3,7 +3,7 @@ export const companyData = {
   slogan: "Construindo Qualidade de Vida",
   images: {
     hero: "/images/hero.png",
-    engineer: "/images/engineer.png",
+    engineer: "/images/engineer.png", 
     skyline: "/images/skyline.png",
   },
   address: {
@@ -11,14 +11,14 @@ export const companyData = {
   },
   team: {
     engineer: {
-      name: "Christian Gomes da Silva",
-      crea: "CREA-SP 5070688455",
-      whatsapp: "55119XXXXXXXX", // Coloque seu número aqui se quiser ajustar
+      name: "Christian Gomes da Silva", 
+      crea: "Eng. Christian Gomes", // <--- Seu nome em destaque no selo protetor!
+      whatsapp: "55119XXXXXXXX", 
       phone: "(11) 9XXXX-XXXX",
     },
     admin: {
       name: "Priscila",
-      whatsapp: "55119XXXXXXXX", // Coloque o número da Priscila aqui se quiser ajustar
+      whatsapp: "55119XXXXXXXX", 
       phone: "(11) 9XXXX-XXXX",
     },
   },
