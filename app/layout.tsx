@@ -75,7 +75,7 @@ export default function RootLayout({
           <Navbar />
           <main className="min-h-screen">{children}</main>
           <Footer />
-          <WhatsAppButton />
+          <WhatsAppButton phoneNumber="5511989320917" />
           <Chatbot />
         </Providers>
       </body>
