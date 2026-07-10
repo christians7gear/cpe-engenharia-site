@@ -1,102 +1,58 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
-import { MapPin, Phone, Mail, Building2 } from "lucide-react";
 import { companyData } from "@/lib/company-data";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
-  const currentYear = 2026;
-
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-[1200px] mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Logo e Descrição */}
-          <div className="lg:col-span-2">
-            <Image
-              src={companyData?.images?.logo ?? "/images/logo.png"}
-              alt="CPE Engenharia"
-              width={200}
-              height={67}
-              className="h-16 w-auto mb-4 brightness-0 invert"
-            />
-            <p className="text-gray-400 mb-4 max-w-md">
-              {companyData?.slogan ?? "Construindo Qualidade de Vida"}. Projetos arquitetônicos e complementares para todo o Brasil,
-              execução de obras na região de São Paulo.
-            </p>
-            <div className="flex items-center gap-2 text-gray-400">
-              <Building2 className="w-4 h-4" />
-              <span className="text-sm">CNPJ: {companyData?.cnpj ?? ""}</span>
-            </div>
+    <footer className="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Lado Esquerdo - Info Empresa */}
+        <div>
+          <div className="flex items-center space-x-2 mb-4">
+            <span className="text-xl font-bold text-white">{companyData.name}</span>
           </div>
-
-          {/* Links Rápidos */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Links Rápidos</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/servicos" className="text-gray-400 hover:text-red-500 transition-colors">
-                  Serviços
-                </Link>
-              </li>
-              <li>
-                <Link href="/portfolio" className="text-gray-400 hover:text-red-500 transition-colors">
-                  Portfólio
-                </Link>
-              </li>
-              <li>
-                <Link href="/orcamento" className="text-gray-400 hover:text-red-500 transition-colors">
-                  Solicitar Orçamento
-                </Link>
-              </li>
-              <li>
-                <Link href="/contato" className="text-gray-400 hover:text-red-500 transition-colors">
-                  Contato
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contato */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Contato</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-gray-400">
-                <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-red-500" />
-                <span className="text-sm">{companyData?.address?.full ?? ""}</span>
-              </li>
-              <li>
-                <a
-                  href={`tel:${companyData?.team?.engineer?.phone?.replace?.(/\D/g, "") ?? ""}`}
-                  className="flex items-center gap-3 text-gray-400 hover:text-red-500 transition-colors"
-                >
-                  <Phone className="w-5 h-5 flex-shrink-0 text-red-500" />
-                  <span className="text-sm">{companyData?.team?.engineer?.phone ?? ""}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:contato@cpeengenharia.com.br"
-                  className="flex items-center gap-3 text-gray-400 hover:text-red-500 transition-colors"
-                >
-                  <Mail className="w-5 h-5 flex-shrink-0 text-red-500" />
-                  <span className="text-sm">contato@cpeengenharia.com.br</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+          <p className="text-sm text-slate-400 mb-4">{companyData.slogan}</p>
+          <p className="text-xs text-slate-500">CNPJ: {companyData.cnpj}</p>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p className="text-gray-500 text-sm">
-            &copy; {currentYear} {companyData?.name ?? "CPE Engenharia"}. Todos os direitos reservados.
-          </p>
-          <p className="text-gray-600 text-xs mt-2">
-            Responsável Técnico: {companyData?.team?.engineer?.name ?? ""} - {companyData?.team?.engineer?.crea ?? ""}
-          </p>
+        {/* Centro - Links */}
+        <div>
+          <h3 className="text-white font-semibold mb-4">Links Rápidos</h3>
+          <ul className="space-y-2 text-sm">
+            <li><Link href="#servicos" className="hover:text-white transition">Serviços</Link></li>
+            <li><Link href="#portfolio" className="hover:text-white transition">Portfólio</Link></li>
+            <li><Link href="#orcamento" className="hover:text-white transition">Solicitar Orçamento</Link></li>
+            <li><Link href="#contato" className="hover:text-white transition">Contato</Link></li>
+          </ul>
         </div>
+
+        {/* Lado Direito - Contato Atualizado */}
+        <div>
+          <h3 className="text-white font-semibold mb-4">Contato</h3>
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-start space-x-2">
+              <MapPin className="text-red-500 h-5 w-5 shrink-0 mt-0.5" />
+              <span>{companyData.address.full}</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <Phone className="text-red-500 h-5 w-5 shrink-0" />
+              <a href={`https://wa.me/${companyData.team.admin.whatsapp}`} className="hover:text-white transition">
+                {companyData.team.admin.phone}
+              </a>
+            </li>
+            <li className="flex items-center space-x-2">
+              <Mail className="text-red-500 h-5 w-5 shrink-0" />
+              <a href="mailto:contato@cpeengenharia.com.br" className="hover:text-white transition">
+                contato@cpeengenharia.com.br
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+        <p>© {new Date().getFullYear()} {companyData.name}. Todos os direitos reservados.</p>
+        <p className="mt-1">Responsável Técnico: Christian Gomes da Silva - {companyData.team.engineer.crea}</p>
       </div>
     </footer>
   );
