@@ -6,20 +6,21 @@ export const companyData = {
     engineer: "/images/engineer.png", 
     skyline: "/images/skyline.png",
   },
+  cnpj: "62.575.418/0001-84",
   address: {
-    full: "Av. Paulista - São Paulo, SP",
+    full: "Av. Paulista, nº 807 – Bela Vista – São Paulo/SP – CEP 01311-100",
   },
   team: {
     engineer: {
       name: "Christian Gomes da Silva", 
-      crea: "Eng. Christian Gomes", // <--- Seu nome em destaque no selo protetor!
-      whatsapp: "55119XXXXXXXX", 
-      phone: "(11) 9XXXX-XXXX",
+      crea: "Eng. Christian Gomes",
+      whatsapp: "551147159186", 
+      phone: "(11) 4715-9186",
     },
     admin: {
       name: "Priscila",
-      whatsapp: "55119XXXXXXXX", 
-      phone: "(11) 9XXXX-XXXX",
+      whatsapp: "5511989320917", 
+      phone: "(11) 98932-0917",
     },
   },
 };
