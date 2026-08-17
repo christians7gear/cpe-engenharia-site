@@ -39,22 +39,38 @@ export function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-sm shadow-lg py-2"
-          : "bg-slate-950/80 backdrop-blur-md py-3 border-b border-white/10"
+          : "bg-slate-950/80 backdrop-blur-md py-3.5 border-b border-white/10"
       }`}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <nav className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo Único e Completo em Destaque */}
-          <Link href="/" className="relative z-10 flex items-center group">
-            <div className="bg-white px-4 py-2 rounded-2xl shadow-lg transition-transform group-hover:scale-105 flex items-center justify-center">
-              <Image
-                src={companyData?.images?.logo ?? "/images/logo.png"}
-                alt="CPE Engenharia"
-                width={220}
-                height={70}
-                className="h-12 sm:h-14 w-auto object-contain"
-                priority
-              />
+          <Link href="/" className="relative z-10 flex items-center gap-3.5 group">
+            {/* Box branco com logo em proporção limpa */}
+            <div className="bg-white p-2 rounded-2xl shadow-md flex items-center justify-center transition-transform group-hover:scale-105">
+              <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center overflow-hidden">
+                <Image
+                  src={companyData?.images?.logo ?? "/images/logo.png"}
+                  alt="CPE Engenharia"
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain"
+                  priority
+                />
+              </div>
+            </div>
+
+            {/* Tipografia da Marca com Alta Nitidez */}
+            <div className="flex flex-col justify-center">
+              <span className={`text-xl sm:text-2xl font-black tracking-wider leading-none ${
+                isScrolled ? "text-slate-900" : "text-white"
+              }`}>
+                CPE <span className="text-red-600">ENGENHARIA</span>
+              </span>
+              <span className={`text-[10px] sm:text-xs tracking-widest uppercase font-semibold mt-1 ${
+                isScrolled ? "text-slate-500" : "text-slate-300"
+              }`}>
+                Construindo Qualidade de Vida
+              </span>
             </div>
           </Link>
 
