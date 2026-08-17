@@ -155,21 +155,21 @@ export const services: Service[] = [
     slug: "postos-abastecimento",
     title: "Postos de Abastecimento",
     shortDescription: "Construção e reforma de postos de combustíveis.",
-    description: "Somos especialistas na construção e reforma de postos de combustíveis, um tipo de obra que exige alto conhecimento técnico e rigor no cumprimento de normas ambientais e de segurança (CONAMA, ABNT, NR-20).",
+    description: "Somos especialistas na construção e reforma de postos de combustíveis e pontos de abastecimento frotistas, com alto conhecimento técnico e rigor no cumprimento de normas ambientais e de segurança (CONAMA, ABNT, NR-20).",
     benefits: [
-      "Expertise Técnica: Conhecimento profundo das normas para sistemas de armazenamento subterrâneo.",
-      "Segurança Operacional: Implementação rigorosa de sistemas de drenagem e contenção.",
-      "Conformidade Ambiental: Execução que garante a obtenção das licenças ambientais.",
-      "Agilidade na Execução: Planejamento otimizado para minimizar o tempo de construção."
+      "Expertise Técnica: Conhecimento profundo das normas para sistemas de armazenamento e abastecimento.",
+      "Segurança Operacional: Implementação rigorosa de sistemas de drenagem, pista blindada e contenção.",
+      "Conformidade Ambiental: Execução que atende a todos os requisitos de licenciamento e segurança.",
+      "Agilidade na Execução: Planejamento otimizado para minimizar o impacto na operação logística."
     ],
     process: [
-      "Planejamento e licenciamento ambiental prévio.",
-      "Terraplanagem e execução das fundações das ilhas de abastecimento.",
-      "Instalação dos tanques subterrâneos, tubulações e sistemas de monitoramento.",
-      "Construção da cobertura e instalações elétricas à prova de explosão.",
-      "Comissionamento dos sistemas e preparação para vistoria."
+      "Planejamento e adequação técnica às normas vigentes.",
+      "Terraplanagem, piso em concreto armado de alta resistência e contenções.",
+      "Instalação de bombas, tanques, tubulações e sistemas de filtragem e monitoramento.",
+      "Montagem da cobertura metálica e instalações elétricas à prova de explosão (Ex).",
+      "Comissionamento dos sistemas, testes de estanqueidade e entrega técnica com ART."
     ],
-    image: "https://cdn.abacus.ai/images/53518646-e45e-4c47-81d1-54baa81043f3.png",
+    image: "/images/posto-tassi.png",
     icon: "Fuel",
     category: "execucao"
   },
