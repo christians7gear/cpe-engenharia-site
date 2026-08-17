@@ -9,9 +9,9 @@ import { companyData } from "@/lib/company-data";
 
 export default function ContatoPage() {
   return (
-    <div className="pt-24 pb-16 bg-slate-50 min-h-screen">
-      {/* Banner de Topo */}
-      <div className="bg-slate-950 text-white py-14 mb-12 border-b border-slate-800">
+    <div className="pt-28 sm:pt-36 pb-20 bg-slate-50 min-h-screen">
+      {/* Banner de Topo com Espaçamento Ajustado */}
+      <div className="bg-slate-950 text-white py-16 mb-12 border-b border-slate-800">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 text-center">
           <span className="inline-block bg-red-600/90 text-white px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
             Atendimento Direto
@@ -25,7 +25,8 @@ export default function ContatoPage() {
         </div>
       </div>
 
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 space-y-12">
+        {/* Grade Principal: Especialistas e Formulário */}
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           
           {/* Coluna da Esquerda: Cards de Equipe e Informações */}
@@ -189,6 +190,47 @@ export default function ContatoPage() {
           </div>
 
         </div>
+
+        {/* Seção do Mapa com a Localização da Sede */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-8"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-red-600">Localização Estratégica</span>
+              <h3 className="text-2xl font-bold text-gray-900 mt-1">Nossa Sede em São Paulo</h3>
+              <p className="text-sm text-gray-500 mt-1">
+                Av. Paulista, nº 807 – Bela Vista – São Paulo/SP
+              </p>
+            </div>
+            <a
+              href="https://maps.google.com/?q=Av.+Paulista,+807+-+Bela+Vista,+S%C3%A3o+Paulo+-+SP"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-colors self-start sm:self-auto shadow-sm"
+            >
+              <MapPin className="w-4 h-4 text-red-500" />
+              Abrir no Google Maps
+            </a>
+          </div>
+
+          {/* Mapa Interativo Incorporado */}
+          <div className="relative w-full h-[360px] sm:h-[420px] rounded-xl overflow-hidden border border-slate-200 shadow-inner">
+            <iframe
+              title="Localização CPE Engenharia"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.098322699229!2d-46.65384662386121!3d-23.56490697879796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f3731f24d2716!2sAv.%20Paulista%2C%20807%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001311-100!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </motion.div>
       </div>
     </div>
   );
