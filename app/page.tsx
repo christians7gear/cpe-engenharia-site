@@ -50,7 +50,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - Centralizado */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -60,43 +60,43 @@ export default function HomePage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
         </div>
 
-        <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 py-32 md:py-40">
+        <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 py-32 md:py-40 flex flex-col items-center justify-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="max-w-4xl flex flex-col items-center"
           >
-            <span className="inline-block bg-red-600/90 text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide uppercase mb-4 shadow-lg border border-red-500/30">
+            <span className="inline-block bg-red-600/90 text-white px-5 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide uppercase mb-6 shadow-lg border border-red-500/30">
               Engenharia Civil &amp; Projetos Técnicos
             </span>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white mb-4 tracking-tight leading-tight">
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight leading-none">
               CPE <span className="text-red-600">ENGENHARIA</span>
             </h1>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-200 mb-6 leading-snug">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-100 mb-6 leading-tight">
               {companyData?.slogan ?? "Construindo Qualidade de Vida"}
             </h2>
 
-            <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl font-light leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed mx-auto">
               Projetos arquitetônicos e complementares para todo o Brasil. Execução de obras residenciais, comerciais e industriais com rigor técnico em São Paulo.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md">
               <Link
                 href="/orcamento"
-                className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5"
               >
                 Solicitar Orçamento
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/servicos"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl backdrop-blur-md transition-all border border-white/20"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl backdrop-blur-md transition-all border border-white/20"
               >
                 Nossos Serviços
               </Link>
