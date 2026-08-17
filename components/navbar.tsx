@@ -39,26 +39,26 @@ export function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-sm shadow-lg py-2"
-          : "bg-slate-950/70 backdrop-blur-md py-3 border-b border-white/10"
+          : "bg-slate-950/75 backdrop-blur-md py-3.5 border-b border-white/10"
       }`}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <nav className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="relative z-10 flex items-center gap-3.5 group">
-            {/* Placa branca com o logo 3D */}
-            <div className="bg-white p-2 rounded-xl shadow-md flex items-center justify-center transition-transform group-hover:scale-105">
+            {/* Box do Logo com tamanho expandido e enquadramento ideal */}
+            <div className="bg-white p-1 rounded-2xl shadow-lg flex items-center justify-center overflow-hidden border border-white/40 transition-transform group-hover:scale-105">
               <Image
                 src={companyData?.images?.logo ?? "/images/logo.png"}
                 alt="CPE Engenharia"
-                width={48}
-                height={48}
-                className="h-10 w-10 sm:h-11 sm:w-11 object-contain"
+                width={80}
+                height={80}
+                className="h-12 w-12 sm:h-14 sm:w-14 object-cover rounded-xl"
                 priority
               />
             </div>
 
-            {/* Texto da Marca com Alta Nitidez */}
-            <div className="flex flex-col">
+            {/* Tipografia da Marca com Alta Nitidez */}
+            <div className="flex flex-col justify-center">
               <span className={`text-xl sm:text-2xl font-black tracking-wider leading-none ${
                 isScrolled ? "text-slate-900" : "text-white"
               }`}>
