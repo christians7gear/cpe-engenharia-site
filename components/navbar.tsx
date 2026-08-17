@@ -45,7 +45,7 @@ export function Navbar() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <nav className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="relative z-10 flex items-center gap-3.5 group">
-            {/* Box branco com o logo 3D */}
+            {/* Placa branca com o logo 3D */}
             <div className="bg-white p-2 rounded-xl shadow-md flex items-center justify-center transition-transform group-hover:scale-105">
               <Image
                 src={companyData?.images?.logo ?? "/images/logo.png"}
