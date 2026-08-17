@@ -146,7 +146,7 @@ export const services: Service[] = [
       "Instalação dos sistemas elétricos, hidráulicos e de climatização.",
       "Acabamentos, pintura, entrega e emissão do Habite-se."
     ],
-    image: "https://cdn.abacus.ai/images/cc7a2846-a6d0-46a9-a123-55731c65a5ff.png",
+    image: "/images/residencia.jpg",
     icon: "Home",
     category: "execucao"
   },
