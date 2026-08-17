@@ -50,7 +50,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section Centralizada */}
+      {/* Hero Section 100% Centralizado */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -63,22 +63,22 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
         </div>
 
-        <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 py-32 md:py-40 flex flex-col items-center justify-center text-center">
+        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-4 sm:px-6 py-32 md:py-40 flex flex-col items-center justify-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl flex flex-col items-center text-center"
+            className="max-w-4xl w-full flex flex-col items-center justify-center text-center mx-auto"
           >
-            <span className="inline-block bg-red-600/90 text-white px-5 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide uppercase mb-6 shadow-lg border border-red-500/30">
+            <span className="inline-block bg-red-600/90 text-white px-5 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide uppercase mb-6 shadow-lg border border-red-500/30 text-center">
               Engenharia Civil &amp; Projetos Técnicos
             </span>
 
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight leading-none text-center">
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight leading-none text-center w-full">
               CPE <span className="text-red-600">ENGENHARIA</span>
             </h1>
 
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-100 mb-6 leading-tight text-center">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-100 mb-6 leading-tight text-center w-full">
               {companyData?.slogan ?? "Construindo Qualidade de Vida"}
             </h2>
 
@@ -104,7 +104,7 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* Indicador de rolagem */}
+        {/* Scroll indicator */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
