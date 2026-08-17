@@ -10,7 +10,7 @@ import { companyData } from "@/lib/company-data";
 export default function ContatoPage() {
   return (
     <div className="pt-28 sm:pt-36 pb-20 bg-slate-50 min-h-screen">
-      {/* Banner de Topo com Espaçamento Ajustado */}
+      {/* Banner de Topo */}
       <div className="bg-slate-950 text-white py-16 mb-12 border-b border-slate-800">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 text-center">
           <span className="inline-block bg-red-600/90 text-white px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
@@ -36,19 +36,19 @@ export default function ContatoPage() {
               Nossos Especialistas
             </h2>
 
-            {/* Card 1: Priscila (Comercial) */}
+            {/* Card 1: Priscila (Comercial) com Enquadramento Corrigido */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
             >
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-                <div className="relative w-20 h-20 rounded-2xl overflow-hidden shadow-inner flex-shrink-0 border-2 border-red-500/20">
+                <div className="relative w-24 h-24 sm:w-24 sm:h-28 rounded-2xl overflow-hidden shadow-inner flex-shrink-0 border-2 border-red-500/20 bg-slate-100">
                   <Image
                     src="/images/priscila.png"
                     alt="Priscila - Atendimento Comercial"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
                 <div className="flex-1 space-y-1">
@@ -113,12 +113,12 @@ export default function ContatoPage() {
               className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow"
             >
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-                <div className="relative w-20 h-20 rounded-2xl overflow-hidden shadow-inner flex-shrink-0 border-2 border-red-500/20">
+                <div className="relative w-24 h-24 sm:w-24 sm:h-28 rounded-2xl overflow-hidden shadow-inner flex-shrink-0 border-2 border-red-500/20 bg-slate-100">
                   <Image
                     src={companyData?.images?.engineer ?? "/images/engineer.png"}
                     alt="Eng. Christian Gomes"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
                 <div className="flex-1 space-y-1">
@@ -153,7 +153,7 @@ export default function ContatoPage() {
               </div>
             </motion.div>
 
-            {/* Informações Institucionais (Endereço e CNPJ) */}
+            {/* Informações Institucionais */}
             <div className="grid sm:grid-cols-2 gap-4 pt-2">
               <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
@@ -191,7 +191,7 @@ export default function ContatoPage() {
 
         </div>
 
-        {/* Seção do Mapa com a Localização da Sede */}
+        {/* Seção do Mapa */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -217,7 +217,6 @@ export default function ContatoPage() {
             </a>
           </div>
 
-          {/* Mapa Interativo Incorporado */}
           <div className="relative w-full h-[360px] sm:h-[420px] rounded-xl overflow-hidden border border-slate-200 shadow-inner">
             <iframe
               title="Localização CPE Engenharia"
