@@ -44,28 +44,16 @@ export function Navbar() {
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <nav className="flex items-center justify-between h-16 sm:h-20">
-          <Link href="/" className="relative z-10 flex items-center gap-3 group">
-            <div className="bg-white/90 p-1.5 rounded-xl shadow-md transition-transform group-hover:scale-105">
+          <Link href="/" className="relative z-10 flex items-center group">
+            <div className="bg-white px-3 py-1.5 rounded-xl shadow-md transition-transform group-hover:scale-105">
               <Image
                 src={companyData?.images?.logo ?? "/images/logo.png"}
                 alt="CPE Engenharia"
-                width={120}
-                height={120}
+                width={150}
+                height={50}
                 className="h-10 sm:h-12 w-auto object-contain"
                 priority
               />
-            </div>
-            <div className="flex flex-col">
-              <span className={`text-lg sm:text-xl font-black tracking-wider leading-none ${
-                isScrolled ? "text-slate-900" : "text-white"
-              }`}>
-                CPE <span className="text-red-600">ENGENHARIA</span>
-              </span>
-              <span className={`text-[10px] tracking-widest uppercase font-semibold mt-1 ${
-                isScrolled ? "text-slate-500" : "text-slate-300"
-              }`}>
-                Construindo Qualidade de Vida
-              </span>
             </div>
           </Link>
 
