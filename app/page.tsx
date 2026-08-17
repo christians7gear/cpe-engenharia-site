@@ -50,7 +50,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section - Centralizado */}
+      {/* Hero Section Centralizada */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -68,25 +68,25 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl flex flex-col items-center"
+            className="max-w-4xl flex flex-col items-center text-center"
           >
             <span className="inline-block bg-red-600/90 text-white px-5 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide uppercase mb-6 shadow-lg border border-red-500/30">
               Engenharia Civil &amp; Projetos Técnicos
             </span>
 
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight leading-none">
+            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight leading-none text-center">
               CPE <span className="text-red-600">ENGENHARIA</span>
             </h1>
 
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-100 mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-100 mb-6 leading-tight text-center">
               {companyData?.slogan ?? "Construindo Qualidade de Vida"}
             </h2>
 
-            <p className="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed mx-auto">
+            <p className="text-lg sm:text-xl text-gray-200 mb-10 max-w-2xl font-light leading-relaxed text-center mx-auto">
               Projetos arquitetônicos e complementares para todo o Brasil. Execução de obras residenciais, comerciais e industriais com rigor técnico em São Paulo.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto">
               <Link
                 href="/orcamento"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5"
@@ -104,7 +104,7 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Indicador de rolagem */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
