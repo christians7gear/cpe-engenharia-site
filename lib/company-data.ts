@@ -1,25 +1,38 @@
 export const companyData = {
   name: "CPE Engenharia",
   slogan: "Construindo Qualidade de Vida",
+  domain: "www.cpeeng.com.br",
+  siteUrl: "https://www.cpeeng.com.br",
   images: {
+    logo: "/images/logo.png",
     hero: "/images/hero.png",
-    engineer: "/images/engineer.png", 
+    engineer: "/images/engineer.png",
     skyline: "/images/skyline.png",
   },
   cnpj: "62.575.418/0001-84",
   address: {
     full: "Av. Paulista, nº 807 – Bela Vista – São Paulo/SP – CEP 01311-100",
+    city: "São Paulo",
+    state: "SP",
+  },
+  contact: {
+    commercialEmail: "comercial.priscila@cpeeng.com.br",
+    techEmail: "eng.christian@cpeeng.com.br",
+    mainEmail: "contato@cpeeng.com.br",
   },
   team: {
     engineer: {
-      name: "Christian Gomes da Silva", 
+      name: "Christian Gomes da Silva",
       crea: "Eng. Christian Gomes",
-      whatsapp: "551147159186", 
+      email: "eng.christian@cpeeng.com.br",
+      whatsapp: "551147159186",
       phone: "(11) 4715-9186",
     },
     admin: {
       name: "Priscila",
-      whatsapp: "5511989320917", 
+      role: "Comercial & Administrativo",
+      email: "comercial.priscila@cpeeng.com.br",
+      whatsapp: "5511989320917",
       phone: "(11) 98932-0917",
     },
   },
