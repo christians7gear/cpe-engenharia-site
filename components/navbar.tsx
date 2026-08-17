@@ -45,21 +45,19 @@ export function Navbar() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <nav className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="relative z-10 flex items-center gap-3.5 group">
-            {/* Box branco com logo em proporção limpa */}
-            <div className="bg-white p-2 rounded-2xl shadow-md flex items-center justify-center transition-transform group-hover:scale-105">
-              <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center overflow-hidden">
-                <Image
-                  src={companyData?.images?.logo ?? "/images/logo.png"}
-                  alt="CPE Engenharia"
-                  width={64}
-                  height={64}
-                  className="w-full h-full object-contain"
-                  priority
-                />
-              </div>
+            {/* Box branco com corte de bordas e zoom direto no símbolo 3D */}
+            <div className="bg-white w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shadow-lg flex items-center justify-center overflow-hidden border border-white/30 transition-transform group-hover:scale-105 flex-shrink-0 relative">
+              <Image
+                src={companyData?.images?.logo ?? "/images/logo.png"}
+                alt="CPE Engenharia"
+                width={120}
+                height={120}
+                className="w-full h-full object-cover scale-[1.95] translate-x-[2px]"
+                priority
+              />
             </div>
 
-            {/* Tipografia da Marca com Alta Nitidez */}
+            {/* Tipografia da Marca com Alta Legibilidade */}
             <div className="flex flex-col justify-center">
               <span className={`text-xl sm:text-2xl font-black tracking-wider leading-none ${
                 isScrolled ? "text-slate-900" : "text-white"
