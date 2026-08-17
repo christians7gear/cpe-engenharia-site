@@ -24,6 +24,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   }
 
   const isResidencial = service.slug === "obras-residenciais";
+  const isPosto = service.slug === "postos-abastecimento";
 
   return (
     <div className="pt-28 sm:pt-36 pb-20 bg-slate-50 min-h-screen">
@@ -75,6 +76,26 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
                   <p>
                     Construir com a <strong><span className="text-slate-950 font-black">CPE </span><span className="text-red-600 font-black">ENGENHARIA</span></strong> significa contar com a liderança do <strong>Eng. Christian Gomes</strong> e acompanhamento diário com emissão de ART, seleção rigorosa de insumos nobres e transparência total de custos e prazos.
+                  </p>
+                </div>
+              ) : isPosto ? (
+                <div className="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+                  <p>
+                    A <strong><span className="text-slate-950 font-black">CPE </span><span className="text-red-600 font-black">ENGENHARIA</span></strong> é referência na concepção e execução de postos de combustíveis e pontos de abastecimento interno de grandes frotas, atendendo com rigor técnico as exigências ambientais e operacionais.
+                  </p>
+                  
+                  <div className="p-4 bg-slate-900 text-white rounded-xl border-l-4 border-red-600 my-4 space-y-2">
+                    <div className="flex items-center gap-2 text-red-500 font-bold text-sm uppercase tracking-wider">
+                      <Award className="w-4 h-4" />
+                      Projeto Executado &bull; Transtassi em Guarulhos / SP
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      Projeto e execução completa realizados pela <strong><span className="text-white font-bold">CPE </span><span className="text-red-500 font-bold">ENGENHARIA</span></strong> para a transportadora <strong>Transtassi</strong> na unidade de <strong>Guarulhos/SP</strong>. A obra contemplou pista em concreto armado de alta resistência, cobertura metálica padronizada, instalação de bombas industriais, tanques aéreos de armazenagem e adequação integral às normas da <strong>NR-20, CONAMA e ABNT</strong>.
+                    </p>
+                  </div>
+
+                  <p>
+                    Com a liderança e responsabilidade técnica do <strong>Eng. Christian Gomes</strong>, a <strong><span className="text-slate-950 font-black">CPE </span><span className="text-red-600 font-black">ENGENHARIA</span></strong> garante obras industriais e de infraestrutura com máxima segurança, agilidade e proteção ambiental.
                   </p>
                 </div>
               ) : (
@@ -140,6 +161,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 <div className="p-3 bg-slate-50 rounded-xl mt-2 flex items-center gap-2 text-xs text-gray-600">
                   <MapPin className="w-4 h-4 text-red-600 flex-shrink-0" />
                   <span>Obra entregue: Condomínio Fechado &bull; Mogi das Cruzes/SP</span>
+                </div>
+              )}
+              {isPosto && (
+                <div className="p-3 bg-slate-50 rounded-xl mt-2 flex items-center gap-2 text-xs text-gray-600">
+                  <MapPin className="w-4 h-4 text-red-600 flex-shrink-0" />
+                  <span>Obra entregue: Transtassi &bull; Guarulhos/SP</span>
                 </div>
               )}
             </div>
