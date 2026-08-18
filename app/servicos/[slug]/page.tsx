@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { 
@@ -23,9 +22,9 @@ export default function ServiceDetailPage() {
   const isPosto = service.slug === "postos-abastecimento";
   const isFachada = service.slug === "reforma-fachadas";
 
-  // Imagens da Fachada usando o arquivo existente no repositório e o link CDN
-  const fotoFachadaDia = "/images/Gemini_Generated_Image_wpkl9jwpkl9jwpkl%20(1).jpg";
-  const fotoFachadaNoite = "https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png";
+  // URLs públicas diretas e estáveis das fotos do condomínio
+  const fotoDia = "https://cdn.jsdelivr.net/gh/christians7gear/cpe-engenharia-site@main/public/images/Gemini_Generated_Image_wpkl9jwpkl9jwpkl%20(1).jpg";
+  const fotoNoite = "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80";
 
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
@@ -124,7 +123,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 3: Escopo de Engenharia */}
+            {/* Bloco 3: Escopo Técnico */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -174,9 +173,10 @@ export default function ServiceDetailPage() {
 
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="space-y-2">
-                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm">
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={fotoFachadaDia}
+                        src={fotoDia}
                         alt="Condomínio Atlanta - Perspectiva Diurna"
                         className="w-full h-full object-cover"
                       />
@@ -187,9 +187,10 @@ export default function ServiceDetailPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm">
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={fotoFachadaNoite}
+                        src={fotoNoite}
                         alt="Condomínio Atlanta - Perspectiva Noturna"
                         className="w-full h-full object-cover"
                       />
@@ -244,8 +245,9 @@ export default function ServiceDetailPage() {
             {/* Card com Foto Principal */}
             <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
               <div className="relative h-64 w-full bg-slate-100">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={isFachada ? fotoFachadaDia : service.image}
+                  src={isFachada ? fotoDia : service.image}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
