@@ -9,11 +9,8 @@ import {
   ShieldCheck, 
   HardHat, 
   Building2, 
-  CheckCircle2, 
-  Award, 
   Mail, 
   MapPin, 
-  FileCheck2, 
   Sparkles 
 } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
@@ -24,15 +21,16 @@ export default function HomePage() {
   return (
     <div className="bg-slate-50 min-h-screen">
       
-      {/* 1. HERO SECTION */}
+      {/* 1. HERO SECTION (Fundo Oficial Restaurado) */}
       <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center bg-slate-950 text-white overflow-hidden pt-24 pb-16">
-        <div className="absolute inset-0 z-0 opacity-25">
+        <div className="absolute inset-0 z-0 opacity-30">
           <Image
-            src="/images/residencia.jpg"
-            alt="CPE Engenharia Obras"
+            src="https://cdn.abacus.ai/images/025a3994-37de-4f81-9bb3-7276165b3a50.png"
+            alt="CPE Engenharia"
             fill
             className="object-cover"
             priority
+            unoptimized
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/60" />
         </div>
@@ -164,7 +162,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. SEÇÃO DE ATENDIMENTO DIRETO NA HOME (IGUAL À PÁGINA DE CONTATO) */}
+      {/* 3. CANAIS DE ATENDIMENTO DIRETO */}
       <section className="py-20 bg-white border-t border-slate-200">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
@@ -179,7 +177,7 @@ export default function HomePage() {
 
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             
-            {/* Coluna Esquerda: Cards da Priscila e do Engenheiro */}
+            {/* Coluna Esquerda: Cards dos Especialistas */}
             <div className="lg:col-span-6 space-y-6">
               
               {/* Card Priscila */}
@@ -250,7 +248,7 @@ export default function HomePage() {
                 </div>
               </motion.div>
 
-              {/* Card Eng. Christian */}
+              {/* Card Eng. Christian Gomes */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -324,7 +322,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Coluna Direita: Formulário de Mensagem Direta */}
+            {/* Coluna Direita: Formulário de Mensagem */}
             <div className="lg:col-span-6">
               <div className="bg-slate-50 rounded-2xl shadow-md border border-slate-200 p-6 sm:p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">Envie uma Mensagem</h3>
