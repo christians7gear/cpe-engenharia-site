@@ -50,7 +50,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     badge: "Case Real de Engenharia",
     description:
       "A CPE ENGENHARIA projeta e executa soluções completas em infraestrutura para pontos de abastecimento de combustíveis e lubrificantes (PAAC). Atuamos desde a fundação e piso de alta resistência até a montagem mecânica de tanques, bombas, tubulações de PEAD, drenagem oleosa com caixa separadora (SAO) e sistemas à prova de explosão (Ex).",
-    heroImage: "/images/posto-tassi-1.png",
+    heroImage: "/images/posto-tassi.png",
     sidebarImageCaption: "Obra entregue: Transtassi • Guarulhos/SP",
     caseStudy: {
       client: "Transtassi Transportes",
@@ -90,7 +90,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     },
     gallery: [
       {
-        src: "/images/posto-tassi-1.png",
+        src: "/images/posto-tassi.png",
         title: "Visão Geral do Pátio e Cobertura",
         subtitle: "Estrutura metálica com cobertura em balanço e pátio em concreto armado.",
         tag: "Visão Geral",
@@ -102,7 +102,7 @@ export const servicesData: Record<string, ServiceDetail> = {
         tag: "Vista Aérea",
       },
       {
-        src: "/images/posto-tassi-3.png",
+        src: "/images/posto-tassi-3.jpg",
         title: "Ilha de Abastecimento e Bombas",
         subtitle: "Bombas industriais de alta vazão com totens de monitoramento e contenções operacionais.",
         tag: "Ilha Técnica",
@@ -161,7 +161,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     badge: "Case Real de Engenharia",
     description:
       "A CPE ENGENHARIA entrega soluções completas em reformas prediais, revitalização de fachadas e engenharia diagnóstica, atuando de ponta a ponta: do laudo técnico pericial e planejamento executivo até a recuperação estrutural profunda e aplicação de revestimentos de alta performance.",
-    heroImage: "/images/fachada-dia.png",
+    heroImage: "/images/fachada-atlanta-dia.png",
     sidebarImageCaption: "Obra entregue: Condomínio Atlanta • São Paulo/SP",
     caseStudy: {
       client: "Condomínio Edifício Atlanta",
@@ -201,13 +201,13 @@ export const servicesData: Record<string, ServiceDetail> = {
     },
     gallery: [
       {
-        src: "/images/fachada-dia.png",
+        src: "/images/fachada-atlanta-dia.png",
         title: "Perspectiva Diurna",
         subtitle: "Edifício Atlanta finalizado com acabamento homogêneo e proteção climática.",
         tag: "Diurno",
       },
       {
-        src: "/images/fachada-noite.png",
+        src: "/images/fachada-atlanta-noite.png",
         title: "Perspectiva Noturna",
         subtitle: "Realce volumétrico e harmonia arquitetônica com iluminação técnica.",
         tag: "Noturno",
