@@ -16,18 +16,17 @@ import {
 import { servicesData } from "@/lib/services-data";
 
 interface ServicePageProps {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 }
 
 export function generateStaticParams() {
   return Object.keys(servicesData).map((slug) => ({ slug }));
 }
 
-export default async function ServiceDetailPage({ params }: ServicePageProps) {
-  const resolvedParams = await params;
-  const service = servicesData[resolvedParams.slug];
+export default function ServiceDetailPage({ params }: ServicePageProps) {
+  const service = servicesData[params.slug];
 
   if (!service) {
     notFound();
@@ -71,7 +70,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Coluna Esquerda: Informações Técnicas e Escopo */}
+            {/* Coluna Esquerda */}
             <div className="lg:col-span-8 space-y-8">
               {/* Bloco 1: Excelência e Identidade */}
               <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-8 backdrop-blur-sm">
@@ -273,7 +272,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
             </div>
 
-            {/* Coluna Direita (Sidebar Fixa de Conversão e Imagem Principal) */}
+            {/* Coluna Direita (Sidebar Fixa) */}
             <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
               {/* Card da Imagem Principal */}
               <div className="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl">
