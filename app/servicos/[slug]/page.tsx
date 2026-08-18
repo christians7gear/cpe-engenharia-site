@@ -321,7 +321,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                   </Link>
 
                   <a
-                    href="https://wa.me/5511999999999?text=Olá! Gostaria de um orçamento para o serviço de Engenharia."
+                    href="https://wa.me/5511989320917?text=Olá! Gostaria de um orçamento para o serviço de Engenharia."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-600/10 text-emerald-400 border border-emerald-500/20 font-semibold text-xs hover:bg-emerald-600/20 transition-colors"
