@@ -22,7 +22,7 @@ export default function ServiceDetailPage() {
   const isPosto = service.slug === "postos-abastecimento";
   const isFachada = service.slug === "reforma-fachadas";
 
-  // URLs públicas diretas e estáveis das fotos do condomínio
+  // URLs diretas e públicas das fotos do Condomínio Atlanta
   const fotoDia = "https://cdn.jsdelivr.net/gh/christians7gear/cpe-engenharia-site@main/public/images/Gemini_Generated_Image_wpkl9jwpkl9jwpkl%20(1).jpg";
   const fotoNoite = "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80";
 
@@ -123,7 +123,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 3: Escopo Técnico */}
+            {/* Bloco 3: Escopo de Engenharia */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
