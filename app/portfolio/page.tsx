@@ -9,75 +9,123 @@ import { MapPin, Calendar, ArrowUpRight } from "lucide-react";
 interface PortfolioItem {
   id: string;
   title: string;
-  category: "residencial" | "comercial" | "industrial";
+  category: "residencial" | "comercial" | "industrial" | "projetos";
   location: string;
   year: string;
   image: string;
   linkUrl: string;
+  badge: string;
 }
 
 const portfolioItems: PortfolioItem[] = [
   {
     id: "1",
+    title: "Projetos Arquitetônicos",
+    category: "projetos",
+    location: "São Paulo, SP",
+    year: "2024",
+    image: "https://cdn.abacus.ai/images/22ea0ab3-63c7-48c8-aecb-b4ea3e7f8de8.png",
+    linkUrl: "/servicos/projetos-arquitetonicos",
+    badge: "Projetos Técnicos",
+  },
+  {
+    id: "2",
+    title: "Projetos Complementares",
+    category: "projetos",
+    location: "São Paulo, SP",
+    year: "2024",
+    image: "https://cdn.abacus.ai/images/7ff63605-22e9-4efa-832a-43af18883e18.png",
+    linkUrl: "/servicos/projetos-complementares",
+    badge: "Estrutural / Hidráulica / Elétrica",
+  },
+  {
+    id: "3",
+    title: "Projetos SDA (Detecção & Alarme)",
+    category: "projetos",
+    location: "Guarulhos, SP",
+    year: "2024",
+    image: "https://cdn.abacus.ai/images/4a275068-3c84-403b-ba10-5e628a12d6ef.png",
+    linkUrl: "/servicos/projetos-sda",
+    badge: "Sistemas Especiais",
+  },
+  {
+    id: "4",
+    title: "Projetos SPCI (Combate a Incêndio)",
+    category: "projetos",
+    location: "São Paulo, SP",
+    year: "2024",
+    image: "https://cdn.abacus.ai/images/4a275068-3c84-403b-ba10-5e628a12d6ef.png",
+    linkUrl: "/servicos/projetos-spci",
+    badge: "Proteção Contra Incêndio",
+  },
+  {
+    id: "5",
+    title: "Regularização & AVCB Bombeiros",
+    category: "comercial",
+    location: "São Paulo, SP",
+    year: "2024",
+    image: "https://cdn.abacus.ai/images/a2de6bfc-29df-46af-8d7d-e1238e07926b.png",
+    linkUrl: "/servicos/avcb",
+    badge: "Laudos & Aprovações",
+  },
+  {
+    id: "6",
     title: "Residência Alto Padrão",
     category: "residencial",
     location: "Mogi das Cruzes, SP",
     year: "2024",
     image: "/images/residencia.jpg",
     linkUrl: "/servicos/obras-residenciais",
+    badge: "Construção Residencial",
   },
   {
-    id: "2",
-    title: "Galpão Logístico",
-    category: "industrial",
-    location: "Guarulhos, SP",
-    year: "2024",
-    image: "https://cdn.abacus.ai/images/025a3994-37de-4f81-9bb3-7276165b3a50.png",
-    linkUrl: "/servicos/galpoes-industriais",
-  },
-  {
-    id: "3",
+    id: "7",
     title: "Posto de Abastecimento - Transtassi",
     category: "comercial",
     location: "Guarulhos, SP",
     year: "2024",
     image: "/images/posto-tassi.png",
     linkUrl: "/servicos/postos-abastecimento",
+    badge: "Infraestrutura & Frotas",
   },
   {
-    id: "4",
-    title: "Indústria Metalúrgica",
+    id: "8",
+    title: "Galpão Logístico & Centro de Distribuição",
+    category: "industrial",
+    location: "Guarulhos, SP",
+    year: "2024",
+    image: "https://cdn.abacus.ai/images/025a3994-37de-4f81-9bb3-7276165b3a50.png",
+    linkUrl: "/servicos/galpoes-industriais",
+    badge: "Construção Industrial",
+  },
+  {
+    id: "9",
+    title: "Plantas Industriais & Fábricas",
     category: "industrial",
     location: "São Bernardo, SP",
     year: "2023",
     image: "https://cdn.abacus.ai/images/89524fd6-adbb-4264-96cb-0f4601dff1e0.png",
     linkUrl: "/servicos/industrias",
+    badge: "Engenharia Industrial",
   },
   {
-    id: "5",
-    title: "Reforma de Fachada Comercial",
+    id: "10",
+    title: "Reforma & Retrofit de Fachadas",
     category: "comercial",
     location: "São Paulo, SP",
     year: "2024",
     image: "https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png",
     linkUrl: "/servicos/reforma-fachadas",
-  },
-  {
-    id: "6",
-    title: "Casa Térrea Moderna",
-    category: "residencial",
-    location: "Osasco, SP",
-    year: "2023",
-    image: "/images/residencia.jpg",
-    linkUrl: "/servicos/obras-residenciais",
+    badge: "Revitalização Predial",
   },
 ];
 
 const categories = [
-  { id: "all", label: "Todos" },
+  { id: "all", label: "Todos os Serviços" },
   { id: "residencial", label: "Residencial" },
   { id: "comercial", label: "Comercial" },
   { id: "industrial", label: "Industrial" },
+  { id: "projetos", label: "Projetos Técnicos" },
 ];
 
 export default function PortfolioPage() {
@@ -94,14 +142,13 @@ export default function PortfolioPage() {
       <section className="bg-slate-950 text-white py-16 mb-12 border-b border-slate-800">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 text-center">
           <span className="inline-block bg-red-600/90 text-white px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
-            Nosso Trabalho
+            Obras e Projetos
           </span>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
-            Portfólio de <span className="text-red-600">Projetos & Obras</span>
+            Portfólio <span className="text-red-600">CPE Engenharia</span>
           </h1>
-          <p className="text-gray-400 mt-3 max-w-xl mx-auto text-sm sm:text-base">
-            Conheça alguns dos principais projetos arquitetônicos, complementares e obras executadas pela{" "}
-            <strong className="text-white">CPE <span className="text-red-500">ENGENHARIA</span></strong>.
+          <p className="text-gray-400 mt-3 max-w-2xl mx-auto text-sm sm:text-base">
+            Explore nossos cases de sucesso em projetos complementares, aprovações regulatórias, reformas corporativas e execução de obras de alto padrão.
           </p>
         </div>
       </section>
@@ -113,9 +160,9 @@ export default function PortfolioPage() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all ${
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activeCategory === cat.id
-                  ? "bg-red-600 text-white shadow-md"
+                  ? "bg-red-600 text-white shadow-md shadow-red-600/20"
                   : "bg-white text-gray-700 hover:bg-gray-100 border border-slate-200"
               }`}
             >
@@ -131,7 +178,7 @@ export default function PortfolioPage() {
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
+              transition={{ delay: index * 0.04 }}
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
             >
               <div>
@@ -144,16 +191,21 @@ export default function PortfolioPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     unoptimized
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                    <span className="text-xs font-semibold text-white bg-red-600 px-3 py-1 rounded-full flex items-center gap-1">
-                      Ver Detalhes do Projeto <ArrowUpRight className="w-3.5 h-3.5" />
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[11px] font-bold text-white bg-slate-900/85 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10">
+                      {item.badge}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <span className="text-xs font-semibold text-white bg-red-600 px-3 py-1.5 rounded-xl flex items-center gap-1 shadow-md">
+                      Ver Especificações do Serviço <ArrowUpRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </div>
 
                 {/* Conteúdo */}
                 <div className="p-6 space-y-3">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors leading-snug">
                     {item.title}
                   </h3>
                   
@@ -170,11 +222,11 @@ export default function PortfolioPage() {
                 </div>
               </div>
 
-              {/* Botão para Acessar os Detalhes do Serviço */}
+              {/* Botão de Ação Direta */}
               <div className="p-6 pt-0">
                 <Link
                   href={item.linkUrl}
-                  className="w-full flex items-center justify-between py-2.5 px-4 rounded-xl text-xs font-bold text-slate-900 bg-slate-50 hover:bg-red-600 hover:text-white border border-slate-200 hover:border-red-600 transition-all group/btn"
+                  className="w-full flex items-center justify-between py-2.5 px-4 rounded-xl text-xs font-bold text-slate-900 bg-slate-50 hover:bg-red-600 hover:text-white border border-slate-200 hover:border-red-600 transition-all group/btn shadow-sm"
                 >
                   <span>Conhecer o Serviço Completo</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
