@@ -143,7 +143,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               )}
             </div>
 
-            {/* Galeria de Fotos da Obra (Posto Transtassi) */}
+            {/* Galeria de Fotos */}
             {isPosto && (
               <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -163,6 +163,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                         alt="Visão aérea do pátio e cobertura do posto"
                         fill
                         className="object-cover hover:scale-105 transition-transform duration-300"
+                        unoptimized
                       />
                     </div>
                     <p className="text-xs text-gray-500 font-medium text-center">
@@ -170,7 +171,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     </p>
                   </div>
 
-                  {/* Foto 2: Vista Frontal da Bomba com a extensão .jpg correta */}
+                  {/* Foto 2: Vista Frontal da Bomba */}
                   <div className="space-y-2">
                     <div className="relative w-full h-56 rounded-xl overflow-hidden shadow-inner border border-slate-200">
                       <Image
@@ -178,6 +179,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                         alt="Bomba e ilha de abastecimento Transtassi"
                         fill
                         className="object-cover hover:scale-105 transition-transform duration-300"
+                        unoptimized
                       />
                     </div>
                     <p className="text-xs text-gray-500 font-medium text-center">
