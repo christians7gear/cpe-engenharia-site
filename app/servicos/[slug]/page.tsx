@@ -23,9 +23,9 @@ export default function ServiceDetailPage() {
   const isPosto = service.slug === "postos-abastecimento";
   const isFachada = service.slug === "reforma-fachadas";
 
-  // URLs diretas e otimizadas das fotos exatas enviadas do Condomínio Atlanta
-  const fotoFachadaDia = "https://images.weserv.nl/?url=https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png&output=webp&q=85";
-  const fotoFachadaNoite = "https://images.weserv.nl/?url=https://cdn.abacus.ai/images/22ea0ab3-63c7-48c8-aecb-b4ea3e7f8de8.png&output=webp&q=85";
+  // Imagens da Fachada usando o arquivo existente no repositório e o link CDN
+  const fotoFachadaDia = "/images/Gemini_Generated_Image_wpkl9jwpkl9jwpkl%20(1).jpg";
+  const fotoFachadaNoite = "https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png";
 
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
@@ -161,7 +161,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 4: Galeria Fotográfica (Fotos Reais) */}
+            {/* Bloco 4: Galeria Fotográfica */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
