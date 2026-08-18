@@ -1,505 +1,344 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Globe,
-  MapPin,
-  Award,
-  Building2,
-  Briefcase,
-  Clock,
-  CheckCircle,
-  Phone,
-  Mail,
+import { 
+  ArrowRight, 
+  Phone, 
+  ShieldCheck, 
+  HardHat, 
+  Building2, 
+  CheckCircle2, 
+  Award, 
+  Mail, 
+  MapPin, 
+  FileCheck2, 
+  Sparkles 
 } from "lucide-react";
-import { companyData, differentials, stats } from "@/lib/company-data";
-import { services } from "@/lib/services-data";
-import { ServiceCard } from "@/components/service-card";
-import { AnimatedCounter } from "@/components/animated-counter";
 import { ContactForm } from "@/components/contact-form";
-
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Globe,
-  MapPin,
-  Award,
-  Building2,
-  Briefcase,
-  Clock,
-};
+import { services } from "@/lib/services-data";
+import { companyData } from "@/lib/company-data";
 
 export default function HomePage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950">
-        <div className="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  const featuredServices = services?.slice?.(0, 6) ?? [];
-
   return (
-    <>
-      {/* Hero Section 100% Centralizado */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
+    <div className="bg-slate-50 min-h-screen">
+      
+      {/* 1. HERO SECTION */}
+      <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center bg-slate-950 text-white overflow-hidden pt-24 pb-16">
+        <div className="absolute inset-0 z-0 opacity-25">
           <Image
-            src={companyData?.images?.hero ?? "/images/hero.png"}
-            alt="CPE Engenharia"
+            src="/images/residencia.jpg"
+            alt="CPE Engenharia Obras"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-slate-950/60" />
         </div>
 
-        <div className="relative z-10 max-w-[1280px] w-full mx-auto px-4 sm:px-6 py-32 md:py-40 flex flex-col items-center justify-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl w-full flex flex-col items-center justify-center text-center mx-auto"
-          >
-            <span className="inline-block bg-red-600/90 text-white px-5 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wide uppercase mb-6 shadow-lg border border-red-500/30 text-center">
-              Engenharia Civil &amp; Projetos Técnicos
-            </span>
-
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight leading-none text-center w-full">
-              CPE <span className="text-red-600">ENGENHARIA</span>
-            </h1>
-
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-100 mb-6 leading-tight text-center w-full">
-              {companyData?.slogan ?? "Construindo Qualidade de Vida"}
-            </h2>
-
-            <p className="text-lg sm:text-xl text-gray-200 mb-10 max-w-2xl font-light leading-relaxed text-center mx-auto">
-              Projetos arquitetônicos e complementares para todo o Brasil. Execução de obras residenciais, comerciais e industriais com rigor técnico em São Paulo.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto">
-              <Link
-                href="/orcamento"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5"
-              >
-                Solicitar Orçamento
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/servicos"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl backdrop-blur-md transition-all border border-white/20"
-              >
-                Nossos Serviços
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80"
-        >
-          <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-red-500 rounded-full" />
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="bg-slate-950 py-16 border-y border-slate-800">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats?.map?.((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (index ?? 0) * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl font-extrabold text-red-500 mb-2">
-                  <AnimatedCounter
-                    end={stat?.value ?? 0}
-                    suffix={stat?.suffix ?? ""}
-                  />
-                </div>
-                <p className="text-gray-400 font-medium text-sm md:text-base">{stat?.label ?? ""}</p>
-              </motion.div>
-            )) ?? []}
-          </div>
-        </div>
-      </section>
-
-      {/* About Preview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-red-600 font-semibold uppercase tracking-wider text-xs">Sobre Nós</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Excelência em <span className="text-red-600">Engenharia Civil</span>
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                A CPE Engenharia é especializada em projetos multidisciplinares e
-                execução de obras civis, com sede na Av. Paulista, São Paulo.
-                Nosso foco é aliar técnica, segurança e economia para materializar seus projetos com precisão.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Engenheiro Civil com CREA/SP ativo",
-                  "Projetos para todo o Brasil",
-                  "Execução de obras em São Paulo",
-                  "Atendimento comercial ágil",
-                ]?.map?.((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium">{item}</span>
-                  </li>
-                )) ?? []}
-              </ul>
-              <Link
-                href="/sobre"
-                className="inline-flex items-center gap-2 text-red-600 font-semibold hover:gap-3 transition-all"
-              >
-                Conhecer mais sobre nós
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src={companyData?.images?.engineer ?? "/images/engineer.png"}
-                  alt="Engenheiro CPE"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-red-600 text-white p-6 rounded-xl shadow-lg">
-                <p className="font-bold text-xl">{companyData?.team?.engineer?.crea ?? "Eng. Christian Gomes"}</p>
-                <p className="text-red-100 text-xs tracking-wider uppercase mt-1">Registro CREA Ativo</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Atendimento Section */}
-      <section className="py-20 bg-slate-50 border-t">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/priscila.png"
-                  alt="Atendimento Comercial"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-white p-5 rounded-xl shadow-lg border">
-                <p className="font-bold text-gray-900">Atendimento Comercial</p>
-                <p className="text-sm text-gray-600">Resposta rápida no WhatsApp</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-red-600 font-semibold uppercase tracking-wider text-xs">Atendimento</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-                Tire dúvidas e solicite orçamento com agilidade
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Fale diretamente com nosso setor comercial para projetos arquitetônicos, estruturais,
-                hidráulicos, elétricos, SPDA, AVCB/Corpo de Bombeiros ou execução de obras.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? "5511989320917"}?text=${encodeURIComponent(
-                    "Olá! Gostaria de um orçamento com a CPE Engenharia."
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-4 rounded-xl transition-colors shadow-sm"
-                >
-                  <Phone className="w-5 h-5" />
-                  Falar com a Priscila
-                </a>
-
-                <Link
-                  href="/orcamento"
-                  className="inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-4 rounded-xl transition-colors shadow-sm"
-                >
-                  Solicitar Orçamento
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-
-              <p className="text-xs text-gray-500 mt-4">
-                Projetos para todo o Brasil. Execução de obras no estado de São Paulo.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-20 bg-white border-t">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="text-red-600 font-semibold uppercase tracking-wider text-xs">Nossos Serviços</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Soluções Completas em Engenharia
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Oferecemos serviços especializados desde o estudo de viabilidade e projeto executivo até a entrega das chaves.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredServices?.map?.((service, index) => (
-              <ServiceCard key={service?.id ?? index} service={service} index={index} />
-            )) ?? []}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/servicos"
-              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-xl transition-colors"
-            >
-              Ver Todos os Serviços
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Differentials Section */}
-      <section className="py-20 bg-slate-50 border-t">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="text-red-600 font-semibold uppercase tracking-wider text-xs">Por que nos escolher</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Nossos Diferenciais
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {differentials?.map?.((diff, index) => {
-              const Icon = iconMap[diff?.icon ?? ""] ?? Building2;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (index ?? 0) * 0.1 }}
-                  className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-xl transition-all"
-                >
-                  <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-red-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {diff?.title ?? ""}
-                  </h3>
-                  <p className="text-gray-600">{diff?.description ?? ""}</p>
-                </motion.div>
-              );
-            }) ?? []}
-          </div>
-        </div>
-      </section>
-
-      {/* Location Section */}
-      <section className="py-20 bg-slate-950 text-white">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-red-500 font-semibold uppercase tracking-wider text-xs">Área de Atuação</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">
-                Presente em Todo o Brasil
-              </h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-red-600/20 border border-red-500/40 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Globe className="w-6 h-6 text-red-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-1">Projetos</h3>
-                    <p className="text-gray-400">
-                      Desenvolvemos projetos complementares e laudos técnicos para clientes em todo o Brasil.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-red-600/20 border border-red-500/40 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-red-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-1">Execução de Obras</h3>
-                    <p className="text-gray-400">
-                      Execução e gerenciamento presencial de reformas e construções na Região Metropolitana de São Paulo.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="mt-8 p-4 bg-white/5 border border-white/10 rounded-xl">
-                <p className="text-sm text-gray-300">
-                  <strong className="text-white">Endereço Oficial:</strong>{" "}
-                  {companyData?.address?.full ?? "Av. Paulista, nº 807 – Bela Vista – São Paulo/SP"}
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-slate-800"
-            >
-              <Image
-                src={companyData?.images?.skyline ?? "/images/skyline.png"}
-                alt="São Paulo"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
-                <div>
-                  <p className="text-2xl font-bold">São Paulo</p>
-                  <p className="text-gray-300">Av. Paulista - Centro Financeiro</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-red-600 text-white">
-        <div className="max-w-[1200px] mx-auto px-4 text-center">
+        <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 text-center space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 bg-red-600/20 border border-red-500/30 text-red-400 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider"
           >
-            <h2 className="text-3xl md:text-5xl font-black mb-4">
-              Pronto para começar seu projeto?
-            </h2>
-            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
-              Entre em contato conosco e receba uma proposta técnica e orçamentária personalizada.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/orcamento"
-                className="inline-flex items-center justify-center gap-2 bg-white text-red-600 font-bold px-8 py-4 rounded-xl hover:bg-slate-100 transition-colors shadow-lg"
-              >
-                Solicitar Orçamento
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <a
-                href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? "5511989320917"}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-xl transition-colors shadow-lg"
-              >
-                <Phone className="w-5 h-5" />
-                WhatsApp Comercial
-              </a>
-            </div>
+            <Sparkles className="w-3.5 h-3.5" />
+            Construindo Qualidade de Vida &bull; CREA/SP Ativo
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight max-w-4xl mx-auto leading-tight"
+          >
+            Engenharia de Precisão & <br className="hidden sm:block" />
+            <span className="text-red-600">Execução de Obras</span> de Alto Padrão
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto font-light leading-relaxed"
+          >
+            Projetos arquitetônicos, complementares e execução completa para residências, postos de combustíveis, indústrias e galpões comerciais.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4"
+          >
+            <Link
+              href="/orcamento"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 px-8 rounded-xl text-sm transition-all shadow-lg shadow-red-600/30"
+            >
+              Solicitar Orçamento
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <a
+              href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? "5511989320917"}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-8 rounded-xl text-sm transition-all shadow-lg shadow-green-600/30"
+            >
+              <Phone className="w-4 h-4" />
+              WhatsApp Comercial
+            </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="py-20 bg-slate-50 border-t">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-red-600 font-semibold uppercase tracking-wider text-xs">Fale Conosco</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                Canais de Atendimento
-              </h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Utilize o formulário ou entre em contato diretamente com nossa equipe técnica e comercial.
-              </p>
-              <div className="space-y-4">
-                <a
-                  href="mailto:comercial.priscila@cpeeng.com.br"
-                  className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border hover:border-red-500 transition-colors"
-                >
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900">comercial.priscila@cpeeng.com.br</p>
-                    <p className="text-sm text-gray-500">Priscila - Atendimento Comercial</p>
-                  </div>
-                </a>
+      {/* 2. SERVIÇOS EM DESTAQUE */}
+      <section className="py-20 max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+          <span className="text-xs font-bold uppercase tracking-wider text-red-600">Nossas Soluções</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-gray-900">
+            Serviços Especializados da <span className="text-slate-950">CPE </span><span className="text-red-600">ENGENHARIA</span>
+          </h2>
+          <p className="text-sm text-gray-600">
+            Da aprovação técnica em órgãos reguladores à entrega das chaves da sua obra.
+          </p>
+        </div>
 
-                <a
-                  href="mailto:eng.christian@cpeeng.com.br"
-                  className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border hover:border-red-500 transition-colors"
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.slice(0, 6).map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+            >
+              <div>
+                <div className="relative w-full h-56 overflow-hidden bg-slate-100">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    unoptimized
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[11px] font-bold text-white bg-slate-900/85 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10">
+                      {service.category === "projetos" ? "Projetos" : "Execução"}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-6 space-y-2">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    {service.shortDescription}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 pt-0">
+                <Link
+                  href={`/servicos/${service.slug}`}
+                  className="w-full flex items-center justify-between py-2.5 px-4 rounded-xl text-xs font-bold text-slate-900 bg-slate-50 hover:bg-red-600 hover:text-white border border-slate-200 hover:border-red-600 transition-all group/btn"
                 >
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900">eng.christian@cpeeng.com.br</p>
-                    <p className="text-sm text-gray-500">Christian Gomes - Engenheiro Técnico</p>
-                  </div>
-                </a>
+                  <span>Saiba mais</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                </Link>
               </div>
             </motion.div>
+          ))}
+        </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-xl border p-8"
-            >
-              <ContactForm />
-            </motion.div>
+        <div className="text-center mt-10">
+          <Link
+            href="/servicos"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-red-600 hover:text-red-700"
+          >
+            Ver todos os 10 serviços <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
+      {/* 3. SEÇÃO DE ATENDIMENTO DIRETO NA HOME (IGUAL À PÁGINA DE CONTATO) */}
+      <section className="py-20 bg-white border-t border-slate-200">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-red-600">Canais de Atendimento</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900">
+              Fale Diretamente com Nossos Especialistas
+            </h2>
+            <p className="text-sm text-gray-600">
+              Utilize o formulário ou entre em contato diretamente com nossa equipe técnica e comercial.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            
+            {/* Coluna Esquerda: Cards da Priscila e do Engenheiro */}
+            <div className="lg:col-span-6 space-y-6">
+              
+              {/* Card Priscila */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+                  <div className="relative w-24 h-24 sm:w-24 sm:h-28 rounded-2xl overflow-hidden shadow-inner flex-shrink-0 border-2 border-red-500/20 bg-slate-100">
+                    <Image
+                      src="/images/priscila.png"
+                      alt="Priscila - Atendimento Comercial"
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div className="flex-1 space-y-1">
+                    <div className="flex items-center justify-center sm:justify-between flex-wrap gap-2">
+                      <h3 className="text-lg font-bold text-gray-900">Priscila</h3>
+                      <span className="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                        Atendimento Comercial
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-500">
+                      Orçamentos, esclarecimento de propostas e dúvidas sobre serviços.
+                    </p>
+
+                    <div className="pt-2 space-y-1.5 text-sm">
+                      <a
+                        href="mailto:comercial.priscila@cpeeng.com.br"
+                        className="flex items-center justify-center sm:justify-start gap-2 text-gray-600 hover:text-red-600 transition-colors font-medium text-xs sm:text-sm"
+                      >
+                        <Mail className="w-4 h-4 text-red-500" />
+                        comercial.priscila@cpeeng.com.br
+                      </a>
+                      <a
+                        href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? "5511989320917"}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center sm:justify-start gap-2 text-gray-600 hover:text-green-600 transition-colors font-medium text-xs sm:text-sm"
+                      >
+                        <Phone className="w-4 h-4 text-green-500" />
+                        (11) 98932-0917 (WhatsApp)
+                      </a>
+                    </div>
+
+                    <div className="pt-3 flex flex-wrap gap-2 justify-center sm:justify-start">
+                      <a
+                        href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? "5511989320917"}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors shadow-sm"
+                      >
+                        <Phone className="w-3.5 h-3.5" />
+                        WhatsApp Priscila
+                      </a>
+                      <Link
+                        href="/orcamento"
+                        className="inline-flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition-colors shadow-sm"
+                      >
+                        Solicitar Orçamento
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Card Eng. Christian */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+                  <div className="relative w-24 h-24 sm:w-24 sm:h-28 rounded-2xl overflow-hidden shadow-inner flex-shrink-0 border-2 border-red-500/20 bg-slate-100">
+                    <Image
+                      src={companyData?.images?.engineer ?? "/images/engineer.png"}
+                      alt="Eng. Christian Gomes"
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div className="flex-1 space-y-1">
+                    <div className="flex items-center justify-center sm:justify-between flex-wrap gap-2">
+                      <h3 className="text-lg font-bold text-gray-900">Eng. Christian Gomes</h3>
+                      <span className="bg-red-100 text-red-700 text-xs font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                        <ShieldCheck className="w-3.5 h-3.5" />
+                        CREA/SP Ativo
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-500">
+                      Engenheiro Civil &bull; Direção Técnica, Laudos, ARTs e Projetos Estruturais.
+                    </p>
+
+                    <div className="pt-2 space-y-1.5 text-sm">
+                      <a
+                        href="mailto:eng.christian@cpeeng.com.br"
+                        className="flex items-center justify-center sm:justify-start gap-2 text-gray-600 hover:text-red-600 transition-colors font-medium text-xs sm:text-sm"
+                      >
+                        <Mail className="w-4 h-4 text-red-500" />
+                        eng.christian@cpeeng.com.br
+                      </a>
+                      <a
+                        href="tel:1147159186"
+                        className="flex items-center justify-center sm:justify-start gap-2 text-gray-600 hover:text-red-600 transition-colors font-medium text-xs sm:text-sm"
+                      >
+                        <Phone className="w-4 h-4 text-red-500" />
+                        (11) 4715-9186 (Telefone Técnico)
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Informações Institucionais */}
+              <div className="grid sm:grid-cols-2 gap-4 pt-2">
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-xs font-bold text-gray-900 uppercase">Sede Oficial</h4>
+                    <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                      Av. Paulista, nº 807 – Bela Vista, São Paulo/SP – CEP 01311-100
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
+                  <Building2 className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-xs font-bold text-gray-900 uppercase">Dados da Empresa</h4>
+                    <p className="text-xs text-gray-600 mt-1">
+                      CPE Engenharia LTDA<br />
+                      <span className="font-mono text-gray-800">CNPJ: 62.575.418/0001-84</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Coluna Direita: Formulário de Mensagem Direta */}
+            <div className="lg:col-span-6">
+              <div className="bg-slate-50 rounded-2xl shadow-md border border-slate-200 p-6 sm:p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Envie uma Mensagem</h3>
+                <p className="text-sm text-gray-500 mb-6">
+                  Preencha os campos abaixo para receber um retorno por e-mail ou WhatsApp da nossa equipe.
+                </p>
+                <ContactForm />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
-    </>
+
+    </div>
   );
 }
