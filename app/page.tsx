@@ -3,83 +3,90 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, ShieldCheck, HardHat, Building2, CheckCircle2, Award } from "lucide-react";
+import { ArrowRight, ShieldCheck, HardHat } from "lucide-react";
 import { services } from "@/lib/services-data";
 import { companyData } from "@/lib/company-data";
 
 export default function HomePage() {
   return (
     <div className="bg-slate-50 min-h-screen">
-      {/* Hero Section Oficial */}
+      
+      {/* 1. HERO SECTION OFICIAL IDÊNTICA AO PRINT */}
       <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center bg-slate-950 text-white overflow-hidden pt-24 pb-16">
-        <div className="absolute inset-0 z-0 opacity-40">
+        <div className="absolute inset-0 z-0">
           <Image
-            src="https://cdn.abacus.ai/images/22ea0ab3-63c7-48c8-aecb-b4ea3e7f8de8.png"
-            alt="CPE Engenharia"
+            src="https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png"
+            alt="CPE Engenharia Prédio"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
             unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40" />
+          <div className="absolute inset-0 bg-black/45" />
         </div>
 
-        <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 text-center space-y-6">
+        <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 text-center space-y-5">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block bg-red-600/90 text-white px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider"
+            className="inline-block bg-red-600 text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md"
           >
-            {companyData?.slogan ?? "Construindo Qualidade de Vida"} &bull; CREA/SP Ativo
+            ENGENHARIA CIVIL & PROJETOS TÉCNICOS
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight max-w-4xl mx-auto leading-tight"
+            className="text-4xl sm:text-7xl lg:text-8xl font-black tracking-tight drop-shadow-lg"
           >
-            Engenharia de Precisão & <br className="hidden sm:block" />
-            <span className="text-red-600">Execução de Obras</span> de Alto Padrão
+            <span className="text-white">CPE </span>
+            <span className="text-red-600">ENGENHARIA</span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-300 text-sm sm:text-lg max-w-2xl mx-auto font-light leading-relaxed"
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-normal drop-shadow-md"
           >
-            Projetos arquitetônicos, complementares e execução completa para residências, postos de combustíveis, indústrias e galpões comerciais.
+            Construindo Qualidade de Vida
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-white/90 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed drop-shadow-sm"
+          >
+            Projetos arquitetônicos e complementares para todo o Brasil. Execução de obras residenciais, comerciais e industriais com rigor técnico em São Paulo.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4"
+            transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
           >
             <Link
               href="/orcamento"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 px-8 rounded-xl text-sm transition-all shadow-lg shadow-red-600/30"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 px-8 rounded-2xl text-sm transition-all shadow-lg"
             >
               Solicitar Orçamento
               <ArrowRight className="w-4 h-4" />
             </Link>
 
-            <a
-              href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? "5511989320917"}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-8 rounded-xl text-sm transition-all shadow-lg shadow-green-600/30"
+            <Link
+              href="/servicos"
+              className="w-full sm:w-auto inline-flex items-center justify-center bg-slate-900/60 hover:bg-slate-900/80 backdrop-blur-sm border border-white/20 text-white font-bold py-3.5 px-8 rounded-2xl text-sm transition-all shadow-lg"
             >
-              <Phone className="w-4 h-4" />
-              WhatsApp Comercial
-            </a>
+              Nossos Serviços
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Serviços em Destaque */}
+      {/* 2. SERVIÇOS EM DESTAQUE */}
       <section className="py-20 max-w-[1280px] mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-red-600">Nossas Soluções</span>
@@ -150,7 +157,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Diferenciais */}
+      {/* 3. DIFERENCIAIS INSTITUCIONAIS */}
       <section className="bg-white py-20 border-t border-slate-200">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -160,7 +167,7 @@ export default function HomePage() {
                 Compromisso com a Segurança e a Qualidade Construtiva
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                Sob a liderança técnica do <strong>Eng. Christian Gomes</strong>, nossa equipe multidisciplinar garante rigor em todas as fases: planejamento financeiro, conformidade com as normas ABNT e entrega dentro do prazo.
+                Sob a responsabilidade do <strong>Eng. Christian Gomes</strong>, nossa equipe multidisciplinar garante rigor em todas as fases: planejamento financeiro, conformidade com as normas da ABNT e cumprimento de prazos.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-2">
