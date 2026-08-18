@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { 
@@ -22,9 +23,8 @@ export default function ServiceDetailPage() {
   const isPosto = service.slug === "postos-abastecimento";
   const isFachada = service.slug === "reforma-fachadas";
 
-  // URLs diretas e públicas das fotos do Condomínio Atlanta
-  const fotoDia = "https://cdn.jsdelivr.net/gh/christians7gear/cpe-engenharia-site@main/public/images/Gemini_Generated_Image_wpkl9jwpkl9jwpkl%20(1).jpg";
-  const fotoNoite = "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80";
+  const fotoFachadaDia = "/images/fachada-dia.png";
+  const fotoFachadaNoite = "/images/fachada-noite.png";
 
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
@@ -63,7 +63,7 @@ export default function ServiceDetailPage() {
                 A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em reformas prediais, revitalização de fachadas e engenharia diagnóstica, atuando de ponta a ponta: do laudo técnico pericial e planejamento executivo até a recuperação estrutural profunda e aplicação de revestimentos de alta performance.
               </p>
 
-              {/* Case Preto: Fachada */}
+              {/* Case Fachada */}
               {isFachada && (
                 <div className="bg-slate-950 text-white p-5 rounded-xl border-l-4 border-red-600 space-y-2">
                   <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
@@ -76,7 +76,7 @@ export default function ServiceDetailPage() {
                 </div>
               )}
 
-              {/* Case Preto: Posto */}
+              {/* Case Posto */}
               {isPosto && (
                 <div className="bg-slate-950 text-white p-5 rounded-xl border-l-4 border-red-600 space-y-2">
                   <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
@@ -146,7 +146,7 @@ export default function ServiceDetailPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
-                    <div><strong>Tratamento de Fissuras e Juntas de Dilatação:</strong> Abertura técnica em 'V' e calafetação com mastique de Poliuretano (PU) de alta elasticidade.</div>
+                    <div><strong>Tratamento de Fissuras e Juntas de Dilatação:</strong> Abertura técnica em &apos;V&apos; e calafetação com mastique de Poliuretano (PU) de alta elasticidade.</div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
@@ -174,11 +174,12 @@ export default function ServiceDetailPage() {
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="space-y-2">
                     <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={fotoDia}
+                      <Image
+                        src={fotoFachadaDia}
                         alt="Condomínio Atlanta - Perspectiva Diurna"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        unoptimized
                       />
                     </div>
                     <p className="text-[11px] text-center text-gray-500 font-medium">
@@ -188,11 +189,12 @@ export default function ServiceDetailPage() {
 
                   <div className="space-y-2">
                     <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={fotoNoite}
+                      <Image
+                        src={fotoFachadaNoite}
                         alt="Condomínio Atlanta - Perspectiva Noturna"
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
+                        unoptimized
                       />
                     </div>
                     <p className="text-[11px] text-center text-gray-500 font-medium">
@@ -245,11 +247,12 @@ export default function ServiceDetailPage() {
             {/* Card com Foto Principal */}
             <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
               <div className="relative h-64 w-full bg-slate-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={isFachada ? fotoDia : service.image}
+                <Image
+                  src={isFachada ? fotoFachadaDia : service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  unoptimized
                 />
               </div>
               <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center gap-2 text-[11px] text-gray-600">
