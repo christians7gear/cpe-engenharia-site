@@ -8,11 +8,8 @@ import {
   ArrowRight, 
   Phone, 
   ShieldCheck, 
-  FileText, 
   Layers, 
   Building2, 
-  Flame,
-  CheckCircle,
   Camera
 } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/services-data";
@@ -25,6 +22,10 @@ export default function ServiceDetailPage() {
 
   const isPosto = service.slug === "postos-abastecimento";
   const isFachada = service.slug === "reforma-fachadas";
+
+  // URLs de imagens com fallback seguro
+  const fachadaDia = "/images/Gemini_Generated_Image_wpkl9jwpkl9jwpkl (1).jpg";
+  const fachadaNoite = "https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png";
 
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
@@ -49,7 +50,7 @@ export default function ServiceDetailPage() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           
-          {/* Coluna Principal de Conteúdo */}
+          {/* Coluna Principal */}
           <div className="lg:col-span-8 space-y-8">
             
             {/* Bloco 1: Excelência em Engenharia */}
@@ -90,7 +91,7 @@ export default function ServiceDetailPage() {
               )}
             </div>
 
-            {/* Bloco 2: Rigor Técnico e Aprovação (Exclusivo Fachadas) */}
+            {/* Bloco 2: Rigor Técnico e Normas */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -123,7 +124,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 3: Escopo de Engenharia Executado em Campo */}
+            {/* Bloco 3: Escopo Técnico */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -175,7 +176,7 @@ export default function ServiceDetailPage() {
                   <div className="space-y-2">
                     <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
                       <Image
-                        src="/images/fachada-atlanta-dia.jpg"
+                        src={fachadaDia}
                         alt="Condomínio Atlanta - Perspectiva Diurna"
                         fill
                         className="object-cover"
@@ -190,7 +191,7 @@ export default function ServiceDetailPage() {
                   <div className="space-y-2">
                     <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
                       <Image
-                        src="/images/fachada-atlanta-noite.jpg"
+                        src={fachadaNoite}
                         alt="Condomínio Atlanta - Perspectiva Noturna"
                         fill
                         className="object-cover"
@@ -244,11 +245,11 @@ export default function ServiceDetailPage() {
           {/* Coluna Lateral */}
           <div className="lg:col-span-4 space-y-6">
             
-            {/* Card com Foto Principal e Legenda (igual ao Posto) */}
+            {/* Card com Foto Principal e Legenda */}
             <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
               <div className="relative h-64 w-full bg-slate-100">
                 <Image
-                  src={isFachada ? "/images/fachada-atlanta-dia.jpg" : service.image}
+                  src={isFachada ? fachadaDia : service.image}
                   alt={service.title}
                   fill
                   className="object-cover"
