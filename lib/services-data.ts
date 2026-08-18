@@ -222,23 +222,23 @@ export const services: Service[] = [
   {
     id: "10",
     slug: "reforma-fachadas",
-    title: "Reforma de Fachadas",
-    shortDescription: "Revitalização e modernização de fachadas.",
-    description: "Revitalizamos e modernizamos fachadas de edifícios residenciais, comerciais e corporativos. Nossos serviços abrangem desde a recuperação de revestimentos até a modernização completa (retrofit).",
+    title: "Reforma e Revitalização de Fachadas",
+    shortDescription: "Recuperação estrutural, impermeabilização, pintura técnica e retrofit predial.",
+    description: "A CPE Engenharia é especialista na revitalização, restauração e manutenção de fachadas para condomínios residenciais e edifícios corporativos. Nossas intervenções combinam engenharia diagnóstica, tratamento de patologias estruturais e acabamentos de alto padrão com emissão de ART e total conformidade com as normas ABNT e NR-35.",
     benefits: [
-      "Valorização do Imóvel: Fachada renovada moderniza a imagem e aumenta o valor.",
-      "Segurança: Tratamento de fissuras e fixação de revestimentos, eliminando riscos.",
-      "Durabilidade e Proteção: Materiais de alta performance contra intempéries.",
-      "Conformidade com a NBR 16280: Gestão de reformas seguindo a norma de segurança."
+      "Recuperação e Durabilidade Estrutural: Mapeamento por percussão, tratamento de armaduras oxidadas e reconstituição volumétrica de concreto e reboco.",
+      "Estanqueidade e Impermeabilização: Abertura e calafetação técnica de fissuras com selantes de poliuretano (PU) de alta flexibilidade contra infiltrações.",
+      "Pintura Técnica de Alto Desempenho: Aplicação de texturas hidro-repelentes e tintas elastoméricas com resistência a intempéries e raios UV.",
+      "Segurança Operacional e Conformidade: Equipes 100% qualificadas na NR-35 (trabalho em altura), sistemas de ancoragem certificados e responsabilidade CREA/SP."
     ],
     process: [
-      "Inspeção da fachada para diagnóstico de patologias (laudo técnico).",
-      "Elaboração do projeto de recuperação ou modernização.",
-      "Montagem de andaimes e sistemas de proteção.",
-      "Execução: limpeza, tratamento de patologias, aplicação de novo revestimento.",
-      "Desmobilização e entrega da obra com garantia."
+      "Inspeção preliminar detalhada da fachada com teste de percussão e mapeamento técnico de patologias.",
+      "Lavagem técnica por hidrojateamento pressurizado para remoção de sujidades, fuligem e preparação da base.",
+      "Tratamento de patologias: estancamento de trincas, recuperação de armaduras e reconstituição de reboco.",
+      "Aplicação de fundo preparador selador, textura acrílica hidro-repelente e pintura técnica elastomérica.",
+      "Vistoria final minuciosa, desmobilização e entrega formal da obra com termo de garantia e ART registrada."
     ],
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/fachada-atlanta-dia.jpg",
     icon: "Building2",
     category: "execucao"
   }
