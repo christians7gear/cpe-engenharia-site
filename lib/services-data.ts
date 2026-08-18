@@ -47,6 +47,216 @@ export interface ServiceDetail {
 }
 
 export const servicesData: Record<string, ServiceDetail> = {
+  "projetos-arquitetonicos": {
+    slug: "projetos-arquitetonicos",
+    title: "Projetos Arquitetônicos e Legais",
+    subtitle: "Concepção funcional, volumetria contemporânea e aprovação em prefeituras e condomínios",
+    shortDescription: "Projetos autorais residenciais, comerciais e industriais compatibilizados e prontos para aprovação.",
+    category: "projetos",
+    image: "/images/architectural.png",
+    heroImage: "/images/architectural.png",
+    badge: "Projeto Técnico",
+    description:
+      "Elaboramos projetos arquitetônicos autorais e executivos de alto nível técnico, unindo estética, funcionalidade, conforto térmico-acústico e conformidade com o Plano Diretor e Código de Obras municipal.",
+    sidebarImageCaption: "Projeto Arquitetônico Executivo • CPE Engenharia",
+    technicalNorms: {
+      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
+      art: "ART de autoria e coordenação de projetos",
+      standards: [
+        "ABNT NBR 6492 (Documentação técnica para projetos arquitetônicos)",
+        "ABNT NBR 9050 (Acessibilidade a edificações, mobiliário e espaços)",
+        "Códigos de Obras e Zoneamento Municipal",
+      ],
+    },
+    benefits: [
+      { title: "Modelagem 3D Fotorrealista", desc: "Visualização completa em maquete 3D e renderizações imersivas." },
+      { title: "Aprovação Descomplicada", desc: "Documentação técnica completa para habite-se e aprovação em condomínios." },
+      { title: "Otimização de Espaços", desc: "Planejamento inteligente para máxima circulação, iluminação e ventilação natural." },
+      { title: "Compatibilização BIM", desc: "Zero retrabalho na obra com projetos integrados em ambiente digital." },
+    ],
+    methodology: [
+      { step: "1", title: "Briefing e Levantamento", desc: "Entendimento das necessidades do cliente e levantamento topográfico do lote." },
+      { step: "2", title: "Estudo Preliminar", desc: "Definição do layout espacial, volumetria inicial e maquetes 3D." },
+      { step: "3", title: "Anteprojeto e Aprovação", desc: "Submissão aos órgãos municipais e associações de condomínio." },
+      { step: "4", title: "Projeto Executivo", desc: "Detalhamento de cortes, fachadas, paginações e pranchas de obra." },
+    ],
+  },
+
+  "projetos-complementares": {
+    slug: "projetos-complementares",
+    title: "Projetos Complementares e Cálculo Estrutural",
+    subtitle: "Dimensionamento seguro e econômico de Estruturas, Hidráulica, Elétrica e Fundações",
+    shortDescription: "Cálculo estrutural em concreto e aço, projetos hidrossanitários e elétricos integrados em BIM.",
+    category: "projetos",
+    image: "/images/structural.png",
+    heroImage: "/images/structural.png",
+    badge: "Engenharia de Estruturas",
+    description:
+      "Projetamos estruturas em concreto armado, perfis metálicos, alvenaria estrutural e todas as instalações complementares (hidrossanitário e elétrico), garantindo economia de insumos e total segurança.",
+    sidebarImageCaption: "Modelo Estrutural Tridimensional • CPE Engenharia",
+    technicalNorms: {
+      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
+      art: "ART específica de responsabilidade técnica pelo cálculo estrutural",
+      standards: [
+        "ABNT NBR 6118 (Projeto de estruturas de concreto)",
+        "ABNT NBR 6122 (Projeto e execução de fundações)",
+        "ABNT NBR 5410 (Instalações elétricas de baixa tensão)",
+        "ABNT NBR 5626 (Sistemas prediais de água fria)",
+      ],
+    },
+    benefits: [
+      { title: "Economia Real de Materiais", desc: "Dimensionamento que evita desperdícios e reduz custos de aço e concreto." },
+      { title: "Segurança e Estabilidade", desc: "Eliminação total de riscos de patologias, trincas ou deformações estruturais." },
+      { title: "Quantitativos Precisos", desc: "Tabelas completas de materiais para cotação e compra assertiva." },
+      { title: "Suporte Técnico na Obra", desc: "Acompanhamento do engenheiro calculista para esclarecimento técnico." },
+    ],
+    methodology: [
+      { step: "1", title: "Análise da Sondagem SPT", desc: "Interpretação geotécnica para escolha ideal da fundação." },
+      { step: "2", title: "Lançamento da Estrutura", desc: "Posicionamento estratégico compatibilizado com a arquitetura." },
+      { step: "3", title: "Análise Computacional e Cargas", desc: "Simulação de cargas permanentes, acidentais e vento." },
+      { step: "4", title: "Detalhamento e Pranchas", desc: "Pranchas de armação, formas, resumo de aço e memorial de cálculo." },
+    ],
+  },
+
+  "projetos-sda": {
+    slug: "projetos-sda",
+    title: "Projetos de SDAI (Detecção e Alarme de Incêndio)",
+    subtitle: "Sistemas inteligentes de detecção pontual, linear por feixe óptico e alarme centralizado",
+    shortDescription: "Projetos de detecção e alarme de incêndio para indústrias, condomínios e grandes centros de logística.",
+    category: "projetos",
+    image: "/images/fire_protection.png",
+    heroImage: "/images/fire_protection.png",
+    badge: "Sistemas Especiais",
+    description:
+      "Desenvolvemos projetos de Sistemas de Detecção e Alarme de Incêndio (SDAI) convencionais e endereçáveis, assegurando resposta rápida e integração total com centrais de automação predial e portas corta-fogo.",
+    sidebarImageCaption: "Sistema SDAI Integrado • CPE Engenharia",
+    technicalNorms: {
+      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
+      art: "ART emitida para projeto de sistemas eletrônicos de segurança contra incêndio",
+      standards: [
+        "ABNT NBR 17240 (Sistemas de detecção e alarme de incêndio)",
+        "Instrução Técnica nº 19 do Corpo de Bombeiros da PMESP",
+      ],
+    },
+    benefits: [
+      { title: "Detecção Precoce", desc: "Sensores inteligentes para detecção imediata de fumaça e elevação térmica." },
+      { title: "Integração de Sistemas", desc: "Interligação com painéis de pressurização, dampers e controle de acesso." },
+      { title: "Conformidade com Bombeiros", desc: "Projetos 100% aprováveis nas vistorias de AVCB do CBPMESP." },
+      { title: "Topologia Otimizada", desc: "Redução de custos de cabeamento blindado com rotas inteligentes." },
+    ],
+    methodology: [
+      { step: "1", title: "Classificação da Área", desc: "Mapeamento das zonas de cobertura e pé-direito dos ambientes." },
+      { step: "2", title: "Dimensionamento dos Sensores", desc: "Definição do raio de cobertura e tipo de detecção (ótica/térmica)." },
+      { step: "3", title: "Topologia de Cabos e Centrais", desc: "Desenho unifilar das rotas blindadas e centrais de comando." },
+      { step: "4", title: "Entrega do Memorial e Pranchas", desc: "Memorial descritivo e diagrama de laços para instalação." },
+    ],
+  },
+
+  "projetos-spci": {
+    slug: "projetos-spci",
+    title: "Projetos SPCI (Sistemas de Proteção Contra Incêndio)",
+    subtitle: "Redes de hidrantes, chuveiros automáticos (Sprinklers), reservatórios e casa de bombas",
+    shortDescription: "Projetos hidráulicos de combate a incêndio com cálculo isométrico e perda de carga precisa.",
+    category: "projetos",
+    image: "/images/fire_protection.png",
+    heroImage: "/images/fire_protection.png",
+    badge: "Segurança Contra Incêndio",
+    description:
+      "Dimensionamento completo de redes hidráulicas de combate a incêndio: hidrantes, mangotinhos, sistemas de sprinklers automáticos, bombas principais e jockey com cálculos isométricos e de perda de carga.",
+    sidebarImageCaption: "Rede Hidráulica SPCI • CPE Engenharia",
+    technicalNorms: {
+      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
+      art: "ART de cálculo hidráulico e sistema contra incêndio",
+      standards: [
+        "ABNT NBR 13714 (Sistemas de hidrantes e mangotinhos)",
+        "ABNT NBR 10897 (Proteção contra incêndio por chuveiro automático)",
+        "Instrução Técnica nº 22 do Corpo de Bombeiros da PMESP",
+      ],
+    },
+    benefits: [
+      { title: "Cálculo Hidráulico Preciso", desc: "Dimensionamento exato da vazão e pressão para cada esguicho e sprinkler." },
+      { title: "Otimização de Reservatório", desc: "Cálculo rigoroso do volume de RTI (Reserva Técnica de Incêndio)." },
+      { title: "Segurança Operacional", desc: "Garantia de resposta contínua com bombas principais e jockey calibradas." },
+      { title: "Aprovação em Vistorias", desc: "Pranchas compatibilizadas que facilitam a inspeção do Corpo de Bombeiros." },
+    ],
+    methodology: [
+      { step: "1", title: "Estudo de Carga de Incêndio", desc: "Determinação do risco da ocupação e vazões regulamentares." },
+      { step: "2", title: "Traçado Isométrico", desc: "Modelagem das tubulações em aço ranhurado ou roscado." },
+      { step: "3", title: "Cálculo de Perda de Carga", desc: "Definição das potências da moto-bomba e altura manométrica." },
+      { step: "4", title: "Memorial e Detalhamento", desc: "Geração dos memoriais de cálculo e plantas executivas." },
+    ],
+  },
+
+  "regularizacao-avcb": {
+    slug: "regularizacao-avcb",
+    title: "Regularização de AVCB e CLCB",
+    subtitle: "Emissão e renovação de licenças junto ao Corpo de Bombeiros da PMESP em todo o Estado de SP",
+    shortDescription: "Laudos técnicos, vistorias em campo e tramitação completa no sistema Via Fácil Bombeiros.",
+    category: "projetos",
+    image: "/images/avcb.png",
+    heroImage: "/images/avcb.png",
+    badge: "Regularização Legal",
+    description:
+      "A CPE ENGENHARIA realiza laudos técnicos periciais, vistorias prévias e gestão completa do processo para obtenção e renovação do Auto de Vistoria do Corpo de Bombeiros (AVCB e CLCB) para indústrias, condomínios e comércios.",
+    sidebarImageCaption: "Certificado de Regularização AVCB • CPE Engenharia",
+    technicalNorms: {
+      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
+      art: "Emissão obrigatória de ART de inspeção e laudos regulamentares",
+      standards: [
+        "Decreto Estadual nº 63.911/2018 (Regulamento de Segurança Contra Incêndios)",
+        "Instruções Técnicas do Corpo de Bombeiros da PMESP",
+      ],
+    },
+    benefits: [
+      { title: "Tramitação Ágil", desc: "Aceleração do processo no sistema Via Fácil Bombeiros." },
+      { title: "Segurança Jurídica", desc: "Edificação regularizada perante prefeitura, seguradoras e fiscalização." },
+      { title: "Acompanhamento In Loco", desc: "Presença de Engenheiro Civil no dia da vistoria oficial." },
+      { title: "Sem Retrabalho", desc: "Diagnóstico completo antes do protocolo para evitar comunique-se." },
+    ],
+    methodology: [
+      { step: "1", title: "Vistoria Técnica Prévia", desc: "Auditoria in loco de extintores, sinalização, iluminação e rotas de fuga." },
+      { step: "2", title: "Adequação e Emissão de Laudos", desc: "Laudos elétricos, de gás, CMAR e estanqueidade com ART." },
+      { step: "3", title: "Protocolo e Vistoria Oficial", desc: "Submissão digital e acompanhamento do vistoriador do bombeiro." },
+      { step: "4", title: "Emissão e Entrega da Licença", desc: "Disponibilização do AVCB/CLCB oficial com validade legal." },
+    ],
+  },
+
+  "residencia-alto-padrao": {
+    slug: "residencia-alto-padrao",
+    title: "Construção Residencial de Alto Padrão",
+    subtitle: "Gestão executiva completa, precisão estrutural e acabamentos refinados em condomínios fechados",
+    shortDescription: "Construção de casas de alto padrão com gestão físico-financeira e engenheiro residente.",
+    category: "obras",
+    image: "/images/residential.png",
+    heroImage: "/images/residential.png",
+    badge: "Construção Civil",
+    description:
+      "Execução de residências de alto padrão com rigoroso controle de custos, cronograma físico-financeiro transparente e acabamentos de altíssima qualidade técnica.",
+    sidebarImageCaption: "Obra residencial entregue • Alto Padrão SP",
+    technicalNorms: {
+      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
+      art: "ART de execução estrutural e civil global",
+      standards: [
+        "ABNT NBR 6118 (Estruturas de concreto)",
+        "ABNT NBR 15575 (Desempenho de edificações habitacionais)",
+        "NR-18 (Segurança e Saúde no Trabalho na Construção)",
+      ],
+    },
+    benefits: [
+      { title: "Gestão Físico-Financeira", desc: "Previsibilidade orçamentária e relatórios semanais de evolução." },
+      { title: "Supervisão Contínua", desc: "Acompanhamento rigoroso de engenheiro residente em todas as fases." },
+      { title: "Acabamentos de Precisão", desc: "Execução impecável de porcelanatos, esquadrias e marcenaria integrada." },
+      { title: "Garantia Integral de Obra", desc: "Termo de garantia e manual do proprietário na entrega das chaves." },
+    ],
+    methodology: [
+      { step: "1", title: "Compatibilização e Orçamento", desc: "Orçamento analítico e cronograma executivo detalhado." },
+      { step: "2", title: "Fundações e Movimentação", desc: "Estacas, blocos de coroamento e contenções de solo." },
+      { step: "3", title: "Superestrutura e Vedação", desc: "Pilares, vigas, lajes maciças e alvenaria termoacústica." },
+      { step: "4", title: "Instalações e Impermeabilização", desc: "Redes hidráulicas, elétricas e impermeabilização total." },
+      { step: "5", title: "Acabamentos e Entrega Técnica", desc: "Revestimentos nobres, pintura e entrega oficial." },
+    ],
+  },
+
   "postos-abastecimento": {
     slug: "postos-abastecimento",
     title: "Postos de Abastecimento e Sistemas de Combustível",
@@ -66,12 +276,12 @@ export const servicesData: Record<string, ServiceDetail> = {
     },
     technicalNorms: {
       crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
-      art: "Emissão obrigatória de ART (Anotação de Responsabilidade Técnica) antes do início da obra",
+      art: "Emissão obrigatória de ART antes do início da obra",
       standards: [
-        "ABNT NBR 13781 / 13783 / 13786 (Sistemas de Armazenamento Subterrâneo e Aéreo de Combustíveis)",
-        "ABNT NBR 14605 (Postos de Serviços - Sistema de Drenagem Oleosa e Caixas Separadoras SAO)",
-        "NR-10 (Segurança em Instalações e Serviços em Eletricidade em Áreas Classificadas / Ex)",
-        "NR-20 (Segurança e Saúde no Trabalho com Inflamáveis e Combustíveis)",
+        "ABNT NBR 13781 / 13783 / 13786 (Sistemas de Armazenamento de Combustíveis)",
+        "ABNT NBR 14605 (Drenagem Oleosa e Caixas Separadoras SAO)",
+        "NR-10 (Eletricidade em Áreas Classificadas / Ex)",
+        "NR-20 (Segurança no Trabalho com Inflamáveis e Combustíveis)",
       ],
     },
     technicalScope: {
@@ -79,19 +289,19 @@ export const servicesData: Record<string, ServiceDetail> = {
       items: [
         {
           title: "Pavimentação Rígida de Alta Resistência",
-          desc: "Execução de piso de concreto armado usinado com acabamento polido e juntas de dilatação seladas com mástique resistente a hidrocarbonetos.",
+          desc: "Execução de piso de concreto armado usinado com acabamento polido e juntas seladas com mástique resistente a hidrocarbonetos.",
         },
         {
           title: "Infraestrutura Hidráulica e Mecânica",
-          desc: "Instalação de tubulações em PEAD soldadas por eletrofusão, bombas de alto fluxo, filtros coalescentes e interligação segura de tanques.",
+          desc: "Tubulações em PEAD soldadas por eletrofusão, bombas de alto fluxo, filtros coalescentes e interligação de tanques.",
         },
         {
           title: "Contenção e Proteção Ambiental",
-          desc: "Bacias de contenção estanques, canaletas perimetrais blindadas e caixas separadoras de água e óleo (SAO) em conformidade com órgãos ambientais.",
+          desc: "Bacias de contenção estanques, canaletas perimetrais blindadas e caixas separadoras de água e óleo (SAO).",
         },
         {
-          title: "Cobertura Metálica e Instalações Elétricas Ex",
-          desc: "Montagem de estrutura metálica com testeira padronizada, iluminação LED industrial e instalações elétricas intrinsecamente seguras (à prova de explosão).",
+          title: "Cobertura Metálica e Instalações Ex",
+          desc: "Estrutura metálica com testeira padronizada, iluminação LED industrial e instalações elétricas à prova de explosão.",
         },
       ],
     },
@@ -116,55 +326,94 @@ export const servicesData: Record<string, ServiceDetail> = {
       },
     ],
     benefits: [
-      {
-        title: "Expertise Técnica em Normas",
-        desc: "Conhecimento profundo das normas ABNT, NRs e órgãos ambientais para armazenamento e abastecimento.",
-      },
-      {
-        title: "Segurança Operacional Absoluta",
-        desc: "Implementação rigorosa de sistemas de drenagem, pista blindada e contenção contra vazamentos.",
-      },
-      {
-        title: "Conformidade Ambiental Rigorosa",
-        desc: "Execução que atende 100% aos requisitos de licenciamento e segurança ambiental (CETESB/IBAMA).",
-      },
-      {
-        title: "Agilidade na Execução",
-        desc: "Planejamento otimizado de obra para minimizar o impacto na operação logística e pátio de veículos.",
-      },
+      { title: "Expertise Técnica em Normas", desc: "Conhecimento profundo das normas ABNT, NRs e órgãos ambientais." },
+      { title: "Segurança Operacional Absoluta", desc: "Sistemas de drenagem, pista blindada e contenção de vazamentos." },
+      { title: "Conformidade Ambiental Rigorosa", desc: "Execução que atende 100% aos requisitos de licenciamento (CETESB/IBAMA)." },
+      { title: "Agilidade na Execução", desc: "Planejamento otimizado para minimizar o impacto na operação logística." },
     ],
     methodology: [
-      {
-        step: "1",
-        title: "Planejamento e Adequação Técnica",
-        desc: "Levantamento topográfico, compatibilização dos projetos civil, mecânico e elétrico conforme as normas vigentes.",
-      },
-      {
-        step: "2",
-        title: "Terraplanagem e Pavimentação Armada",
-        desc: "Preparação do subleito, armação com telas soldadas e concretagem da pista com concreto usinado Fck compatível com tráfego pesado.",
-      },
-      {
-        step: "3",
-        title: "Instalação de Bombas, Tanques e Tubulações",
-        desc: "Montagem da hidráulica de combustíveis com tubos PEAD de parede dupla, filtros, válvulas de segurança e tanques de armazenamento.",
-      },
-      {
-        step: "4",
-        title: "Montagem da Cobertura e Elétrica Ex",
-        desc: "Içamento e fixação da estrutura metálica da cobertura e passagem da fiação blindada à prova de explosão (Ex).",
-      },
-      {
-        step: "5",
-        title: "Comissionamento e Entrega Técnica",
-        desc: "Testes de estanqueidade, calibração de bombas, inspeção final com emissão de ART e entrega das chaves da instalação operacional.",
-      },
+      { step: "1", title: "Planejamento e Adequação", desc: "Levantamento topográfico e compatibilização dos projetos civil, mecânico e elétrico." },
+      { step: "2", title: "Pavimentação Armada", desc: "Armação com telas soldadas e concretagem com concreto usinado Fck para tráfego pesado." },
+      { step: "3", title: "Bombas, Tanques e Tubulações", desc: "Montagem da hidráulica com tubos PEAD, filtros e tanques." },
+      { step: "4", title: "Cobertura e Elétrica Ex", desc: "Içamento da cobertura metálica e fiação blindada à prova de explosão." },
+      { step: "5", title: "Comissionamento e ART", desc: "Testes de estanqueidade, calibração e entrega técnica operacional." },
+    ],
+  },
+
+  "galpoes-logisticos": {
+    slug: "galpoes-logisticos",
+    title: "Galpão Logístico & Centro de Distribuição",
+    subtitle: "Estruturas metálicas, pré-moldados e pisos industriais de alta capacidade para hubs logísticos",
+    shortDescription: "Construção de galpões logísticos com pisos nivelados a laser e vãos livres para máxima armazenagem.",
+    category: "obras",
+    image: "/images/warehouse.png",
+    heroImage: "/images/warehouse.png",
+    badge: "Engenharia Logística",
+    description:
+      "Construção de centros de distribuição e galpões logísticos modernos com foco em modulação estrutural, nivelamento a laser de pisos industriais, docas elevadas e telhas termoacústicas para eficiência energética.",
+    sidebarImageCaption: "Galpão logístico entregue • Guarulhos/SP",
+    technicalNorms: {
+      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
+      art: "ART de projeto estrutural e execução civil",
+      standards: [
+        "ABNT NBR 8800 (Estruturas de aço e mistas)",
+        "ABNT NBR 9062 (Estruturas de concreto pré-moldado)",
+        "ABNT NBR 14039 (Instalações elétricas de média tensão)",
+      ],
+    },
+    benefits: [
+      { title: "Pisos de Nivelamento a Laser", desc: "Planicidade perfeita para tráfego veloz e seguro de empilhadeiras tridirecionais." },
+      { title: "Grandes Vãos Livres", desc: "Otimização máxima do layout de porta-paletes e docas de carga." },
+      { title: "Isolamento Termoacústico", desc: "Coberturas em telha sanduíche com conforto térmico e economia de energia." },
+      { title: "Velocidade de Obra", desc: "Uso de sistemas pré-fabricados com montagem rápida e limpa." },
+    ],
+    methodology: [
+      { step: "1", title: "Terraplanagem e Geotecnia", desc: "Plataformas compactadas e controle de umidade do solo." },
+      { step: "2", title: "Fundações e Pilares", desc: "Estacas escavadas e montagem de pilares pré-moldados." },
+      { step: "3", title: "Cobertura e Fechamento", desc: "Montagem da estrutura metálica e painéis térmicos." },
+      { step: "4", title: "Piso Industrial Nivelado", desc: "Concretagem a laser com endurecedor de superfície e juntas seladas." },
+      { step: "5", title: "Docas e AVCB", desc: "Instalação de niveladores de doca, hidrantes e entrega técnica." },
+    ],
+  },
+
+  "plantas-industriais": {
+    slug: "plantas-industriais",
+    title: "Plantas Industriais & Fábricas",
+    subtitle: "Construção e reforma de instalações fabris com infraestrutura pesada e normas sanitárias/ambientais",
+    shortDescription: "Construção de indústrias, fundações para máquinas pesadas, subestações e drenagem química.",
+    category: "obras",
+    image: "/images/industrial_facility.png",
+    heroImage: "/images/industrial_facility.png",
+    badge: "Engenharia Industrial",
+    description:
+      "A CPE ENGENHARIA executa obras industriais complexas: bases antivibratórias para maquinário pesado, subestações elétricas, drenagens com canaletas anticorrosivas e reformas sem interromper a produção da fábrica.",
+    sidebarImageCaption: "Planta fabril industrial • São Bernardo/SP",
+    technicalNorms: {
+      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
+      art: "ART de responsabilidade técnica para obras industriais",
+      standards: [
+        "ABNT NBR 5410 / NBR 14039 (Instalações Elétricas de Baixa e Média Tensão)",
+        "NR-10, NR-12 e NR-33 (Segurança Industrial)",
+      ],
+    },
+    benefits: [
+      { title: "Trabalho Sem Parar a Fábrica", desc: "Planejamento executivo por fases para manter a operação fabril ativa." },
+      { title: "Bases de Alta Carga", desc: "Cálculo dinâmico de fundações para equipamentos de alta vibração." },
+      { title: "Instalações Utilitárias", desc: "Redes de ar comprimido, vapor, água industrial e gás." },
+      { title: "Segurança do Trabalho", desc: "Rigor absoluto em conformidade com as Normas Regulamentadoras do MTE." },
+    ],
+    methodology: [
+      { step: "1", title: "Mapeamento das Interferências", desc: "Compatibilização dos maquinários com a infraestrutura civil." },
+      { step: "2", title: "Fundações Industriais", desc: "Blocos maciços com amortecimento elastomérico para máquinas." },
+      { step: "3", title: "Subestação e Utilidades", desc: "Construção da cabine primária e redes aéreas de utilidades." },
+      { step: "4", title: "Pisos Especiais", desc: "Aplicação de pisos uretânicos e epóxi de alta resistência química." },
+      { step: "5", title: "Testes e Comissionamento", desc: "Entrega técnica com asfalto perimetral e certidões industriais." },
     ],
   },
 
   "reforma-fachadas": {
     slug: "reforma-fachadas",
-    title: "Reforma e Revitalização de Fachadas",
+    title: "Reforma e Retrofit de Fachadas",
     subtitle: "Engenharia diagnóstica, recuperação estrutural e acabamentos nobres de alta durabilidade",
     shortDescription: "Recuperação do concreto, tratamento percussivo, vedação elastomérica e revestimentos nobres para condomínios e prédios comerciais.",
     category: "obras",
@@ -181,12 +430,12 @@ export const servicesData: Record<string, ServiceDetail> = {
     },
     technicalNorms: {
       crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
-      art: "Emissão obrigatória de ART (Anotação de Responsabilidade Técnica) antes do início da obra",
+      art: "Emissão obrigatória de ART antes do início da obra",
       standards: [
-        "ABNT NBR 16280 (Reforma em edificações — Sistema de gestão de reformas)",
-        "ABNT NBR 5674 (Manutenção de edificações — Requisitos para o sistema de gestão)",
-        "ABNT NBR 9575 / 9574 (Impermeabilização — Seleção e projeto / Execução)",
-        "NR-35 (Trabalho em Altura) e NR-18 (Segurança e Saúde no Trabalho na Indústria da Construção)",
+        "ABNT NBR 16280 (Sistema de gestão de reformas)",
+        "ABNT NBR 5674 (Manutenção de edificações)",
+        "ABNT NBR 9575 / 9574 (Impermeabilização)",
+        "NR-35 (Trabalho em Altura) e NR-18 (Construção Civil)",
       ],
     },
     technicalScope: {
@@ -194,19 +443,19 @@ export const servicesData: Record<string, ServiceDetail> = {
       items: [
         {
           title: "Engenharia Diagnóstica e Mapeamento",
-          desc: "Mapeamento percussivo em 100% da fachada para identificação de áreas ocas, destacamentos de reboco e pontos críticos de infiltração.",
+          desc: "Mapeamento percussivo em 100% da fachada para identificação de áreas ocas, destacamentos e fissuras.",
         },
         {
-          title: "Recuperação Estrutural e Tratamento de Armaduras",
-          desc: "Escarificação do concreto degradado, limpeza mecânica da armadura com escova de aço, aplicação de primer convertedor de ferrugem e recomposição com argamassa polimérica tixotrópica estrutural.",
+          title: "Recuperação Estrutural de Armaduras",
+          desc: "Escarificação do concreto degradado, despassivação de armaduras oxidadas e recomposição com argamassa estrutural.",
         },
         {
           title: "Tratamento de Juntas e Fissuras",
-          desc: "Abertura em 'V' das fissuras ativas e passivas, aplicação de fundo de junta e selamento elastomérico com mástique de poliuretano (PU) de alta elasticidade.",
+          desc: "Abertura em 'V' e aplicação de selativo elastomérico de poliuretano (PU) de alta elasticidade.",
         },
         {
-          title: "Pintura e Revestimento de Alta Performance",
-          desc: "Lavagem hidro-jateada de alta pressão, aplicação de fundo preparador e acabamento em textura acrílica hidro-repelente resistente a intempéries e raios UV.",
+          title: "Pintura e Texturização Nobre",
+          desc: "Lavagem pressurizada, primer de aderência e aplicação de textura acrílica hidro-repelente resistente a raios UV.",
         },
       ],
     },
@@ -225,233 +474,40 @@ export const servicesData: Record<string, ServiceDetail> = {
       },
     ],
     benefits: [
-      {
-        title: "Rigor Normativo e CREA/SP",
-        desc: "Todas as etapas acompanhadas por Engenheiro Civil com emissão de ART e relatórios fotográficos periódicos.",
-      },
-      {
-        title: "Segurança Absoluta (NR-35 / NR-18)",
-        desc: "Equipe 100% certificada com EPIs, cabos de vida de aço certificados e ancoragens testadas conforme norma.",
-      },
-      {
-        title: "Valorização Patrimonial Imediata",
-        desc: "Requalificação estética e estrutural que aumenta o valor de mercado das unidades residenciais ou comerciais.",
-      },
-      {
-        title: "Garantia de Estanqueidade",
-        desc: "Eliminação definitiva de infiltrações em esquadrias, juntas de dilatação e superfícies cimentícias.",
-      },
+      { title: "Rigor Normativo e CREA/SP", desc: "Todas as etapas acompanhadas por Engenheiro Civil com ART." },
+      { title: "Segurança Absoluta (NR-35)", desc: "Equipe com cabos de vida de aço certificados e ancoragens testadas." },
+      { title: "Valorização Patrimonial Imediata", desc: "Aumento imediato do valor de mercado das unidades residenciais." },
+      { title: "Garantia de Estanqueidade", desc: "Eliminação definitiva de infiltrações e umidades na alvenaria." },
     ],
     methodology: [
-      {
-        step: "1",
-        title: "Laudo Diagnóstico e Teste Percussivo",
-        desc: "Inspeção técnica completa para identificar patologias ocultas, fissuras e descolamentos.",
-      },
-      {
-        step: "2",
-        title: "Montagem da Infraestrutura de Segurança",
-        desc: "Instalação de pontos de ancoragem certificados, andaimes e linhas de vida para trabalho em altura (NR-35).",
-      },
-      {
-        step: "3",
-        title: "Tratamento Estrutural e Hidrojateamento",
-        desc: "Remoção de partes soltas, despassivação de armaduras oxidadas, recomposição e lavagem pressurizada.",
-      },
-      {
-        step: "4",
-        title: "Selamento de Fissuras e Juntas com PU",
-        desc: "Aplicação de mástiques flexíveis para evitar novas infiltrações e movimentações estruturais.",
-      },
-      {
-        step: "5",
-        title: "Pintura / Texturização e Entrega Técnica",
-        desc: "Aplicação do sistema de acabamento hidrofugante, vistoria final com o síndico/cliente e termo de garantia.",
-      },
-    ],
-  },
-
-  "construcao-residencial": {
-    slug: "construcao-residencial",
-    title: "Construção Residencial de Alto Padrão",
-    subtitle: "Gestão executiva completa, precisão estrutural e acabamentos refinados para residências exclusivas",
-    shortDescription: "Construção de casas de alto padrão em condomínios fechados com acompanhamento integral de engenharia.",
-    category: "obras",
-    image: "/images/residencia.png",
-    heroImage: "/images/residencia.png",
-    badge: "Construção Civil",
-    description:
-      "A CPE ENGENHARIA constrói residências de alto padrão com metodologia de gestão rigorosa, cronograma físico-financeiro detalhado e controle minucioso da qualidade de materiais e mão de obra em cada etapa construtiva.",
-    sidebarImageCaption: "Obra residencial entregue • Alto Padrão SP",
-    technicalNorms: {
-      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
-      art: "Emissão de ART para fundações, estrutura e execução global da obra",
-      standards: [
-        "ABNT NBR 6118 (Projeto de estruturas de concreto)",
-        "ABNT NBR 15575 (Edificações habitacionais — Desempenho)",
-        "ABNT NBR 5626 (Instalação predial de água fria)",
-        "NR-18 (Condições e Meio Ambiente de Trabalho na Indústria da Construção)",
-      ],
-    },
-    benefits: [
-      { title: "Gestão Físico-Financeira", desc: "Controle total de custos e prazos sem surpresas no orçamento." },
-      { title: "Alto Padrão Executivo", desc: "Mão de obra qualificada e supervisão direta de engenheiro residente." },
-      { title: "Compatibilização BIM", desc: "Integração total entre arquitetura, cálculo estrutural e instalações." },
-      { title: "Garantia Estrutural", desc: "Entrega técnica com memorial descritivo e garantia integral de obra." },
-    ],
-    methodology: [
-      { step: "1", title: "Compatibilização e Planejamento", desc: "Análise dos projetos e elaboração do orçamento analítico e cronograma." },
-      { step: "2", title: "Fundações e Movimentação de Terra", desc: "Locação da obra, estaqueamento e blocos de coroamento." },
-      { step: "3", title: "Superestrutura e Alvenaria", desc: "Concretagem de pilares, vigas, lajes e alvenaria de vedação." },
-      { step: "4", title: "Instalações e Impermeabilização", desc: "Passagem das redes hidráulica, elétrica e impermeabilização rígida/flexível." },
-      { step: "5", title: "Acabamentos Nobres e Entrega", desc: "Revestimentos, esquadrias, louças, metais e vistoria final com entrega das chaves." },
-    ],
-  },
-
-  "galpoes-industriais": {
-    slug: "galpoes-industriais",
-    title: "Construção de Galpões e Instalações Industriais",
-    subtitle: "Estruturas metálicas, pré-moldados e pisos industriais para centros de distribuição e fábricas",
-    shortDescription: "Construção e reforma de galpões logísticos e plantas industriais com foco em produtividade e robustez.",
-    category: "obras",
-    image: "/images/warehouse.png",
-    heroImage: "/images/warehouse.png",
-    badge: "Engenharia Industrial",
-    description:
-      "Desenvolvemos e executamos galpões logísticos e industriais, com pisos de concreto polido de alta capacidade de carga, montagem de estruturas metálicas e fechamentos em telhas termoacústicas (painéis PIR/EPS).",
-    sidebarImageCaption: "Galpão logístico e industrial entregue",
-    technicalNorms: {
-      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
-      art: "ART emitida para cálculo estrutural e execução civil",
-      standards: [
-        "ABNT NBR 8800 (Projeto de estruturas de aço e de estruturas mistas)",
-        "ABNT NBR 9062 (Projeto e execução de estruturas de concreto pré-moldado)",
-        "ABNT NBR 14039 (Instalações elétricas de média tensão)",
-      ],
-    },
-    benefits: [
-      { title: "Pisos de Alta Carga", desc: "Dimensionamento com armadura de aço ou fibras para tráfego pesado de empilhadeiras." },
-      { title: "Vãos Livres Otimizados", desc: "Estruturas metálicas projetadas para máximo aproveitamento do espaço de estocagem." },
-      { title: "Eficiência Térmica e Acústica", desc: "Sistemas de cobertura que reduzem o consumo de energia e ruídos externos." },
-      { title: "Rapidez Construtiva", desc: "Metodologias pré-fabricadas que aceleram o tempo de retorno sobre o investimento." },
-    ],
-    methodology: [
-      { step: "1", title: "Sondagem e Terraplanagem", desc: "Estudos geotécnicos, corte/aterro e compactação do solo." },
-      { step: "2", title: "Fundações Profundas", desc: "Execução de estacas e blocos de ancoragem para pilares." },
-      { step: "3", title: "Montagem da Estrutura", desc: "Içamento e contraventamento da estrutura metálica/pré-moldada." },
-      { step: "4", title: "Piso Industrial e Cobertura", desc: "Nivelamento a laser do piso e instalação de telhas termoacústicas." },
-      { step: "5", title: "Fechamentos e AVCB", desc: "Instalações de combate a incêndio, docas e vistoria para liberação de uso." },
-    ],
-  },
-
-  "projeto-arquitetonico": {
-    slug: "projeto-arquitetonico",
-    title: "Projetos Arquitetônicos e Legais",
-    subtitle: "Concepção funcional, volumetria contemporânea e aprovação em prefeituras e condomínios",
-    shortDescription: "Projetos arquitetônicos residenciais, comerciais e industriais compatibilizados e prontos para aprovação.",
-    category: "projetos",
-    image: "/images/architectural.png",
-    heroImage: "/images/architectural.png",
-    badge: "Projeto Técnico",
-    description:
-      "Elaboramos projetos arquitetônicos autorais e executivos de alto nível, integrando estética refinada, ergonomia espacial, sustentabilidade e estrita conformidade com o Plano Diretor e Código de Obras municipal.",
-    sidebarImageCaption: "Projeto Arquitetônico Executivo • CPE Engenharia",
-    technicalNorms: {
-      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
-      art: "ART de autoria de projeto e coordenação geral",
-      standards: [
-        "ABNT NBR 6492 (Documentação técnica para projetos arquitetônicos)",
-        "ABNT NBR 9050 (Acessibilidade a edificações, mobiliário e espaços)",
-        "Códigos de Obras e Zoneamento Municipal",
-      ],
-    },
-    benefits: [
-      { title: "Modelagem 3D Fotorrealista", desc: "Visualização antecipada completa em maquete 3D e renderizações imersivas." },
-      { title: "Aprovação Descomplicada", desc: "Documentação técnica completa para habite-se e aprovação em condomínios." },
-      { title: "Otimização de Espaços", desc: "Planejamento inteligente para máxima circulação, iluminação e ventilação natural." },
-      { title: "Compatibilização BIM", desc: "Zero retrabalho na obra com projetos integrados em ambiente digital." },
-    ],
-    methodology: [
-      { step: "1", title: "Briefing e Levantamento", desc: "Entendimento das necessidades do cliente e levantamento topográfico do lote." },
-      { step: "2", title: "Estudo Preliminar", desc: "Definição do layout espacial, volumetria inicial e primeiras maquetes 3D." },
-      { step: "3", title: "Anteprojeto e Aprovação", desc: "Refinamento técnico e submissão à Prefeitura Municipal e associação de moradores." },
-      { step: "4", title: "Projeto Executivo", desc: "Detalhamento de cortes, fachadas, paginações de piso, esquadrias e pontos de elétrica." },
-    ],
-  },
-
-  "projeto-estrutural": {
-    slug: "projeto-estrutural",
-    title: "Cálculo Estrutural e Fundações",
-    subtitle: "Dimensionamento seguro e econômico em Concreto Armado, Alvenaria Estrutural e Aço",
-    shortDescription: "Cálculo estrutural e fundações dimensionados para máxima segurança e economia de aço e concreto.",
-    category: "projetos",
-    image: "/images/structural.png",
-    heroImage: "/images/structural.png",
-    badge: "Engenharia de Estruturas",
-    description:
-      "Projetamos estruturas em concreto armado, protendido, perfis metálicos e alvenaria estrutural através de softwares de cálculo de última geração, garantindo o dimensionamento exato das armaduras e fundações.",
-    sidebarImageCaption: "Modelo Estrutural Tridimensional • CPE Engenharia",
-    technicalNorms: {
-      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
-      art: "ART específica de responsabilidade técnica pelo cálculo estrutural",
-      standards: [
-        "ABNT NBR 6118 (Projeto de estruturas de concreto — Procedimento)",
-        "ABNT NBR 6122 (Projeto e execução de fundações)",
-        "ABNT NBR 8681 (Ações e segurança nas estruturas)",
-      ],
-    },
-    benefits: [
-      { title: "Economia Real de Materiais", desc: "Dimensionamento que evita o superdimensionamento e reduz gastos com concreto e aço." },
-      { title: "Segurança e Estabilidade", desc: "Eliminação total de riscos de patologias, trincas ou deformações excessivas." },
-      { title: "Quantitativos Precisos", desc: "Tabelas completas de aço dobrado e volumes de concreto para cotação precisa." },
-      { title: "Suporte Técnico na Obra", desc: "Acompanhamento do engenheiro calculista para esclarecimento de dúvidas da armação." },
-    ],
-    methodology: [
-      { step: "1", title: "Análise da Sondagem SPT", desc: "Interpretação do perfil geotécnico para escolha da fundação ideal." },
-      { step: "2", title: "Lançamento da Estrutura", desc: "Posicionamento estratégico de pilares e vigas compatibilizados com a arquitetura." },
-      { step: "3", title: "Análise Computacional e Cargas", desc: "Simulação de cargas permanentes, acidentais e ação dos ventos." },
-      { step: "4", title: "Detalhamento e Pranchas", desc: "Geração das pranchas de armação, formas, resumo de aço e memorial de cálculo." },
-    ],
-  },
-
-  "avcb-bombeiros": {
-    slug: "avcb-bombeiros",
-    title: "AVCB, CLCB e Proteção Contra Incêndio",
-    subtitle: "Projetos de segurança contra incêndio (PPCI), renovações e aprovação rápida junto ao Corpo de Bombeiros",
-    shortDescription: "Projetos e regularização de AVCB e CLCB para condomínios, indústrias e estabelecimentos comerciais.",
-    category: "projetos",
-    image: "/images/avcb.png",
-    heroImage: "/images/avcb.png",
-    badge: "Segurança Contra Incêndio",
-    description:
-      "A CPE ENGENHARIA realiza laudos técnicos periciais, projetos de combate a incêndio (PPCI), vistorias em campo e adequações físicas para obtenção e renovação do Auto de Vistoria do Corpo de Bombeiros (AVCB e CLCB) em todo o Estado de São Paulo.",
-    sidebarImageCaption: "Sistema de combate a incêndio aprovado",
-    technicalNorms: {
-      crea: "CREA/SP sob Responsabilidade Técnica do Eng. Christian Gomes",
-      art: "ART de projeto e laudo de instalações de segurança contra incêndio",
-      standards: [
-        "Instruções Técnicas (ITs) do Corpo de Bombeiros da PMESP",
-        "Decreto Estadual nº 63.911 de SP (Regulamento de Segurança Contra Incêndios)",
-        "ABNT NBR 13714 (Sistemas de hidrantes e de mangotinhos para combate a incêndio)",
-        "ABNT NBR 10898 (Sistema de iluminação de emergência)",
-      ],
-    },
-    benefits: [
-      { title: "Aprovação Sem Retrabalho", desc: "Projetos desenvolvidos rigorosamente alinhados aos critérios dos vistoriadores do CBPMESP." },
-      { title: "Segurança Jurídica e Predial", desc: "Edificação regularizada para seguro patrimonial, licença de funcionamento e alvará." },
-      { title: "Acompanhamento Presencial", desc: "Acompanhamento do engenheiro responsável durante a vistoria oficial do bombeiro." },
-      { title: "Agilidade no Via Fácil Bombeiros", desc: "Gestão do processo online do início ao protocolo final de emissão da licença." },
-    ],
-    methodology: [
-      { step: "1", title: "Vistoria Diagnóstica", desc: "Levantamento das rotas de fuga, hidrantes, extintores, sinalização e portas corta-fogo." },
-      { step: "2", title: "Elaboração do Projeto Técnico", desc: "Desenho das pranchas de combate a incêndio conforme a ocupação e carga de incêndio." },
-      { step: "3", title: "Protocolo e Vistoria", desc: "Envio ao Corpo de Bombeiros, acompanhamento da análise e vistoria in loco." },
-      { step: "4", title: "Emissão do AVCB / CLCB", desc: "Entrega do certificado oficial emitido com validade regulamentar." },
+      { step: "1", title: "Laudo Diagnóstico", desc: "Mapeamento percussivo para identificação de patologias ocultas." },
+      { step: "2", title: "Infraestrutura de Segurança", desc: "Instalação de pontos de ancoragem certificados e linhas de vida (NR-35)." },
+      { step: "3", title: "Tratamento Estrutural", desc: "Remoção de partes soltas, despassivação de armaduras e recomposição." },
+      { step: "4", title: "Selamento de Fissuras", desc: "Aplicação de mástiques de PU flexíveis contra fissuras." },
+      { step: "5", title: "Texturização e Entrega", desc: "Acabamento hidro-repelente e termo de garantia técnica." },
     ],
   },
 };
 
-export const services = Object.values(servicesData);
+// Aliases para manter links antigos 100% funcionais
+servicesData["projeto-arquitetonico"] = servicesData["projetos-arquitetonicos"];
+servicesData["projeto-estrutural"] = servicesData["projetos-complementares"];
+servicesData["avcb-bombeiros"] = servicesData["regularizacao-avcb"];
+servicesData["construcao-residencial"] = servicesData["residencia-alto-padrao"];
+servicesData["galpoes-industriais"] = servicesData["galpoes-logisticos"];
+
+export const services = [
+  servicesData["projetos-arquitetonicos"],
+  servicesData["projetos-complementares"],
+  servicesData["projetos-sda"],
+  servicesData["projetos-spci"],
+  servicesData["regularizacao-avcb"],
+  servicesData["residencia-alto-padrao"],
+  servicesData["postos-abastecimento"],
+  servicesData["galpoes-logisticos"],
+  servicesData["plantas-industriais"],
+  servicesData["reforma-fachadas"],
+];
 
 export function getServiceBySlug(slug: string): ServiceDetail | undefined {
   return servicesData[slug];
