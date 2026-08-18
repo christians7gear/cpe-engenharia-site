@@ -1,187 +1,93 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Ruler, HardHat } from "lucide-react";
-import { companyData } from "@/lib/company-data";
-import { services, getServicesByCategory } from "@/lib/services-data";
-import { ServiceCard } from "@/components/service-card";
+import { ArrowRight, Compass, HardHat } from "lucide-react";
+import { services } from "@/lib/services-data";
 
-export default function ServicosPage() {
-  const [mounted, setMounted] = useState(false);
-  const [activeTab, setActiveTab] = useState<"all" | "projetos" | "execucao">("all");
+export const metadata = {
+  title: "Serviços de Engenharia e Construção Civil | CPE Engenharia",
+  description:
+    "Soluções completas em engenharia civil: projetos arquitetônicos, complementares, estruturais, AVCB, postos de combustíveis, galpões e reformas de fachadas.",
+};
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  const filteredServices =
-    activeTab === "all"
-      ? services
-      : getServicesByCategory(activeTab);
-
+export default function ServicesPage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-gray-900">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src={companyData?.images?.hero ?? ""}
-            alt="CPE Engenharia"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative max-w-[1200px] mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center text-white"
-          >
-            <span className="inline-block bg-red-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
-              O que fazemos
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Nossos Serviços</h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Soluções completas em engenharia civil, desde a concepção do projeto
-              até a execução da obra.
-            </p>
-          </motion.div>
+    <div className="pt-28 sm:pt-36 pb-20 bg-slate-50 min-h-screen text-gray-900">
+      {/* Banner Superior Institucional */}
+      <section className="relative bg-slate-950 text-white py-20 mb-12 border-b border-slate-800 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-slate-950/80 to-transparent z-10" />
+        <div className="relative z-20 max-w-[1280px] mx-auto px-4 sm:px-6 text-center">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-600/20 text-red-500 border border-red-500/30 mb-4">
+            O que fazemos
+          </span>
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
+            Nossos Serviços
+          </h1>
+          <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg font-light leading-relaxed">
+            Soluções completas em engenharia civil, desde a concepção do projeto técnico até a execução de obras de alto padrão.
+          </p>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-[1200px] mx-auto px-4">
-          {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button
-              onClick={() => setActiveTab("all")}
-              className={`px-6 py-3 rounded-lg font-medium transition-colors ${
-                activeTab === "all"
-                  ? "bg-red-600 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
+      {/* Grid de Serviços */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service) => (
+            <div
+              key={service.slug}
+              className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between"
             >
-              Todos os Serviços
-            </button>
-            <button
-              onClick={() => setActiveTab("projetos")}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
-                activeTab === "projetos"
-                  ? "bg-red-600 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              <Ruler className="w-5 h-5" />
-              Projetos
-            </button>
-            <button
-              onClick={() => setActiveTab("execucao")}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
-                activeTab === "execucao"
-                  ? "bg-red-600 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-              }`}
-            >
-              <HardHat className="w-5 h-5" />
-              Execução de Obras
-            </button>
-          </div>
+              <div>
+                {/* Imagem do Card */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src={service.image || service.heroImage}
+                    alt={service.title}
+                    fill
+                    unoptimized
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute bottom-3 left-3">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-black/80 text-white backdrop-blur-sm border border-white/10">
+                      {service.category === "projetos" ? (
+                        <>
+                          <Compass className="w-3 h-3 text-red-500" />
+                          PROJETO
+                        </>
+                      ) : (
+                        <>
+                          <HardHat className="w-3 h-3 text-red-500" />
+                          EXECUÇÃO
+                        </>
+                      )}
+                    </span>
+                  </div>
+                </div>
 
-          {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredServices?.map?.((service, index) => (
-              <ServiceCard key={service?.id ?? index} service={service} index={index} />
-            )) ?? []}
-          </div>
+                {/* Conteúdo do Card */}
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors mb-2 line-clamp-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3">
+                    {service.shortDescription || service.subtitle}
+                  </p>
+                </div>
+              </div>
+
+              {/* Botão Saiba Mais */}
+              <div className="px-6 pb-6 pt-0">
+                <Link
+                  href={`/servicos/${service.slug}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 transition-colors group-hover:translate-x-1 duration-200"
+                >
+                  Saiba mais
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
-
-      {/* Coverage */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 rounded-2xl p-8"
-            >
-              <div className="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-6">
-                <Ruler className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Projetos</h3>
-              <p className="text-gray-600 mb-4">
-                Desenvolvemos projetos arquitetônicos e complementares para clientes
-                em todo o território nacional. Nosso atendimento remoto é eficiente
-                e personalizado.
-              </p>
-              <div className="flex items-center gap-2 text-red-600 font-semibold">
-                <span>Área de atuação:</span>
-                <span className="text-gray-900">Todo o Brasil</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-gray-50 rounded-2xl p-8"
-            >
-              <div className="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-6">
-                <HardHat className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Execução de Obras</h3>
-              <p className="text-gray-600 mb-4">
-                Realizamos a execução completa de obras residenciais, comerciais e
-                industriais na região metropolitana de São Paulo, com gestão
-                profissional e acompanhamento presencial.
-              </p>
-              <div className="flex items-center gap-2 text-red-600 font-semibold">
-                <span>Área de atuação:</span>
-                <span className="text-gray-900">Região de São Paulo</span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-red-600">
-        <div className="max-w-[1200px] mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Precisa de um serviço específico?
-            </h2>
-            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
-              Entre em contato e receba um orçamento personalizado para o seu projeto.
-            </p>
-            <Link
-              href="/orcamento"
-              className="inline-flex items-center gap-2 bg-white text-red-600 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              Solicitar Orçamento
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-    </>
+    </div>
   );
 }
