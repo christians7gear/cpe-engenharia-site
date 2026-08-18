@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { motion } from "framer-motion";
 import { 
   CheckCircle2, 
   ArrowRight, 
@@ -12,9 +11,9 @@ import {
   FileText, 
   Layers, 
   Building2, 
-  Sparkles,
-  MapPin,
-  Clock
+  Flame,
+  CheckCircle,
+  Camera
 } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/services-data";
 import { companyData } from "@/lib/company-data";
@@ -53,64 +52,160 @@ export default function ServiceDetailPage() {
           {/* Coluna Principal de Conteúdo */}
           <div className="lg:col-span-8 space-y-8">
             
-            {/* Bloco Institucional */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+            {/* Bloco 1: Excelência em Engenharia */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
               <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2.5">
                 <span className="w-2 h-6 bg-red-600 rounded-full inline-block" />
                 Excelência em Engenharia & Construtora
               </h2>
-              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                A <strong className="text-slate-950">CPE </strong><strong className="text-red-600">ENGENHARIA</strong> entrega soluções completas em engenharia consultiva, projetos legais, laudos técnicos e execução civil pesada com responsabilidade técnica e ART registrada no CREA/SP.
+              
+              <p className="text-gray-700 leading-relaxed text-sm">
+                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em reformas prediais, revitalização de fachadas e engenharia diagnóstica, atuando de ponta a ponta: do laudo técnico pericial e planejamento executivo até a recuperação estrutural profunda e aplicação de revestimentos de alta performance.
               </p>
-              <p className="text-gray-600 leading-relaxed text-sm">
-                {service.description}
-              </p>
+
+              {/* Case Preto: Fachada */}
+              {isFachada && (
+                <div className="bg-slate-950 text-white p-5 rounded-xl border-l-4 border-red-600 space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
+                    <Building2 className="w-4 h-4" />
+                    OBRA COMPLETA: REVITALIZAÇÃO PREDIAL & FACHADA &bull; CONDOMÍNIO ATLANTA (ZONA LESTE/SP)
+                  </div>
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    Neste case residencial para o <strong>Condomínio Atlanta em São Paulo/SP</strong>, a <strong>CPE ENGENHARIA</strong> foi responsável pelo projeto técnico executivo integral, inspeção pericial por percussão, tratamento de armaduras expostas, calafetação de juntas e pintura técnica hidro-repelente com garantia de estanqueidade.
+                  </p>
+                </div>
+              )}
+
+              {/* Case Preto: Posto */}
+              {isPosto && (
+                <div className="bg-slate-950 text-white p-5 rounded-xl border-l-4 border-red-600 space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
+                    <Building2 className="w-4 h-4" />
+                    OBRA COMPLETA: PROJETO E EXECUÇÃO &bull; TRANSTASSI (GUARULHOS/SP)
+                  </div>
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    Neste case corporativo para a <strong>Transtassi em Guarulhos/SP</strong>, a <strong>CPE ENGENHARIA</strong> foi responsável pelo projeto executivo integral e pela construção civil e montagem do ponto de abastecimento de combustíveis e lubrificantes.
+                  </p>
+                </div>
+              )}
             </div>
 
-            {/* Case Exclusivo de Reforma de Fachadas com as duas fotos */}
+            {/* Bloco 2: Rigor Técnico e Aprovação (Exclusivo Fachadas) */}
             {isFachada && (
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-                <div className="bg-slate-950 text-white p-4 rounded-xl flex items-center justify-between flex-wrap gap-2">
-                  <div>
-                    <span className="text-[11px] text-red-500 font-bold uppercase tracking-wider block">Case de Obra em Destaque</span>
-                    <h3 className="text-base sm:text-lg font-bold">Revitalização & Pintura de Fachada • Condomínio Atlanta (Zona Leste - SP)</h3>
-                  </div>
-                  <span className="bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                    Engenharia CPE
-                  </span>
-                </div>
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-red-600" />
+                  Rigor Técnico e Normas Regulamentadoras
+                </h3>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Obras em altura e intervenções em fachadas exigem conformidade absoluta com as normas vigentes. A <strong>CPE ENGENHARIA</strong> projetou e executou o sistema atendendo rigorosamente:
+                </p>
 
                 <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4" /> ABNT NBR 16280 & Inspeção Predial
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Gestão de reformas e recuperação estrutural com ensaios periciais, teste de percussão e atendimento às normas de desempenho construtivo.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4" /> NR-35 & Segurança do Trabalho
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Equipes 100% qualificadas em trabalho em altura, pontos de ancoragem certificados, andaimes conforme NR-18 e linha de vida homologada.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Bloco 3: Escopo de Engenharia Executado em Campo */}
+            {isFachada && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                  <Layers className="w-5 h-5 text-red-600" />
+                  Escopo de Engenharia Executado em Campo
+                </h3>
+                
+                <ul className="space-y-3 text-xs text-gray-700 leading-relaxed">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Lavagem e Hidrojateamento Técnico:</strong> Limpeza profunda de alta pressão para desincrustação de fuligem, remoção de fungos e preparação da base mineral.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Mapeamento & Teste de Percussão:</strong> Identificação minuciosa de áreas com som cavo, pastilhas soltas e risco iminente de destacamento.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Recuperação Estrutural:</strong> Tratamento químico de ferragens expostas com primer anticorrosivo e recomposição volumétrica em argamassa polimérica estrutural.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Tratamento de Fissuras e Juntas de Dilatação:</strong> Abertura técnica em 'V' e calafetação com mastique de Poliuretano (PU) de alta elasticidade.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Pintura Técnica & Textura Acrílica:</strong> Aplicação de selador acrílico, textura hidro-repelente e acabamento elastomérico com proteção contra intempéries e raios UV.</div>
+                  </li>
+                </ul>
+
+                <p className="pt-2 text-xs text-gray-500 italic border-t border-slate-100">
+                  A coordenação técnica foi conduzida diretamente pelo <strong>Eng. Christian Gomes</strong>, com emissão de Anotações de Responsabilidade Técnica (ART) para todas as disciplinas de projeto e execução civil.
+                </p>
+              </div>
+            )}
+
+            {/* Bloco 4: Galeria Fotográfica Fachadas */}
+            {isFachada && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                    <Camera className="w-5 h-5 text-red-600" />
+                    Galeria Fotográfica &bull; Obra Condomínio Atlanta
+                  </h3>
+                  <span className="text-[11px] text-gray-400 font-medium">Registros Técnicos da Obra</span>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="space-y-2">
                     <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
                       <Image
                         src="/images/fachada-atlanta-dia.jpg"
-                        alt="Reforma de Fachada - Vista Diurna"
+                        alt="Condomínio Atlanta - Perspectiva Diurna"
                         fill
                         className="object-cover"
                         unoptimized
                       />
                     </div>
-                    <p className="text-xs text-center text-gray-500 font-medium">Perspectiva Diurna & Acabamento Texturizado</p>
+                    <p className="text-[11px] text-center text-gray-500 font-medium">
+                      Visão diurna: Acabamento texturizado, alinhamento estético e pintura concluída.
+                    </p>
                   </div>
 
                   <div className="space-y-2">
                     <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
                       <Image
                         src="/images/fachada-atlanta-noite.jpg"
-                        alt="Reforma de Fachada - Vista Noturna"
+                        alt="Condomínio Atlanta - Perspectiva Noturna"
                         fill
                         className="object-cover"
                         unoptimized
                       />
                     </div>
-                    <p className="text-xs text-center text-gray-500 font-medium">Perspectiva Noturna & Valorização Arquitetônica</p>
+                    <p className="text-[11px] text-center text-gray-500 font-medium">
+                      Visão noturna: Valorização da iluminação arquitetônica e volumetria predial.
+                    </p>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Diferenciais */}
+            {/* Bloco 5: Diferenciais */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
               <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-red-600" />
@@ -126,7 +221,7 @@ export default function ServiceDetailPage() {
               </div>
             </div>
 
-            {/* Metodologia / Processo */}
+            {/* Bloco 6: Metodologia Passo a Passo */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
               <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
                 <Layers className="w-5 h-5 text-red-600" />
@@ -149,22 +244,24 @@ export default function ServiceDetailPage() {
           {/* Coluna Lateral */}
           <div className="lg:col-span-4 space-y-6">
             
-            {/* Foto Lateral (quando não for fachada) */}
-            {!isFachada && (
-              <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                <div className="relative h-64 w-full bg-slate-100">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
+            {/* Card com Foto Principal e Legenda (igual ao Posto) */}
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+              <div className="relative h-64 w-full bg-slate-100">
+                <Image
+                  src={isFachada ? "/images/fachada-atlanta-dia.jpg" : service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
               </div>
-            )}
+              <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center gap-2 text-[11px] text-gray-600">
+                <Building2 className="w-3.5 h-3.5 text-red-600 flex-shrink-0" />
+                <span>{isFachada ? "Obra entregue: Condomínio Atlanta • Zona Leste/SP" : isPosto ? "Obra entregue: Transtassi • Guarulhos/SP" : service.title}</span>
+              </div>
+            </div>
 
-            {/* Card de Orçamento */}
+            {/* Card de Orçamento Imediato */}
             <div className="bg-slate-950 text-white p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
               <div className="space-y-1">
                 <span className="text-[11px] font-bold text-red-500 uppercase tracking-wider block">Atendimento Imediato</span>
@@ -195,7 +292,7 @@ export default function ServiceDetailPage() {
               </div>
 
               <div className="pt-4 border-t border-slate-800 space-y-1.5 text-[11px] text-gray-400">
-                <p>&bull; Atendimento: Projetos em todo o Brasil &bull; Execução em SP</p>
+                <p>&bull; Atendimento: Projetos em todo o Brasil &bull; Execução de Obras em SP</p>
                 <p>&bull; Responsabilidade Técnica: Eng. Christian Gomes (CREA/SP)</p>
               </div>
             </div>
