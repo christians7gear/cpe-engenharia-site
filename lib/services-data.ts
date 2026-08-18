@@ -238,7 +238,7 @@ export const services: Service[] = [
       "Execução: limpeza, tratamento de patologias, aplicação de novo revestimento.",
       "Desmobilização e entrega da obra com garantia."
     ],
-    image: "https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
     icon: "Building2",
     category: "execucao"
   }
