@@ -489,7 +489,7 @@ export const servicesData: Record<string, ServiceDetail> = {
   },
 };
 
-// Aliases para manter links antigos 100% funcionais
+// Aliases para manter compatibilidade total de links
 servicesData["projeto-arquitetonico"] = servicesData["projetos-arquitetonicos"];
 servicesData["projeto-estrutural"] = servicesData["projetos-complementares"];
 servicesData["avcb-bombeiros"] = servicesData["regularizacao-avcb"];
