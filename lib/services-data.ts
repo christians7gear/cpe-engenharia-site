@@ -227,8 +227,8 @@ export const servicesData: Record<string, ServiceDetail> = {
     subtitle: "Gestão executiva completa, precisão estrutural e acabamentos refinados em condomínios fechados",
     shortDescription: "Construção de casas de alto padrão com gestão físico-financeira e engenheiro residente.",
     category: "obras",
-    image: "/images/residential.png",
-    heroImage: "/images/residential.png",
+    image: "/images/residencia.png",
+    heroImage: "/images/residencia.png",
     badge: "Construção Civil",
     description:
       "Execução de residências de alto padrão com rigoroso controle de custos, cronograma físico-financeiro transparente e acabamentos de altíssima qualidade técnica.",
