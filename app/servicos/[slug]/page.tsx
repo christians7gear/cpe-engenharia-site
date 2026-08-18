@@ -23,9 +23,9 @@ export default function ServiceDetailPage() {
   const isPosto = service.slug === "postos-abastecimento";
   const isFachada = service.slug === "reforma-fachadas";
 
-  // URLs de imagens com fallback seguro
-  const fachadaDia = "/images/Gemini_Generated_Image_wpkl9jwpkl9jwpkl (1).jpg";
-  const fachadaNoite = "https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png";
+  // URLs diretas e otimizadas das fotos exatas enviadas do Condomínio Atlanta
+  const fotoFachadaDia = "https://images.weserv.nl/?url=https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png&output=webp&q=85";
+  const fotoFachadaNoite = "https://images.weserv.nl/?url=https://cdn.abacus.ai/images/22ea0ab3-63c7-48c8-aecb-b4ea3e7f8de8.png&output=webp&q=85";
 
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
@@ -124,7 +124,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 3: Escopo Técnico */}
+            {/* Bloco 3: Escopo de Engenharia */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -161,7 +161,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 4: Galeria Fotográfica Fachadas */}
+            {/* Bloco 4: Galeria Fotográfica (Fotos Reais) */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
@@ -174,13 +174,11 @@ export default function ServiceDetailPage() {
 
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="space-y-2">
-                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
-                      <Image
-                        src={fachadaDia}
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm">
+                      <img
+                        src={fotoFachadaDia}
                         alt="Condomínio Atlanta - Perspectiva Diurna"
-                        fill
-                        className="object-cover"
-                        unoptimized
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <p className="text-[11px] text-center text-gray-500 font-medium">
@@ -189,13 +187,11 @@ export default function ServiceDetailPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
-                      <Image
-                        src={fachadaNoite}
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-sm">
+                      <img
+                        src={fotoFachadaNoite}
                         alt="Condomínio Atlanta - Perspectiva Noturna"
-                        fill
-                        className="object-cover"
-                        unoptimized
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <p className="text-[11px] text-center text-gray-500 font-medium">
@@ -222,7 +218,7 @@ export default function ServiceDetailPage() {
               </div>
             </div>
 
-            {/* Bloco 6: Metodologia Passo a Passo */}
+            {/* Bloco 6: Metodologia */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
               <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
                 <Layers className="w-5 h-5 text-red-600" />
@@ -245,15 +241,13 @@ export default function ServiceDetailPage() {
           {/* Coluna Lateral */}
           <div className="lg:col-span-4 space-y-6">
             
-            {/* Card com Foto Principal e Legenda */}
+            {/* Card com Foto Principal */}
             <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
               <div className="relative h-64 w-full bg-slate-100">
-                <Image
-                  src={isFachada ? fachadaDia : service.image}
+                <img
+                  src={isFachada ? fotoFachadaDia : service.image}
                   alt={service.title}
-                  fill
-                  className="object-cover"
-                  unoptimized
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center gap-2 text-[11px] text-gray-600">
@@ -262,7 +256,7 @@ export default function ServiceDetailPage() {
               </div>
             </div>
 
-            {/* Card de Orçamento Imediato */}
+            {/* Card de Orçamento */}
             <div className="bg-slate-950 text-white p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
               <div className="space-y-1">
                 <span className="text-[11px] font-bold text-red-500 uppercase tracking-wider block">Atendimento Imediato</span>
