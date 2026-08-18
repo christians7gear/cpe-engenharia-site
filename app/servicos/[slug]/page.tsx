@@ -23,8 +23,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
     notFound();
   }
 
-  const isResidencial = service.slug === "obras-residenciais";
-  const isPosto = service.slug === "postos-abastecimento";
+  const isResidencial = service.slug.includes("residenci");
+  const isPosto = service.slug.includes("posto");
 
   return (
     <div className="pt-28 sm:pt-36 pb-20 bg-slate-50 min-h-screen">
@@ -151,7 +151,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     <HardHat className="w-5 h-5 text-red-600" />
                     Galeria Fotográfica &bull; Obra Transtassi Guarulhos
                   </h3>
-                  <span className="text-xs font-semibold text-gray-500">3 Ângulos Técnicos</span>
+                  <span className="text-xs font-semibold text-gray-500">Registros Técnicos da Obra</span>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -179,7 +179,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                       />
                     </div>
                     <p className="text-xs text-gray-500 font-medium text-center">
-                      Visão aérea panorâmica do pátio de manobra em concreto armado e tanques
+                      Visão panorâmica do pátio em concreto armado usinado e tanques
                     </p>
                   </div>
                 </div>
