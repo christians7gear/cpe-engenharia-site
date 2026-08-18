@@ -9,7 +9,10 @@ export interface ServiceDetail {
   slug: string;
   title: string;
   subtitle: string;
+  shortDescription?: string;
   description: string;
+  category?: string;
+  image?: string;
   heroImage: string;
   badge?: string;
   caseStudy?: {
@@ -39,6 +42,7 @@ export interface ServiceDetail {
     title: string;
     desc: string;
   }[];
+  process?: string[];
   sidebarImageCaption?: string;
 }
 
@@ -47,10 +51,13 @@ export const servicesData: Record<string, ServiceDetail> = {
     slug: "postos-abastecimento",
     title: "Postos de Abastecimento e Sistemas de Combustível",
     subtitle: "Engenharia especializada para pontos de abastecimento interno, frotas e logística pesada",
+    shortDescription: "Infraestrutura completa para pontos de abastecimento de combustíveis (PAAC), tanques, bombas e contenção ambiental.",
+    category: "obras",
+    image: "/images/posto-tassi.png",
+    heroImage: "/images/posto-tassi.png",
     badge: "Case Real de Engenharia",
     description:
       "A CPE ENGENHARIA projeta e executa soluções completas em infraestrutura para pontos de abastecimento de combustíveis e lubrificantes (PAAC). Atuamos desde a fundação e piso de alta resistência até a montagem mecânica de tanques, bombas, tubulações de PEAD, drenagem oleosa com caixa separadora (SAO) e sistemas à prova de explosão (Ex).",
-    heroImage: "/images/posto-tassi.png",
     sidebarImageCaption: "Obra entregue: Transtassi • Guarulhos/SP",
     caseStudy: {
       client: "Transtassi Transportes",
@@ -158,10 +165,13 @@ export const servicesData: Record<string, ServiceDetail> = {
     slug: "reforma-fachadas",
     title: "Reforma e Revitalização de Fachadas",
     subtitle: "Engenharia diagnóstica, recuperação estrutural e acabamentos nobres de alta durabilidade",
+    shortDescription: "Recuperação do concreto, tratamento percussivo, vedação elastomérica e revestimentos nobres para condomínios e prédios comerciais.",
+    category: "obras",
+    image: "/images/fachada-atlanta-dia.png",
+    heroImage: "/images/fachada-atlanta-dia.png",
     badge: "Case Real de Engenharia",
     description:
       "A CPE ENGENHARIA entrega soluções completas em reformas prediais, revitalização de fachadas e engenharia diagnóstica, atuando de ponta a ponta: do laudo técnico pericial e planejamento executivo até a recuperação estrutural profunda e aplicação de revestimentos de alta performance.",
-    heroImage: "/images/fachada-atlanta-dia.png",
     sidebarImageCaption: "Obra entregue: Condomínio Atlanta • São Paulo/SP",
     caseStudy: {
       client: "Condomínio Edifício Atlanta",
@@ -260,3 +270,9 @@ export const servicesData: Record<string, ServiceDetail> = {
     ],
   },
 };
+
+export const services = Object.values(servicesData);
+
+export function getServiceBySlug(slug: string): ServiceDetail | undefined {
+  return servicesData[slug];
+}
