@@ -55,7 +55,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     category: "projetos",
     image: "/images/architectural.png",
     heroImage: "/images/architectural.png",
-    badge: "Projeto Técnico",
+    badge: "PROJETO",
     description:
       "Elaboramos projetos arquitetônicos autorais e executivos de alto nível técnico, unindo estética, funcionalidade, conforto térmico-acústico e conformidade com o Plano Diretor e Código de Obras municipal.",
     sidebarImageCaption: "Projeto Arquitetônico Executivo • CPE Engenharia",
@@ -90,7 +90,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     category: "projetos",
     image: "/images/structural.png",
     heroImage: "/images/structural.png",
-    badge: "Engenharia de Estruturas",
+    badge: "PROJETO",
     description:
       "Projetamos estruturas em concreto armado, perfis metálicos, alvenaria estrutural e todas as instalações complementares (hidrossanitário e elétrico), garantindo economia de insumos e total segurança.",
     sidebarImageCaption: "Modelo Estrutural Tridimensional • CPE Engenharia",
@@ -124,9 +124,9 @@ export const servicesData: Record<string, ServiceDetail> = {
     subtitle: "Sistemas inteligentes de detecção pontual, linear por feixe óptico e alarme centralizado",
     shortDescription: "Projetos de detecção e alarme de incêndio para indústrias, condomínios e grandes centros de logística.",
     category: "projetos",
-    image: "/images/fire_protection.png",
-    heroImage: "/images/fire_protection.png",
-    badge: "Sistemas Especiais",
+    image: "/images/sdai.png",
+    heroImage: "/images/sdai.png",
+    badge: "PROJETO",
     description:
       "Desenvolvemos projetos de Sistemas de Detecção e Alarme de Incêndio (SDAI) convencionais e endereçáveis, assegurando resposta rápida e integração total com centrais de automação predial e portas corta-fogo.",
     sidebarImageCaption: "Sistema SDAI Integrado • CPE Engenharia",
@@ -160,7 +160,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     category: "projetos",
     image: "/images/fire_protection.png",
     heroImage: "/images/fire_protection.png",
-    badge: "Segurança Contra Incêndio",
+    badge: "PROJETO",
     description:
       "Dimensionamento completo de redes hidráulicas de combate a incêndio: hidrantes, mangotinhos, sistemas de sprinklers automáticos, bombas principais e jockey com cálculos isométricos e de perda de carga.",
     sidebarImageCaption: "Rede Hidráulica SPCI • CPE Engenharia",
@@ -195,7 +195,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     category: "projetos",
     image: "/images/avcb.png",
     heroImage: "/images/avcb.png",
-    badge: "Regularização Legal",
+    badge: "REGULARIZAÇÃO",
     description:
       "A CPE ENGENHARIA realiza laudos técnicos periciais, vistorias prévias e gestão completa do processo para obtenção e renovação do Auto de Vistoria do Corpo de Bombeiros (AVCB e CLCB) para indústrias, condomínios e comércios.",
     sidebarImageCaption: "Certificado de Regularização AVCB • CPE Engenharia",
@@ -227,9 +227,9 @@ export const servicesData: Record<string, ServiceDetail> = {
     subtitle: "Gestão executiva completa, precisão estrutural e acabamentos refinados em condomínios fechados",
     shortDescription: "Construção de casas de alto padrão com gestão físico-financeira e engenheiro residente.",
     category: "obras",
-    image: "/images/residencia.png",
-    heroImage: "/images/residencia.png",
-    badge: "Construção Civil",
+    image: "/images/residential.png",
+    heroImage: "/images/residential.png",
+    badge: "EXECUÇÃO",
     description:
       "Execução de residências de alto padrão com rigoroso controle de custos, cronograma físico-financeiro transparente e acabamentos de altíssima qualidade técnica.",
     sidebarImageCaption: "Obra residencial entregue • Alto Padrão SP",
@@ -265,7 +265,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     category: "obras",
     image: "/images/posto-tassi.png",
     heroImage: "/images/posto-tassi.png",
-    badge: "Case Real de Engenharia",
+    badge: "EXECUÇÃO",
     description:
       "A CPE ENGENHARIA projeta e executa soluções completas em infraestrutura para pontos de abastecimento de combustíveis e lubrificantes (PAAC). Atuamos desde a fundação e piso de alta resistência até a montagem mecânica de tanques, bombas, tubulações de PEAD, drenagem oleosa com caixa separadora (SAO) e sistemas à prova de explosão (Ex).",
     sidebarImageCaption: "Obra entregue: Transtassi • Guarulhos/SP",
@@ -348,7 +348,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     category: "obras",
     image: "/images/warehouse.png",
     heroImage: "/images/warehouse.png",
-    badge: "Engenharia Logística",
+    badge: "EXECUÇÃO",
     description:
       "Construção de centros de distribuição e galpões logísticos modernos com foco em modulação estrutural, nivelamento a laser de pisos industriais, docas elevadas e telhas termoacústicas para eficiência energética.",
     sidebarImageCaption: "Galpão logístico entregue • Guarulhos/SP",
@@ -384,7 +384,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     category: "obras",
     image: "/images/industrial_facility.png",
     heroImage: "/images/industrial_facility.png",
-    badge: "Engenharia Industrial",
+    badge: "EXECUÇÃO",
     description:
       "A CPE ENGENHARIA executa obras industriais complexas: bases antivibratórias para maquinário pesado, subestações elétricas, drenagens com canaletas anticorrosivas e reformas sem interromper a produção da fábrica.",
     sidebarImageCaption: "Planta fabril industrial • São Bernardo/SP",
@@ -419,7 +419,7 @@ export const servicesData: Record<string, ServiceDetail> = {
     category: "obras",
     image: "/images/fachada-atlanta-dia.png",
     heroImage: "/images/fachada-atlanta-dia.png",
-    badge: "Case Real de Engenharia",
+    badge: "EXECUÇÃO",
     description:
       "A CPE ENGENHARIA entrega soluções completas em reformas prediais, revitalização de fachadas e engenharia diagnóstica, atuando de ponta a ponta: do laudo técnico pericial e planejamento executivo até a recuperação estrutural profunda e aplicação de revestimentos de alta performance.",
     sidebarImageCaption: "Obra entregue: Condomínio Atlanta • São Paulo/SP",
