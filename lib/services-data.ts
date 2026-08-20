@@ -132,10 +132,10 @@ export const services: Service[] = [
     slug: "obras-residenciais",
     title: "Obras Residenciais",
     shortDescription: "Construção de residências de alto padrão.",
-    description: "Realizamos a construção de residências de alto padrão, desde a fundação até o acabamento. Com uma gestão de obra focada em qualidade, prazo e orçamento, transformamos seu projeto em realidade com rigor técnico e acabamentos de excelência.",
+    description: "Realizamos a construção de residências de alto padrão, desde a fundação até o acabamento fino. Com uma gestão de obra focada em qualidade, cumprimento de prazo e controle de custos, transformamos seu projeto em realidade.",
     benefits: [
       "Gestão Profissional: Cronograma físico-financeiro detalhado e controle rigoroso.",
-      "Qualidade Construtiva: Materiais de primeira linha e mão de obra altamente qualificada.",
+      "Qualidade Construtiva: Materiais de primeira linha e mão de obra qualificada.",
       "Cumprimento de Prazos: Planejamento eficiente para entregar na data combinada.",
       "Transparência: Relatórios periódicos sobre o andamento da obra e controle de custos."
     ],
@@ -144,9 +144,9 @@ export const services: Service[] = [
       "Orçamentação detalhada de materiais e mão de obra.",
       "Execução das fundações, estrutura, alvenaria e lajes.",
       "Instalação dos sistemas elétricos, hidráulicos e de climatização.",
-      "Acabamentos, pintura técnica, entrega e emissão do Habite-se."
+      "Acabamentos, pintura, entrega e emissão do Habite-se."
     ],
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/residencia.png",
     icon: "Home",
     category: "execucao"
   },
@@ -224,21 +224,21 @@ export const services: Service[] = [
     slug: "reforma-fachadas",
     title: "Reforma e Revitalização de Fachadas",
     shortDescription: "Recuperação estrutural, impermeabilização, pintura técnica e retrofit predial.",
-    description: "A CPE Engenharia é especialista na revitalização, restauração e manutenção de fachadas para condomínios residenciais e edifícios corporativos. Nossas intervenções combinam engenharia diagnóstica, tratamento de patologias estruturais e acabamentos de alto padrão com emissão de ART e total conformidade com as normas ABNT e NR-35.",
+    description: "Revitalizamos e modernizamos fachadas de edifícios residenciais, comerciais e corporativos. Nossos serviços abrangem desde a recuperação de elementos estruturais e revestimentos até a impermeabilização e pintura técnica de alto desempenho.",
     benefits: [
-      "Recuperação e Durabilidade Estrutural: Mapeamento por percussão, tratamento de armaduras oxidadas e reconstituição volumétrica de concreto e reboco.",
-      "Estanqueidade e Impermeabilização: Abertura e calafetação técnica de fissuras com selantes de poliuretano (PU) de alta flexibilidade contra infiltrações.",
-      "Pintura Técnica de Alto Desempenho: Aplicação de texturas hidro-repelentes e tintas elastoméricas com resistência a intempéries e raios UV.",
-      "Segurança Operacional e Conformidade: Equipes 100% qualificadas na NR-35 (trabalho em altura), sistemas de ancoragem certificados e responsabilidade CREA/SP."
+      "Valorização do Imóvel: Fachada renovada moderniza a imagem e aumenta o valor patrimonial.",
+      "Segurança e Estanqueidade: Tratamento de fissuras e eliminação de riscos de desprendimento e infiltrações.",
+      "Durabilidade e Proteção: Materiais elastoméricos de alta performance contra intempéries e raios UV.",
+      "Conformidade NBR 16280 e NR-35: Gestão técnica de reformas e trabalho em altura com ART registrada."
     ],
     process: [
-      "Inspeção preliminar detalhada da fachada com teste de percussão e mapeamento técnico de patologias.",
-      "Lavagem técnica por hidrojateamento pressurizado para remoção de sujidades, fuligem e preparação da base.",
-      "Tratamento de patologias: estancamento de trincas, recuperação de armaduras e reconstituição de reboco.",
-      "Aplicação de fundo preparador selador, textura acrílica hidro-repelente e pintura técnica elastomérica.",
-      "Vistoria final minuciosa, desmobilização e entrega formal da obra com termo de garantia e ART registrada."
+      "Inspeção técnica detalhada da fachada para diagnóstico de patologias com teste de percussão.",
+      "Lavagem e hidrojateamento de alta pressão para preparação de base.",
+      "Tratamento de trincas, recuperação de armaduras expostas e juntas de dilatação.",
+      "Aplicação de textura acrílica hidro-repelente e pintura técnica elastomérica.",
+      "Desmobilização e entrega formal da obra com termo de garantia técnica."
     ],
-    image: "/images/fachada-dia.png",
+    image: "https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png",
     icon: "Building2",
     category: "execucao"
   }
