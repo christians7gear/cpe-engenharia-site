@@ -112,7 +112,7 @@ export const services: Service[] = [
     description: "Gerenciamos todo o processo para a obtenção ou renovação do seu AVCB, desde a análise inicial até a vistoria final. Cuidamos da adequação da edificação, da instalação dos sistemas de segurança e de toda a documentação necessária.",
     benefits: [
       "Regularização do Imóvel: O AVCB é obrigatório para o funcionamento da maioria das atividades.",
-      "Segurança Jurídica: Evita multas, interdições e problemas com seguradoras.",
+      "Segurança Juriddica: Evita multas, interdições e problemas com seguradoras.",
       "Gestão Simplificada: Cuidamos de toda a burocracia, desde a emissão de laudos até o protocolo.",
       "Tranquilidade: A certeza de que sua edificação foi inspecionada e aprovada."
     ],
@@ -146,7 +146,7 @@ export const services: Service[] = [
       "Instalação dos sistemas elétricos, hidráulicos e de climatização.",
       "Acabamentos, pintura, entrega e emissão do Habite-se."
     ],
-    image: "/images/residencia.png",
+    image: "https://cdn.abacus.ai/images/89524fd6-adbb-4264-96cb-0f4601dff1e0.png",
     icon: "Home",
     category: "execucao"
   },
