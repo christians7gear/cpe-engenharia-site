@@ -124,8 +124,8 @@ export const servicesData: Record<string, ServiceDetail> = {
     subtitle: "Sistemas inteligentes de detecção pontual, linear por feixe óptico e alarme centralizado",
     shortDescription: "Projetos de detecção e alarme de incêndio para indústrias, condomínios e grandes centros de logística.",
     category: "projetos",
-    image: "/images/sdai.png",
-    heroImage: "/images/sdai.png",
+    image: "/images/fire_protection.png",
+    heroImage: "/images/fire_protection.png",
     badge: "PROJETO",
     description:
       "Desenvolvemos projetos de Sistemas de Detecção e Alarme de Incêndio (SDAI) convencionais e endereçáveis, assegurando resposta rápida e integração total com centrais de automação predial e portas corta-fogo.",
@@ -227,8 +227,8 @@ export const servicesData: Record<string, ServiceDetail> = {
     subtitle: "Gestão executiva completa, precisão estrutural e acabamentos refinados em condomínios fechados",
     shortDescription: "Construção de casas de alto padrão com gestão físico-financeira e engenheiro residente.",
     category: "obras",
-    image: "/images/residential.png",
-    heroImage: "/images/residential.png",
+    image: "/images/residencia.png",
+    heroImage: "/images/residencia.png",
     badge: "EXECUÇÃO",
     description:
       "Execução de residências de alto padrão com rigoroso controle de custos, cronograma físico-financeiro transparente e acabamentos de altíssima qualidade técnica.",
