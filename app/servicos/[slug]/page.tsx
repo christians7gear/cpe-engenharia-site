@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { 
@@ -23,6 +22,7 @@ export default function ServiceDetailPage() {
   const isPosto = service.slug === "postos-abastecimento";
   const isFachada = service.slug === "reforma-fachadas";
 
+  // Imagens das perspectivas do Condomínio Atlanta
   const fotoFachadaDia = "/images/fachada-dia.png";
   const fotoFachadaNoite = "/images/fachada-noite.png";
 
@@ -60,7 +60,7 @@ export default function ServiceDetailPage() {
               </h2>
               
               <p className="text-gray-700 leading-relaxed text-sm">
-                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em reformas prediais, projetos de engenharia e execução civil pesada com ART registrada no CREA-SP.
+                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em reformas prediais, revitalização de fachadas e engenharia diagnóstica, atuando de ponta a ponta: do laudo técnico pericial e planejamento executivo até a recuperação estrutural profunda e aplicação de revestimentos de alta performance.
               </p>
 
               {/* Case Fachada */}
@@ -94,7 +94,7 @@ export default function ServiceDetailPage() {
               </p>
             </div>
 
-            {/* Bloco 2: Rigor Técnico e Normas (Exclusivo Fachadas) */}
+            {/* Bloco 2: Rigor Técnico e Normas */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -127,7 +127,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 3: Escopo de Engenharia Executado em Campo */}
+            {/* Bloco 3: Escopo Técnico */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -164,7 +164,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 4: Galeria Fotográfica (Exclusivo Fachadas com as duas perspectivas) */}
+            {/* Bloco 4: Galeria Fotográfica Fachadas (Duas Perspectivas) */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
@@ -177,13 +177,12 @@ export default function ServiceDetailPage() {
 
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="space-y-2">
-                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
-                      <Image
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
                         src={fotoFachadaDia}
                         alt="Condomínio Atlanta - Perspectiva Diurna"
-                        fill
-                        className="object-cover"
-                        unoptimized
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <p className="text-[11px] text-center text-gray-500 font-medium">
@@ -192,13 +191,12 @@ export default function ServiceDetailPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
-                      <Image
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
                         src={fotoFachadaNoite}
                         alt="Condomínio Atlanta - Perspectiva Noturna"
-                        fill
-                        className="object-cover"
-                        unoptimized
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <p className="text-[11px] text-center text-gray-500 font-medium">
@@ -245,29 +243,22 @@ export default function ServiceDetailPage() {
 
           </div>
 
-          {/* Coluna Lateral - Sem foto duplicada quando houver galeria */}
+          {/* Coluna Lateral */}
           <div className="lg:col-span-4 space-y-6">
             
-            {/* Card com Foto Principal (Apenas para serviços normais ou capa do case) */}
+            {/* Card com Foto Principal */}
             <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
               <div className="relative h-64 w-full bg-slate-100">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={isFachada ? fotoFachadaDia : service.image}
                   alt={service.title}
-                  fill
-                  className="object-cover"
-                  unoptimized
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center gap-2 text-[11px] text-gray-600">
                 <Building2 className="w-3.5 h-3.5 text-red-600 flex-shrink-0" />
-                <span>
-                  {isFachada 
-                    ? "Obra entregue: Condomínio Atlanta • Zona Leste/SP" 
-                    : isPosto 
-                    ? "Obra entregue: Transtassi • Guarulhos/SP" 
-                    : service.title}
-                </span>
+                <span>{isFachada ? "Obra entregue: Condomínio Atlanta • Zona Leste/SP" : isPosto ? "Obra entregue: Transtassi • Guarulhos/SP" : service.title}</span>
               </div>
             </div>
 
