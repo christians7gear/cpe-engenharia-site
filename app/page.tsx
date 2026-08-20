@@ -46,7 +46,8 @@ export default function HomePage() {
     );
   }
 
-  const featuredServices = services?.slice?.(0, 6) ?? [];
+  // Todos os 10 serviços exibidos sem cortes
+  const allServices = services ?? [];
 
   return (
     <>
@@ -273,7 +274,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - Todos os 10 serviços completos */}
       <section className="py-20 bg-white border-t">
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
@@ -287,17 +288,17 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredServices?.map?.((service, index) => (
-              <ServiceCard key={service?.id ?? index} service={service} index={index} />
+            {allServices?.map?.((service, index) => (
+              <ServiceCard key={service?.slug ?? index} service={service} index={index} />
             )) ?? []}
           </div>
 
           <div className="text-center mt-12">
             <Link
-              href="/servicos"
-              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-xl transition-colors"
+              href="/orcamento"
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-xl transition-colors shadow-md"
             >
-              Ver Todos os Serviços
+              Solicitar Orçamento de Serviços
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
