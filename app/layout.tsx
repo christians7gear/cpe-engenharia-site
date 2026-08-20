@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { Navbar } from "@/components/navbar";
@@ -69,6 +70,23 @@ export default function RootLayout({
     <html lang="pt-BR">
       <head>
         <script src="https://apps.abacus.ai/chatllm/appllm-lib.js" />
+        {/* Google tag (gtag.js) GA4 */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z8WXWR1J0H"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Z8WXWR1J0H');
+            `,
+          }}
+        />
       </head>
       <body className={inter.className}>
         <Providers>
