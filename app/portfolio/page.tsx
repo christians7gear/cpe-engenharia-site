@@ -24,7 +24,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "projetos",
     location: "São Paulo, SP",
     year: "2024",
-    image: "https://cdn.abacus.ai/images/22ea0ab3-63c7-48c8-aecb-b4ea3e7f8de8.png",
+    image: "/images/architectural.png",
     linkUrl: "/servicos/projetos-arquitetonicos",
     badge: "Projetos Técnicos",
   },
@@ -34,7 +34,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "projetos",
     location: "São Paulo, SP",
     year: "2024",
-    image: "https://cdn.abacus.ai/images/7ff63605-22e9-4efa-832a-43af18883e18.png",
+    image: "/images/structural.png",
     linkUrl: "/servicos/projetos-complementares",
     badge: "Estrutural / Hidráulica / Elétrica",
   },
@@ -54,7 +54,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "projetos",
     location: "São Paulo, SP",
     year: "2024",
-    image: "https://cdn.abacus.ai/images/4a275068-3c84-403b-ba10-5e628a12d6ef.png",
+    image: "/images/fire_protection.png",
     linkUrl: "/servicos/projetos-spci",
     badge: "Proteção Contra Incêndio",
   },
@@ -64,7 +64,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "comercial",
     location: "São Paulo, SP",
     year: "2024",
-    image: "https://cdn.abacus.ai/images/a2de6bfc-29df-46af-8d7d-e1238e07926b.png",
+    image: "/images/avcb.png",
     linkUrl: "/servicos/avcb",
     badge: "Laudos & Aprovações",
   },
@@ -94,7 +94,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "industrial",
     location: "Guarulhos, SP",
     year: "2024",
-    image: "https://cdn.abacus.ai/images/025a3994-37de-4f81-9bb3-7276165b3a50.png",
+    image: "/images/warehouse.png",
     linkUrl: "/servicos/galpoes-industriais",
     badge: "Construção Industrial",
   },
@@ -104,7 +104,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "industrial",
     location: "São Bernardo, SP",
     year: "2023",
-    image: "https://cdn.abacus.ai/images/89524fd6-adbb-4264-96cb-0f4601dff1e0.png",
+    image: "/images/industrial_facility.png",
     linkUrl: "/servicos/industrias",
     badge: "Engenharia Industrial",
   },
@@ -114,7 +114,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "comercial",
     location: "São Paulo, SP",
     year: "2024",
-    image: "https://cdn.abacus.ai/images/3cf78604-3225-4ac4-9f1c-3a27b4958552.png",
+    image: "/images/facade_renovation.png",
     linkUrl: "/servicos/reforma-fachadas",
     badge: "Revitalização Predial",
   },
@@ -148,94 +148,83 @@ export default function PortfolioPage() {
             Portfólio <span className="text-red-600">CPE Engenharia</span>
           </h1>
           <p className="text-gray-400 mt-3 max-w-2xl mx-auto text-sm sm:text-base">
-            Explore nossos cases de sucesso em projetos complementares, aprovações regulatórias, reformas corporativas e execução de obras de alto padrão.
+            Conheça alguns dos projetos e obras que desenvolvemos e executamos com excelência técnica.
           </p>
         </div>
       </section>
 
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        {/* Filtros de Categoria */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+      {/* Filtros */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 mb-10">
+        <div className="flex flex-wrap gap-2 justify-center">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
                 activeCategory === cat.id
-                  ? "bg-red-600 text-white shadow-md shadow-red-600/20"
-                  : "bg-white text-gray-700 hover:bg-gray-100 border border-slate-200"
+                  ? "bg-red-600 text-white shadow-md"
+                  : "bg-white text-gray-600 border border-slate-200 hover:border-slate-300"
               }`}
             >
               {cat.label}
             </button>
           ))}
         </div>
+      </section>
 
-        {/* Grade de Itens do Portfólio com Links Diretos */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Grid do Portfólio */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.04 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+              transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <div>
-                {/* Imagem do Projeto */}
-                <div className="relative w-full h-64 overflow-hidden bg-slate-100">
+              <Link
+                href={item.linkUrl}
+                className="group block bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all"
+              >
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                     unoptimized
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="text-[11px] font-bold text-white bg-slate-900/85 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10">
+                  <div className="absolute bottom-3 left-3">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-black/80 text-white backdrop-blur-sm border border-white/10">
                       {item.badge}
                     </span>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                    <span className="text-xs font-semibold text-white bg-red-600 px-3 py-1.5 rounded-xl flex items-center gap-1 shadow-md">
-                      Ver Especificações do Serviço <ArrowUpRight className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
                 </div>
 
-                {/* Conteúdo */}
-                <div className="p-6 space-y-3">
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors leading-snug">
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors mb-2 line-clamp-2">
                     {item.title}
                   </h3>
-                  
-                  <div className="flex items-center gap-4 text-xs text-gray-500 font-medium">
+                  <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
                     <span className="flex items-center gap-1">
-                      <MapPin className="w-4 h-4 text-red-500" />
+                      <MapPin className="w-3.5 h-3.5" />
                       {item.location}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4 text-slate-400" />
+                      <Calendar className="w-3.5 h-3.5" />
                       {item.year}
                     </span>
                   </div>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 group-hover:translate-x-1 transition-transform duration-200">
+                    Ver detalhes
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </span>
                 </div>
-              </div>
-
-              {/* Botão de Ação Direta */}
-              <div className="p-6 pt-0">
-                <Link
-                  href={item.linkUrl}
-                  className="w-full flex items-center justify-between py-2.5 px-4 rounded-xl text-xs font-bold text-slate-900 bg-slate-50 hover:bg-red-600 hover:text-white border border-slate-200 hover:border-red-600 transition-all group/btn shadow-sm"
-                >
-                  <span>Conhecer o Serviço Completo</span>
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                </Link>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }
