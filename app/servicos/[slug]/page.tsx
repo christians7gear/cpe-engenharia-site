@@ -1,274 +1,243 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import {
-  ShieldCheck,
-  Award,
-  CheckCircle2,
-  Phone,
-  ArrowRight,
-  HardHat,
-  FileCheck,
-  ChevronRight,
-  Layers,
-  Camera,
-  MapPin,
+import { useParams } from "next/navigation";
+import { 
+  CheckCircle2, 
+  ArrowRight, 
+  Phone, 
+  ShieldCheck, 
+  Layers, 
+  Building2, 
+  Camera
 } from "lucide-react";
-import { servicesData } from "@/lib/services-data";
+import { services, getServiceBySlug } from "@/lib/services-data";
+import { companyData } from "@/lib/company-data";
 
-interface ServicePageProps {
-  params: {
-    slug: string;
-  };
-}
+export default function ServiceDetailPage() {
+  const params = useParams();
+  const slug = params?.slug as string;
+  const service = getServiceBySlug(slug) || services[0];
 
-export function generateStaticParams() {
-  return Object.keys(servicesData).map((slug) => ({ slug }));
-}
+  const isPosto = service.slug === "postos-abastecimento";
+  const isFachada = service.slug === "reforma-fachadas";
 
-export default function ServiceDetailPage({ params }: ServicePageProps) {
-  const service = servicesData[params.slug];
-
-  if (!service) {
-    notFound();
-  }
+  const fotoFachadaDia = "/images/fachada-dia.png";
+  const fotoFachadaNoite = "/images/fachada-noite.png";
 
   return (
-    <div className="pt-28 sm:pt-36 pb-20 bg-slate-50 min-h-screen text-gray-900">
-      {/* Banner Principal */}
-      <section className="bg-slate-950 text-white py-16 mb-12 border-b border-slate-800">
+    <div className="bg-slate-50 min-h-screen pt-28 pb-20">
+      
+      {/* Header do Serviço */}
+      <section className="bg-slate-950 text-white py-14 mb-10 border-b border-slate-800">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-          <div className="flex items-center gap-2 text-xs md:text-sm text-gray-400 mb-4">
-            <Link href="/" className="hover:text-red-500 transition-colors">
-              Início
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-600" />
-            <Link href="/servicos" className="hover:text-red-500 transition-colors">
-              Serviços
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-600" />
-            <span className="text-gray-200 font-medium truncate">{service.title}</span>
+          <div className="flex items-center gap-2 text-red-500 font-semibold text-xs uppercase tracking-wider mb-3">
+            <Link href="/servicos" className="hover:underline">Serviços</Link>
+            <span>/</span>
+            <span>{service.category === "projetos" ? "Projetos Técnicos" : "Execução de Obras"}</span>
           </div>
-
-          <div className="max-w-4xl">
-            {service.badge && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-600/10 text-red-400 border border-red-500/20 mb-4">
-                <HardHat className="w-3.5 h-3.5 text-red-500" />
-                {service.badge}
-              </span>
-            )}
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
-              {service.title}
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-300 font-light leading-relaxed">
-              {service.subtitle}
-            </p>
-          </div>
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
+            {service.title}
+          </h1>
+          <p className="text-gray-400 mt-3 max-w-2xl text-sm sm:text-base">
+            {service.shortDescription}
+          </p>
         </div>
       </section>
 
-      {/* Conteúdo Principal */}
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
-          {/* Coluna Principal (Esquerda) */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Coluna Principal */}
           <div className="lg:col-span-8 space-y-8">
             
-            {/* Bloco 1: Excelência e Identidade / Case */}
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
-              <div className="flex items-center gap-2">
-                <div className="h-6 w-2.5 bg-red-600 rounded-full" />
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-wide">
-                  Excelência em Engenharia & Construtora
-                </h2>
-              </div>
-              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                {service.description}
+            {/* Bloco 1: Excelência em Engenharia */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+              <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2.5">
+                <span className="w-2 h-6 bg-red-600 rounded-full inline-block" />
+                Excelência em Engenharia & Construtora
+              </h2>
+              
+              <p className="text-gray-700 leading-relaxed text-sm">
+                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em reformas prediais, projetos de engenharia e execução civil pesada com ART registrada no CREA-SP.
               </p>
 
-              {/* Banner do Case Real de Obra */}
-              {service.caseStudy && (
-                <div className="rounded-xl border border-red-600/30 bg-slate-900 text-white p-5 shadow-md relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 rounded-full blur-2xl pointer-events-none" />
-                  <div className="flex items-center gap-2 text-red-400 font-semibold text-xs uppercase tracking-wider mb-2">
-                    <ShieldCheck className="w-4 h-4 text-red-500" />
-                    Obra Completa: Projeto e Execução • {service.caseStudy.client} ({service.caseStudy.location})
+              {/* Case Fachada */}
+              {isFachada && (
+                <div className="bg-slate-950 text-white p-5 rounded-xl border-l-4 border-red-600 space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
+                    <Building2 className="w-4 h-4" />
+                    OBRA COMPLETA: REVITALIZAÇÃO PREDIAL & FACHADA &bull; CONDOMÍNIO ATLANTA (ZONA LESTE/SP)
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                    Neste case corporativo para a <strong className="text-white">{service.caseStudy.client}</strong> em{" "}
-                    <strong className="text-white">{service.caseStudy.location}</strong>, a{" "}
-                    <strong className="text-red-400">CPE ENGENHARIA</strong> foi responsável por: {service.caseStudy.scope}
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    Neste case residencial para o <strong>Condomínio Atlanta em São Paulo/SP</strong>, a <strong>CPE ENGENHARIA</strong> foi responsável pelo projeto técnico executivo integral, inspeção pericial por percussão, tratamento de armaduras expostas, calafetação de juntas e pintura técnica hidro-repelente com garantia de estanqueidade.
                   </p>
                 </div>
               )}
+
+              {/* Case Posto */}
+              {isPosto && (
+                <div className="bg-slate-950 text-white p-5 rounded-xl border-l-4 border-red-600 space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
+                    <Building2 className="w-4 h-4" />
+                    OBRA COMPLETA: PROJETO E EXECUÇÃO &bull; TRANSTASSI (GUARULHOS/SP)
+                  </div>
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    Neste case corporativo para a <strong>Transtassi em Guarulhos/SP</strong>, a <strong>CPE ENGENHARIA</strong> foi responsável pelo projeto executivo integral e pela construção civil e montagem do ponto de abastecimento de combustíveis e lubrificantes.
+                  </p>
+                </div>
+              )}
+
+              <p className="text-gray-600 leading-relaxed text-sm">
+                {service.description}
+              </p>
             </div>
 
-            {/* Bloco 2: Rigor Técnico e Normas Regulamentadoras */}
-            {service.technicalNorms && (
-              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
-                <div className="flex items-center gap-2">
-                  <Award className="w-5 h-5 text-red-600" />
-                  <h2 className="text-xl font-bold text-gray-900 tracking-wide">
-                    Rigor Técnico, Responsabilidade e Normas
-                  </h2>
-                </div>
+            {/* Bloco 2: Rigor Técnico e Normas (Exclusivo Fachadas) */}
+            {isFachada && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-red-600" />
+                  Rigor Técnico e Normas Regulamentadoras
+                </h3>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Obras em altura e intervenções em fachadas exigem conformidade absoluta com as normas vigentes. A <strong>CPE ENGENHARIA</strong> projetou e executou o sistema atendendo rigorosamente:
+                </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                    <span className="text-xs uppercase tracking-wider text-gray-500 font-semibold block mb-1">
-                      Responsabilidade Técnica
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4" /> ABNT NBR 16280 & Inspeção Predial
                     </span>
-                    <p className="text-sm font-semibold text-gray-900">{service.technicalNorms.crea}</p>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Gestão de reformas e recuperação estrutural com ensaios periciais, teste de percussão e atendimento às normas de desempenho construtivo.
+                    </p>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                    <span className="text-xs uppercase tracking-wider text-gray-500 font-semibold block mb-1">
-                      Garantia de Conformidade
-                    </span>
-                    <p className="text-sm font-semibold text-gray-900">{service.technicalNorms.art}</p>
-                  </div>
-                </div>
 
-                <div>
-                  <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">
-                    Normas ABNT & Normas Regulamentadoras Aplicadas:
-                  </h3>
-                  <ul className="space-y-2.5">
-                    {service.technicalNorms.standards.map((norm, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-700">
-                        <FileCheck className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
-                        <span>{norm}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4" /> NR-35 & Segurança do Trabalho
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Equipes 100% qualificadas em trabalho em altura, pontos de ancoragem certificados, andaimes conforme NR-18 e linha de vida homologada.
+                    </p>
+                  </div>
                 </div>
               </div>
             )}
 
             {/* Bloco 3: Escopo de Engenharia Executado em Campo */}
-            {service.technicalScope && (
-              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
-                <div className="flex items-center gap-2">
+            {isFachada && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
                   <Layers className="w-5 h-5 text-red-600" />
-                  <h2 className="text-xl font-bold text-gray-900 tracking-wide">
-                    {service.technicalScope.title}
-                  </h2>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {service.technicalScope.items.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="p-5 rounded-xl bg-slate-50 border border-slate-200 hover:border-slate-300 transition-colors"
-                    >
-                      <h3 className="text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-red-600" />
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-gray-600 leading-relaxed">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
+                  Escopo de Engenharia Executado em Campo
+                </h3>
+                
+                <ul className="space-y-3 text-xs text-gray-700 leading-relaxed">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Lavagem e Hidrojateamento Técnico:</strong> Limpeza profunda de alta pressão para desincrustação de fuligem, remoção de fungos e preparação da base mineral.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Mapeamento & Teste de Percussão:</strong> Identificação minuciosa de áreas com som cavo, pastilhas soltas e risco iminente de destacamento.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Recuperação Estrutural:</strong> Tratamento químico de ferragens expostas com primer anticorrosivo e recomposição volumétrica em argamassa polimérica estrutural.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Tratamento de Fissuras e Juntas de Dilatação:</strong> Abertura técnica em &apos;V&apos; e calafetação com mastique de Poliuretano (PU) de alta elasticidade.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Pintura Técnica & Textura Acrílica:</strong> Aplicação de selador acrílico, textura hidro-repelente e acabamento elastomérico com proteção contra intempéries e raios UV.</div>
+                  </li>
+                </ul>
+
+                <p className="pt-2 text-xs text-gray-500 italic border-t border-slate-100">
+                  A coordenação técnica foi conduzida diretamente pelo <strong>Eng. Christian Gomes</strong>, com emissão de Anotações de Responsabilidade Técnica (ART) para todas as disciplinas de projeto e execução civil.
+                </p>
               </div>
             )}
 
-            {/* Bloco 4: Galeria Fotográfica de Obras Reais */}
-            {service.gallery && service.gallery.length > 0 && (
-              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+            {/* Bloco 4: Galeria Fotográfica (Exclusivo Fachadas com as duas perspectivas) */}
+            {isFachada && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
+                  <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
                     <Camera className="w-5 h-5 text-red-600" />
-                    <h2 className="text-xl font-bold text-gray-900 tracking-wide">
-                      Galeria Técnica do Case Real
-                    </h2>
-                  </div>
-                  <span className="text-xs font-semibold text-gray-500">
-                    {service.gallery.length} {service.gallery.length === 1 ? "registro" : "registros fotográficos"}
-                  </span>
+                    Galeria Fotográfica &bull; Obra Condomínio Atlanta
+                  </h3>
+                  <span className="text-[11px] text-gray-400 font-medium">Registros Técnicos da Obra</span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {service.gallery.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="group rounded-xl overflow-hidden border border-slate-200 bg-slate-50 flex flex-col hover:border-slate-300 transition-all shadow-sm"
-                    >
-                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-900">
-                        <Image
-                          src={item.src}
-                          alt={item.title}
-                          fill
-                          unoptimized
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        {item.tag && (
-                          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-black/75 text-white backdrop-blur-sm border border-white/10">
-                            {item.tag}
-                          </span>
-                        )}
-                      </div>
-                      <div className="p-4 flex-1 flex flex-col justify-between">
-                        <h3 className="text-sm font-bold text-gray-900 mb-1 group-hover:text-red-600 transition-colors">
-                          {item.title}
-                        </h3>
-                        {item.subtitle && (
-                          <p className="text-xs text-gray-600 leading-relaxed">
-                            {item.subtitle}
-                          </p>
-                        )}
-                      </div>
+                <div className="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div className="space-y-2">
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
+                      <Image
+                        src={fotoFachadaDia}
+                        alt="Condomínio Atlanta - Perspectiva Diurna"
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
                     </div>
-                  ))}
+                    <p className="text-[11px] text-center text-gray-500 font-medium">
+                      Visão diurna: Acabamento texturizado, alinhamento estético e pintura concluída.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
+                      <Image
+                        src={fotoFachadaNoite}
+                        alt="Condomínio Atlanta - Perspectiva Noturna"
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                    <p className="text-[11px] text-center text-gray-500 font-medium">
+                      Visão noturna: Valorização da iluminação arquitetônica e volumetria predial.
+                    </p>
+                  </div>
                 </div>
               </div>
             )}
 
-            {/* Bloco 5: Diferenciais CPE ENGENHARIA */}
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
-              <div className="flex items-center gap-2">
+            {/* Bloco 5: Diferenciais */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+              <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-red-600" />
-                <h2 className="text-xl font-bold text-gray-900 tracking-wide">
-                  Diferenciais da CPE ENGENHARIA
-                </h2>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                Diferenciais da CPE ENGENHARIA
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-3 pt-2">
                 {service.benefits.map((benefit, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                    <div>
-                      <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-1">
-                        {benefit.title}
-                      </h3>
-                      <p className="text-xs text-gray-600 leading-relaxed">
-                        {benefit.desc}
-                      </p>
-                    </div>
+                  <div key={idx} className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-xs text-gray-700 leading-relaxed font-medium">{benefit}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Bloco 6: Metodologia Executiva Passo a Passo */}
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
-              <div className="flex items-center gap-2">
-                <HardHat className="w-5 h-5 text-red-600" />
-                <h2 className="text-xl font-bold text-gray-900 tracking-wide">
-                  Metodologia Executiva Passo a Passo
-                </h2>
-              </div>
-              <div className="space-y-4">
-                {service.methodology.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200"
-                  >
-                    <span className="w-8 h-8 rounded-lg bg-red-600 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
-                      {item.step}
+            {/* Bloco 6: Metodologia */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+              <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-red-600" />
+                Metodologia Executiva Passo a Passo
+              </h3>
+              <div className="space-y-2.5 pt-2">
+                {service.process.map((step, idx) => (
+                  <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="w-6 h-6 rounded-full bg-red-600 text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+                      {idx + 1}
                     </span>
-                    <div>
-                      <h3 className="text-sm font-bold text-gray-900 mb-1">{item.title}</h3>
-                      <p className="text-xs text-gray-600 leading-relaxed">{item.desc}</p>
-                    </div>
+                    <span className="text-xs text-gray-700 leading-relaxed font-medium">{step}</span>
                   </div>
                 ))}
               </div>
@@ -276,73 +245,73 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
           </div>
 
-          {/* Coluna Direita (Sidebar Fixa de Conversão e Imagem Principal) */}
-          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
-            {/* Card da Imagem Principal */}
-            <div className="bg-white rounded-2xl p-2.5 shadow-sm border border-slate-200 overflow-hidden">
-              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-inner">
+          {/* Coluna Lateral - Sem foto duplicada quando houver galeria */}
+          <div className="lg:col-span-4 space-y-6">
+            
+            {/* Card com Foto Principal (Apenas para serviços normais ou capa do case) */}
+            <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+              <div className="relative h-64 w-full bg-slate-100">
                 <Image
-                  src={service.heroImage}
+                  src={isFachada ? fotoFachadaDia : service.image}
                   alt={service.title}
                   fill
-                  unoptimized
-                  priority
                   className="object-cover"
+                  unoptimized
                 />
               </div>
-              {service.sidebarImageCaption && (
-                <div className="p-3 bg-slate-50 rounded-xl mt-2 text-center border border-slate-100">
-                  <p className="text-xs font-semibold text-gray-700 flex items-center justify-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-red-600 shrink-0" />
-                    {service.sidebarImageCaption}
-                  </p>
-                </div>
-              )}
+              <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center gap-2 text-[11px] text-gray-600">
+                <Building2 className="w-3.5 h-3.5 text-red-600 flex-shrink-0" />
+                <span>
+                  {isFachada 
+                    ? "Obra entregue: Condomínio Atlanta • Zona Leste/SP" 
+                    : isPosto 
+                    ? "Obra entregue: Transtassi • Guarulhos/SP" 
+                    : service.title}
+                </span>
+              </div>
             </div>
 
-            {/* Card de Conversão e Orçamento */}
-            <div className="bg-slate-950 text-white rounded-2xl p-6 shadow-xl border border-slate-800 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 rounded-full blur-2xl pointer-events-none" />
+            {/* Card de Orçamento */}
+            <div className="bg-slate-950 text-white p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+              <div className="space-y-1">
+                <span className="text-[11px] font-bold text-red-500 uppercase tracking-wider block">Atendimento Imediato</span>
+                <h4 className="text-lg font-bold">Precisa de um projeto como este?</h4>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  Fale diretamente com os especialistas da <strong>CPE ENGENHARIA</strong> para receber um estudo de viabilidade e proposta personalizada.
+                </p>
+              </div>
 
-              <span className="text-[10px] font-bold tracking-widest text-red-500 uppercase block mb-1">
-                Atendimento Imediato
-              </span>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Precisa de um projeto como este?
-              </h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-6">
-                Fale diretamente com os especialistas da <strong className="text-white">CPE ENGENHARIA</strong> para receber um estudo de viabilidade e proposta personalizada.
-              </p>
-
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 <Link
                   href="/orcamento"
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-red-600 text-white font-semibold text-xs tracking-wide hover:bg-red-700 transition-colors shadow-lg shadow-red-600/20"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl text-xs transition-all shadow-md"
                 >
-                  Solicitar Orçamento
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Solicitar Orçamento</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
 
                 <a
-                  href="https://wa.me/5511989320917?text=Olá! Gostaria de um orçamento para o serviço de Engenharia."
+                  href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? "5511989320917"}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors shadow-lg"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl text-xs transition-all shadow-md"
                 >
-                  <Phone className="w-4 h-4 text-white" />
-                  Falar no WhatsApp
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Falar no WhatsApp</span>
                 </a>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-slate-800 text-[11px] text-gray-400 space-y-1">
-                <p>• Atendimento: Projetos em todo o Brasil • Execução de Obras em SP</p>
-                <p>• Responsabilidade Técnica: Eng. Christian Gomes (CREA/SP)</p>
+              <div className="pt-4 border-t border-slate-800 space-y-1.5 text-[11px] text-gray-400">
+                <p>&bull; Atendimento: Projetos em todo o Brasil &bull; Execução de Obras em SP</p>
+                <p>&bull; Responsabilidade Técnica: Eng. Christian Gomes (CREA/SP)</p>
               </div>
             </div>
+
           </div>
 
         </div>
       </div>
+
     </div>
   );
 }
