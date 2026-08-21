@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { 
   Building2, 
   CheckCircle2, 
@@ -12,7 +13,10 @@ import {
 } from "lucide-react";
 import { companyData } from "@/lib/company-data";
 
-export default function ProjetosArquitetonicosPage() {
+export default function ServicoPage() {
+  const params = useParams();
+  const slug = params?.slug as string;
+
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
       
@@ -79,70 +83,72 @@ export default function ProjetosArquitetonicosPage() {
               </div>
             </div>
 
-            {/* Galeria Fotográfica • Ortega's Adega Litoral (Bertioga/SP) com Nomes Corrigidos */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
-                <div className="flex items-center gap-2 text-red-600 font-bold">
-                  <Camera className="w-5 h-5" />
-                  <h3 className="text-lg font-bold text-gray-900">
-                    Galeria Fotográfica &bull; Ortega&apos;s Adega Litoral (Bertioga/SP)
-                  </h3>
+            {/* Galeria Exibida APENAS na página de Projetos Arquitetônicos */}
+            {slug === "projetos-arquitetonicos" && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
+                  <div className="flex items-center gap-2 text-red-600 font-bold">
+                    <Camera className="w-5 h-5" />
+                    <h3 className="text-lg font-bold text-gray-900">
+                      Galeria Fotográfica &bull; Ortega&apos;s Adega Litoral (Bertioga/SP)
+                    </h3>
+                  </div>
+                  <span className="text-xs font-semibold text-gray-400 bg-slate-100 px-3 py-1 rounded-full w-fit">
+                    Render Executivo 3D
+                  </span>
                 </div>
-                <span className="text-xs font-semibold text-gray-400 bg-slate-100 px-3 py-1 rounded-full w-fit">
-                  Render Executivo 3D
-                </span>
+
+                {/* Grid 3 Colunas */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  
+                  {/* Imagem 1: Fachada Externa */}
+                  <div className="space-y-3 group">
+                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/images/adega-litoral-fachada.jpg"
+                        alt="Fachada Externa - Ortega's Adega Litoral"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <p className="text-xs text-gray-600 leading-relaxed font-medium">
+                      <strong className="text-gray-900">Fachada externa:</strong> Volumetria com brises de madeira, iluminação cênica e fechamento em vidro.
+                    </p>
+                  </div>
+
+                  {/* Imagem 2: Interior Geral */}
+                  <div className="space-y-3 group">
+                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/images/adega-litoral-interior.jpg"
+                        alt="Design de Interiores - Ortega's Adega Litoral"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <p className="text-xs text-gray-600 leading-relaxed font-medium">
+                      <strong className="text-gray-900">Design de interiores:</strong> Expositores em madeira nobre, forro ripado e atmosfera contemporânea.
+                    </p>
+                  </div>
+
+                  {/* Imagem 3: Vista Expositor de Vinhos */}
+                  <div className="space-y-3 group">
+                    <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/images/adega-interna-2.jpg"
+                        alt="Área de Degustação e Exposição de Vinhos - Ortega's Adega Litoral"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <p className="text-xs text-gray-600 leading-relaxed font-medium">
+                      <strong className="text-gray-900">Exposição central:</strong> Balcões modulares para rotulagem nobre, adegas climatizadas e iluminação cênica direcionada.
+                    </p>
+                  </div>
+
+                </div>
               </div>
-
-              {/* Grid 3 Colunas */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                {/* Imagem 1: Fachada Externa */}
-                <div className="space-y-3 group">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/adega-litoral-fachada.jpg"
-                      alt="Fachada Externa - Ortega's Adega Litoral"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <p className="text-xs text-gray-600 leading-relaxed font-medium">
-                    <strong className="text-gray-900">Fachada externa:</strong> Volumetria com brises de madeira, iluminação cênica e fechamento em vidro.
-                  </p>
-                </div>
-
-                {/* Imagem 2: Interior Geral */}
-                <div className="space-y-3 group">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/adega-litoral-interior.jpg"
-                      alt="Design de Interiores - Ortega's Adega Litoral"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <p className="text-xs text-gray-600 leading-relaxed font-medium">
-                    <strong className="text-gray-900">Design de interiores:</strong> Expositores em madeira nobre, forro ripado e atmosfera contemporânea.
-                  </p>
-                </div>
-
-                {/* Imagem 3: Vista Expositor de Vinhos */}
-                <div className="space-y-3 group">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/adega-interna-2.jpg"
-                      alt="Área de Degustação e Exposição de Vinhos - Ortega's Adega Litoral"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <p className="text-xs text-gray-600 leading-relaxed font-medium">
-                    <strong className="text-gray-900">Exposição central:</strong> Balcões modulares para rotulagem nobre, adegas climatizadas e iluminação cênica direcionada.
-                  </p>
-                </div>
-
-              </div>
-            </div>
+            )}
 
             {/* Diferenciais da CPE */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
