@@ -35,8 +35,8 @@ export default function ServiceDetailPage() {
   const fotoPostoAerea = "/images/posto-tassi-2.png";
   const fotoPostoFrontal = "/images/posto-tassi-3.png";
 
-  const fotoAdegaFachada = "/images/adega-litoral-fachada.png";
-  const fotoAdegaInterior = "/images/adega-litoral-interior.png";
+  const fotoAdegaFachada = "/images/adega-litoral-fachada.jpg";
+  const fotoAdegaInterior = "/images/adega-litoral-interior.jpg";
 
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
