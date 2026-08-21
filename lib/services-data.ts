@@ -77,7 +77,7 @@ export const services: Service[] = [
       "Memorial descritivo de cálculo e especificações técnicas de materiais.",
       "Emissão da Anotação de Responsabilidade Técnica (ART)."
     ],
-    image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/spda.jpg",
     icon: "Zap",
     category: "projetos"
   },
