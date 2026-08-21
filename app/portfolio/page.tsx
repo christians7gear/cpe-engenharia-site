@@ -114,7 +114,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "comercial",
     location: "São Paulo, SP",
     year: "2024",
-    image: "/images/facade_renovation.png",
+    image: "/images/fachada-atlanta-dia.png",
     linkUrl: "/servicos/reforma-fachadas",
     badge: "Revitalização Predial",
   },
