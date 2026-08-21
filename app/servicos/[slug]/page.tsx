@@ -13,7 +13,8 @@ import {
   Zap,
   Compass,
   Monitor,
-  Sparkles
+  Sparkles,
+  Store
 } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/services-data";
 import { companyData } from "@/lib/company-data";
@@ -33,6 +34,9 @@ export default function ServiceDetailPage() {
 
   const fotoPostoAerea = "/images/posto-tassi-2.png";
   const fotoPostoFrontal = "/images/posto-tassi-3.png";
+
+  const fotoAdegaFachada = "/images/adega-litoral-fachada.png";
+  const fotoAdegaInterior = "/images/adega-litoral-interior.png";
 
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
@@ -75,11 +79,11 @@ export default function ServiceDetailPage() {
               {isArquitetura && (
                 <div className="bg-slate-950 text-white p-5 rounded-xl border-l-4 border-red-600 space-y-2">
                   <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
-                    <Sparkles className="w-4 h-4 text-yellow-400" />
-                    ARQUITETURA DE ALTO PADRÃO &bull; ESTÉTICA, BOM GOSTO E INTELIGÊNCIA CONSTRUTIVA
+                    <Store className="w-4 h-4 text-yellow-400" />
+                    PROJETO ARQUITETÔNICO COMPLETO &bull; ORTEGA&apos;S ADEGA LITORAL (BERTIOGA/SP)
                   </div>
                   <p className="text-xs text-gray-300 leading-relaxed">
-                    Na <strong>CPE ENGENHARIA</strong>, cada projeto arquitetônico nasce da união entre sofisticação visual, volumetria moderna e rigor técnico executivo. Traduzimos o estilo de vida de cada cliente em espaços harmoniosos com iluminação natural abundante, ventilação cruzada e valorização patrimonial imediata.
+                    Neste case comercial exclusivo para a <strong>Ortega&apos;s Adega Litoral em Bertioga/SP</strong>, a <strong>CPE ENGENHARIA</strong> desenvolveu o projeto arquitetônico integral de alto padrão: volumetria em madeira nobre e pele de vidro, layout funcional de loja, setorização de adega climatizada e detalhamento luminotécnico para máxima experiência do consumidor.
                   </p>
                 </div>
               )}
@@ -417,6 +421,49 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
+            {/* Bloco 4: Galeria Fotográfica (Arquitetura - Ortega's Adega Litoral) */}
+            {isArquitetura && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                    <Camera className="w-5 h-5 text-red-600" />
+                    Galeria Fotográfica &bull; Ortega&apos;s Adega Litoral (Bertioga/SP)
+                  </h3>
+                  <span className="text-[11px] text-gray-400 font-medium">Render Executivo 3D</span>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div className="space-y-2">
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={fotoAdegaFachada}
+                        alt="Ortega's Adega Litoral - Fachada Externa"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="text-[11px] text-center text-gray-500 font-medium">
+                      Fachada externa: Volumetria com brises de madeira, iluminação cênica e fechamento em vidro.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={fotoAdegaInterior}
+                        alt="Ortega's Adega Litoral - Design de Interiores"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="text-[11px] text-center text-gray-500 font-medium">
+                      Design de interiores: Expositores em madeira nobre, forro ripado e atmosfera contemporânea.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Bloco 4: Galeria Fotográfica (Fachadas) */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
@@ -547,7 +594,15 @@ export default function ServiceDetailPage() {
               <div className="relative h-64 w-full bg-slate-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={isFachada ? fotoFachadaDia : isPosto ? fotoPostoAerea : service.image}
+                  src={
+                    isFachada 
+                      ? fotoFachadaDia 
+                      : isPosto 
+                      ? fotoPostoAerea 
+                      : isArquitetura 
+                      ? fotoAdegaFachada 
+                      : service.image
+                  }
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
@@ -559,6 +614,8 @@ export default function ServiceDetailPage() {
                     ? "Obra entregue: Condomínio Atlanta • Zona Leste/SP" 
                     : isPosto 
                     ? "Obra entregue: Transtassi • Guarulhos/SP" 
+                    : isArquitetura
+                    ? "Projeto entregue: Ortega's Adega • Bertioga/SP"
                     : `${service.title} • CPE Engenharia`}
                 </span>
               </div>
