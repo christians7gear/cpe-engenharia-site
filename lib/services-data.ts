@@ -31,7 +31,7 @@ export const services: Service[] = [
       "Criação do Projeto Executivo detalhado para a obra, incluindo especificações de materiais e acabamentos.",
       "Emissão da Anotação de Responsabilidade Técnica (ART)."
     ],
-    image: "https://cdn.abacus.ai/images/22ea0ab3-63c7-48c8-aecb-b4ea3e7f8de8.png",
+    image: "/images/architectural.png",
     icon: "Ruler",
     category: "projetos"
   },
@@ -54,7 +54,7 @@ export const services: Service[] = [
       "Compatibilização final entre todas as disciplinas de engenharia.",
       "Emissão das respectivas Anotações de Responsabilidade Técnica (ART)."
     ],
-    image: "https://cdn.abacus.ai/images/7ff63605-22e9-4efa-832a-43af18883e18.png",
+    image: "/images/structural.png",
     icon: "Layers",
     category: "projetos"
   },
@@ -100,7 +100,7 @@ export const services: Service[] = [
       "Submissão do projeto para análise e aprovação junto ao Corpo de Bombeiros.",
       "Emissão da Anotação de Responsabilidade Técnica (ART)."
     ],
-    image: "https://cdn.abacus.ai/images/4a275068-3c84-403b-ba10-5e628a12d6ef.png",
+    image: "/images/fire_protection.png",
     icon: "ShieldCheck",
     category: "projetos"
   },
@@ -123,7 +123,7 @@ export const services: Service[] = [
       "Protocolo no sistema do Corpo de Bombeiros e acompanhamento da análise.",
       "Agendamento e acompanhamento da vistoria técnica."
     ],
-    image: "https://cdn.abacus.ai/images/a2de6bfc-29df-46af-8d7d-e1238e07926b.png",
+    image: "/images/avcb.png",
     icon: "FileCheck",
     category: "projetos"
   },
@@ -146,7 +146,7 @@ export const services: Service[] = [
       "Instalação dos sistemas elétricos, hidráulicos e de climatização.",
       "Acabamentos, pintura, entrega e emissão do Habite-se."
     ],
-    image: "https://cdn.abacus.ai/images/89524fd6-adbb-4264-96cb-0f4601dff1e0.png",
+    image: "/images/residencia.jpg",
     icon: "Home",
     category: "execucao"
   },
@@ -192,7 +192,7 @@ export const services: Service[] = [
       "Instalação do fechamento lateral e da cobertura.",
       "Construção de docas, áreas administrativas e instalações complementares."
     ],
-    image: "https://cdn.abacus.ai/images/025a3994-37de-4f81-9bb3-7276165b3a50.png",
+    image: "/images/warehouse.png",
     icon: "Warehouse",
     category: "execucao"
   },
@@ -215,7 +215,7 @@ export const services: Service[] = [
       "Interface com montadores de equipamentos e fornecedores.",
       "Finalização, comissionamento e suporte para start-up."
     ],
-    image: "https://cdn.abacus.ai/images/89524fd6-adbb-4264-96cb-0f4601dff1e0.png",
+    image: "/images/industrial_facility.png",
     icon: "Factory",
     category: "execucao"
   },
