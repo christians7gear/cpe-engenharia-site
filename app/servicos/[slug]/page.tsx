@@ -10,7 +10,10 @@ import {
   Layers, 
   Building2, 
   Camera,
-  Zap
+  Zap,
+  Compass,
+  Monitor,
+  Sparkles
 } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/services-data";
 import { companyData } from "@/lib/company-data";
@@ -23,6 +26,7 @@ export default function ServiceDetailPage() {
   const isPosto = service.slug === "postos-abastecimento";
   const isFachada = service.slug === "reforma-fachadas";
   const isSPDA = service.slug === "projetos-spda";
+  const isArquitetura = service.slug === "projetos-arquitetonicos";
 
   const fotoFachadaDia = "/images/fachada-atlanta-dia.png";
   const fotoFachadaNoite = "/images/fachada-atlanta-noite.png";
@@ -56,7 +60,7 @@ export default function ServiceDetailPage() {
           {/* Coluna Principal */}
           <div className="lg:col-span-8 space-y-8">
             
-            {/* Bloco 1: Excelência em Engenharia */}
+            {/* Bloco 1: Excelência em Engenharia & Arquitetura */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
               <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2.5">
                 <span className="w-2 h-6 bg-red-600 rounded-full inline-block" />
@@ -64,8 +68,21 @@ export default function ServiceDetailPage() {
               </h2>
               
               <p className="text-gray-700 leading-relaxed text-sm">
-                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em projetos de proteção contra descargas atmosféricas, infraestrutura civil, reformas prediais e engenharia regulatória, atuando de ponta a ponta com emissão de ART registrada no CREA-SP.
+                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em projetos arquitetônicos autorais, engenharia consultiva, reformas prediais e infraestrutura civil pesada, atuando de ponta a ponta com emissão de ART registrada no CREA-SP.
               </p>
+
+              {/* Destaque Projetos Arquitetônicos */}
+              {isArquitetura && (
+                <div className="bg-slate-950 text-white p-5 rounded-xl border-l-4 border-red-600 space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
+                    <Sparkles className="w-4 h-4 text-yellow-400" />
+                    ARQUITETURA DE ALTO PADRÃO &bull; ESTÉTICA, BOM GOSTO E INTELIGÊNCIA CONSTRUTIVA
+                  </div>
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    Na <strong>CPE ENGENHARIA</strong>, cada projeto arquitetônico nasce da união entre sofisticação visual, volumetria moderna e rigor técnico executivo. Traduzimos o estilo de vida de cada cliente em espaços harmoniosos com iluminação natural abundante, ventilação cruzada e valorização patrimonial imediata.
+                  </p>
+                </div>
+              )}
 
               {/* Destaque SPDA */}
               {isSPDA && (
@@ -110,6 +127,48 @@ export default function ServiceDetailPage() {
                 {service.description}
               </p>
             </div>
+
+            {/* Bloco 2: Tecnologia e Softwares (Arquitetura) */}
+            {isArquitetura && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                  <Monitor className="w-5 h-5 text-red-600" />
+                  Tecnologia de Ponta, Metodologia BIM & Softwares Avançados
+                </h3>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Para garantir compatibilização milimétrica, controle orçamentário e visualização realista antes do início da obra, utilizamos as ferramentas mais avançadas do mercado global:
+                </p>
+
+                <div className="grid sm:grid-cols-3 gap-3">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <Compass className="w-4 h-4" /> Autodesk Revit (BIM)
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Modelagem de Informação da Construção (BIM) com integração paramétrica entre arquitetura, estrutura e instalações, eliminando retrabalhos em campo.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <Layers className="w-4 h-4" /> AutoCAD 2D/3D
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Precisão geométrica absoluta em plantas executivas, cortes longitudinais, fachadas técnicas, paginações de piso e pranchas para prefeitura.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <Sparkles className="w-4 h-4" /> SketchUp & Render 3D
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Imagens e passeios virtuais hiper-realistas para que você visualize cada textura, cor, iluminação e acabamento com fidelidade fotográfica.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Bloco 2: Rigor Técnico e Normas (SPDA) */}
             {isSPDA && (
@@ -207,6 +266,43 @@ export default function ServiceDetailPage() {
                     </p>
                   </div>
                 </div>
+              </div>
+            )}
+
+            {/* Bloco 3: Escopo Técnico (Arquitetura) */}
+            {isArquitetura && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                  <Layers className="w-5 h-5 text-red-600" />
+                  Fases de Elaboração do Projeto Arquitetônico CPE
+                </h3>
+                
+                <ul className="space-y-3 text-xs text-gray-700 leading-relaxed">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>1. Briefing & Programa de Necessidades:</strong> Reunião de alinhamento detalhado para mapear o perfil da família/empresa, hábitos, demandas espaciais e previsão orçamentária.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>2. Estudo Preliminar & Zoneamento:</strong> Análise topográfica, insolação, ventos dominantes, plano de massa, layout humanizado e primeiras ideias volumétricas.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>3. Anteprojeto & Maquete Eletrônica 3D:</strong> Modelagem em Revit/SketchUp com apresentação de fachadas, texturas, volumetrias e definição de acabamentos finos com o cliente.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>4. Projeto Legal (Prefeitura & Condomínio):</strong> Elaboração de plantas de aprovação com rigorosa conformidade ao Plano Diretor, Código de Obras municipal e normas ABNT NBR 6492.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>5. Projeto Executivo de Detalhamento:</strong> Conjunto completo de pranchas construtivas (alvenarias, portas, esquadrias, louças, metais, impermeabilização e paginação de revestimentos) com ART/CREA-SP.</div>
+                  </li>
+                </ul>
+
+                <p className="pt-2 text-xs text-gray-500 italic border-t border-slate-100">
+                  Coordenação técnica liderada pelo <strong>Eng. Christian Gomes</strong>, assegurando que o projeto de arquitetura converse em perfeita sincronia com a engenharia estrutural e as instalações prediais.
+                </p>
               </div>
             )}
 
