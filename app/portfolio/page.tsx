@@ -44,7 +44,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "projetos",
     location: "São Paulo, SP",
     year: "2024",
-    image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/spda.png",
     linkUrl: "/servicos/projetos-spda",
     badge: "Proteção Atmosférica (NBR 5419)",
   },
