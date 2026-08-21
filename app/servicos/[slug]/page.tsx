@@ -9,7 +9,8 @@ import {
   ShieldCheck, 
   Layers, 
   Building2, 
-  Camera
+  Camera,
+  Zap
 } from "lucide-react";
 import { services, getServiceBySlug } from "@/lib/services-data";
 import { companyData } from "@/lib/company-data";
@@ -21,6 +22,7 @@ export default function ServiceDetailPage() {
 
   const isPosto = service.slug === "postos-abastecimento";
   const isFachada = service.slug === "reforma-fachadas";
+  const isSPDA = service.slug === "projetos-spda";
 
   const fotoFachadaDia = "/images/fachada-atlanta-dia.png";
   const fotoFachadaNoite = "/images/fachada-atlanta-noite.png";
@@ -62,8 +64,21 @@ export default function ServiceDetailPage() {
               </h2>
               
               <p className="text-gray-700 leading-relaxed text-sm">
-                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em infraestrutura civil pesada, engenharia automotiva, reformas prediais e projetos regulatórios, atuando de ponta a ponta com emissão de ART registrada no CREA-SP.
+                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em projetos de proteção contra descargas atmosféricas, infraestrutura civil, reformas prediais e engenharia regulatória, atuando de ponta a ponta com emissão de ART registrada no CREA-SP.
               </p>
+
+              {/* Destaque SPDA */}
+              {isSPDA && (
+                <div className="bg-slate-950 text-white p-5 rounded-xl border-l-4 border-red-600 space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
+                    <Zap className="w-4 h-4 text-yellow-400" />
+                    PROJETOS DE SPDA &bull; GERENCIAMENTO DE RISCO SEGUNDO A NBR 5419:2015
+                  </div>
+                  <p className="text-xs text-gray-300 leading-relaxed">
+                    A <strong>CPE ENGENHARIA</strong> desenvolve estudos técnicos aprofundados para condomínios, indústrias e galpões comerciais. Nossos projetos contemplam desde o subsistema de captação e descidas estruturais até a malha de aterramento e Medidas de Proteção contra Surtos (MPS), garantindo a preservação de vidas e a integridade de equipamentos eletrônicos sensíveis.
+                  </p>
+                </div>
+              )}
 
               {/* Case Fachada */}
               {isFachada && (
@@ -95,6 +110,39 @@ export default function ServiceDetailPage() {
                 {service.description}
               </p>
             </div>
+
+            {/* Bloco 2: Rigor Técnico e Normas (SPDA) */}
+            {isSPDA && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-red-600" />
+                  Rigor Normativo & ABNT NBR 5419:2015
+                </h3>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Todos os projetos de SPDA desenvolvidos pela <strong>CPE ENGENHARIA</strong> são calculados de forma analítica atendendo integralmente as 4 partes da norma técnica:
+                </p>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4" /> NBR 5419-2: Análise de Risco
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Cálculo probabilístico das perdas de vida humana (R1), perdas de serviços públicos (R2) e perdas econômicas (R4) para definição precisa do Nível de Proteção (I a IV).
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4" /> NBR 5419-4: Proteção MPS & DPS
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Dimensionamento de Zonas de Proteção contra Raios (LPZ), Dispositivos de Proteção contra Surtos (DPS) e blindagem de circuitos elétricos e de automação.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Bloco 2: Rigor Técnico e Normas (Fachadas) */}
             {isFachada && (
@@ -129,7 +177,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 2: Rigor Técnico e Normas (Postos de Abastecimento) */}
+            {/* Bloco 2: Rigor Técnico e Normas (Postos) */}
             {isPosto && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -159,6 +207,43 @@ export default function ServiceDetailPage() {
                     </p>
                   </div>
                 </div>
+              </div>
+            )}
+
+            {/* Bloco 3: Escopo Técnico (SPDA) */}
+            {isSPDA && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                  <Layers className="w-5 h-5 text-red-600" />
+                  Escopo de Engenharia e Entregáveis do Projeto SPDA
+                </h3>
+                
+                <ul className="space-y-3 text-xs text-gray-700 leading-relaxed">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Subsistema de Captação:</strong> Projeto de malha captora em fita/cabo de cobre ou alumínio (Método de Faraday), posicionamento de captores Franklin e análise de esfera rolante.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Subsistema de Descidas:</strong> Definição de descidas externas protegidas ou aproveitamento de armaduras estruturais do concreto armado (descidas naturais) com ensaios de continuidade elétrica.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Subsistema de Aterramento & Equipotencialização:</strong> Dimensionamento do anel de aterramento em volta da edificação, caixas de inspeção e Barramento de Equipotencialização Principal (BEP).</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Medição de Continuidade e Resistência de Aterramento:</strong> Vistoria em campo com uso de terrômetro e mili-ohmímetro calibrados para emissão de laudo técnico pericial.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Documentação para AVCB:</strong> Memorial descritivo detalhado, pranchas em DWG/PDF e emissão de Anotação de Responsabilidade Técnica (ART/CREA-SP).</div>
+                  </li>
+                </ul>
+
+                <p className="pt-2 text-xs text-gray-500 italic border-t border-slate-100">
+                  Responsabilidade técnica direta do <strong>Eng. Christian Gomes</strong>, com atendimento a todas as diretrizes do Corpo de Bombeiros e seguradoras.
+                </p>
               </div>
             )}
 
@@ -199,7 +284,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 3: Escopo Técnico (Postos de Abastecimento) */}
+            {/* Bloco 3: Escopo Técnico (Postos) */}
             {isPosto && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -279,7 +364,7 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 4: Galeria Fotográfica (Postos de Abastecimento) */}
+            {/* Bloco 4: Galeria Fotográfica (Postos) */}
             {isPosto && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
@@ -373,7 +458,13 @@ export default function ServiceDetailPage() {
               </div>
               <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center gap-2 text-[11px] text-gray-600">
                 <Building2 className="w-3.5 h-3.5 text-red-600 flex-shrink-0" />
-                <span>{isFachada ? "Obra entregue: Condomínio Atlanta • Zona Leste/SP" : isPosto ? "Obra entregue: Transtassi • Guarulhos/SP" : service.title}</span>
+                <span>
+                  {isFachada 
+                    ? "Obra entregue: Condomínio Atlanta • Zona Leste/SP" 
+                    : isPosto 
+                    ? "Obra entregue: Transtassi • Guarulhos/SP" 
+                    : `${service.title} • CPE Engenharia`}
+                </span>
               </div>
             </div>
 
