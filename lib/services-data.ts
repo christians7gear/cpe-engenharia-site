@@ -60,25 +60,25 @@ export const services: Service[] = [
   },
   {
     id: "3",
-    slug: "projetos-sda",
-    title: "Projetos SDA",
-    shortDescription: "Sistema de Detecção e Alarme de Incêndio conforme normas.",
-    description: "Elaboramos projetos de SDAI em total conformidade com as Instruções Técnicas (IT) do Corpo de Bombeiros e a norma ABNT NBR 17240. Nossas soluções visam a detecção precoce de princípios de incêndio, permitindo uma evacuação segura e a rápida ação de combate.",
+    slug: "projetos-spda",
+    title: "Projetos SPDA (Para-raios)",
+    shortDescription: "Sistemas de Proteção contra Descargas Atmosféricas conforme ABNT NBR 5419.",
+    description: "Elaboramos projetos técnicos completos de SPDA (Para-raios) e Gerenciamento de Risco em total conformidade com a ABNT NBR 5419. Nossas soluções protegem estruturas prediais, ocupantes e equipamentos eletroeletrônicos contra os efeitos diretos e indiretos de raios.",
     benefits: [
-      "Detecção Rápida: Posicionamento estratégico de detectores de fumaça, calor e acionadores manuais.",
-      "Alerta Eficaz: Dimensionamento de sirenes e sinalizadores audiovisuais para garantir que o alerta seja percebido.",
-      "Conformidade para AVCB: Projeto é requisito essencial para a obtenção do Auto de Vistoria do Corpo de Bombeiros.",
-      "Segurança dos Ocupantes: Garante tempo hábil para a evacuação segura do local."
+      "Gerenciamento de Risco: Análise técnica quantitativa conforme NBR 5419-2 para definição do nível de proteção.",
+      "Proteção Integral: Projeto de captores (Franklin e Gaiola de Faraday), condutores de descida e malha de aterramento.",
+      "Proteção de Equipamentos (DPS): Dimensionamento de Dispositivos de Proteção contra Surtos para proteger instalações elétricas.",
+      "Conformidade e Laudo Técnico: Emissão de ART e documentação essencial para aprovação e renovação do AVCB."
     ],
     process: [
-      "Análise da classificação de risco e das características da edificação.",
-      "Definição do tipo e da localização dos detectores, acionadores e central de alarme.",
-      "Elaboração do projeto com diagramas, traçados de eletrodutos e especificações.",
-      "Memorial descritivo e de cálculo.",
+      "Levantamento da arquitetura e cálculo de gerenciamento de risco da edificação.",
+      "Dimensionamento da malha captora, anéis de cintamento e subsistema de aterramento.",
+      "Elaboração de plantas técnicas, cortes e detalhes construtivos.",
+      "Memorial descritivo de cálculo e especificações técnicas de materiais.",
       "Emissão da Anotação de Responsabilidade Técnica (ART)."
     ],
-    image: "https://cdn.abacus.ai/images/4a275068-3c84-403b-ba10-5e628a12d6ef.png",
-    icon: "Siren",
+    image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=80",
+    icon: "Zap",
     category: "projetos"
   },
   {
