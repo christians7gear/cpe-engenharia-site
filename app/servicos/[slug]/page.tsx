@@ -25,6 +25,9 @@ export default function ServiceDetailPage() {
   const fotoFachadaDia = "/images/fachada-atlanta-dia.png";
   const fotoFachadaNoite = "/images/fachada-atlanta-noite.png";
 
+  const fotoPostoAerea = "/images/posto-tassi-2.png";
+  const fotoPostoFrontal = "/images/posto-tassi-3.png";
+
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
       
@@ -59,7 +62,7 @@ export default function ServiceDetailPage() {
               </h2>
               
               <p className="text-gray-700 leading-relaxed text-sm">
-                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em reformas prediais, revitalização de fachadas e engenharia diagnóstica, atuando de ponta a ponta: do laudo técnico pericial e planejamento executivo até a recuperação estrutural profunda e aplicação de revestimentos de alta performance.
+                A <strong className="text-red-600">CPE ENGENHARIA</strong> entrega soluções completas em infraestrutura civil pesada, engenharia automotiva, reformas prediais e projetos regulatórios, atuando de ponta a ponta com emissão de ART registrada no CREA-SP.
               </p>
 
               {/* Case Fachada */}
@@ -83,7 +86,7 @@ export default function ServiceDetailPage() {
                     OBRA COMPLETA: PROJETO E EXECUÇÃO &bull; TRANSTASSI (GUARULHOS/SP)
                   </div>
                   <p className="text-xs text-gray-300 leading-relaxed">
-                    Neste case corporativo para a <strong>Transtassi em Guarulhos/SP</strong>, a <strong>CPE ENGENHARIA</strong> foi responsável pelo projeto executivo integral e pela construção civil e montagem do ponto de abastecimento de combustíveis e lubrificantes.
+                    Neste case corporativo para a <strong>Transtassi em Guarulhos/SP</strong>, a <strong>CPE ENGENHARIA</strong> realizou o projeto executivo e a implantação completa do ponto de abastecimento de combustíveis e lubrificantes: desde a terraplanagem e piso blindado para carretas pesadas até instalações elétricas à prova de explosão e contenção ambiental.
                   </p>
                 </div>
               )}
@@ -93,7 +96,7 @@ export default function ServiceDetailPage() {
               </p>
             </div>
 
-            {/* Bloco 2: Rigor Técnico e Normas */}
+            {/* Bloco 2: Rigor Técnico e Normas (Fachadas) */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -126,7 +129,40 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 3: Escopo Técnico */}
+            {/* Bloco 2: Rigor Técnico e Normas (Postos de Abastecimento) */}
+            {isPosto && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-red-600" />
+                  Conformidade Normativa, Ambiental e de Segurança
+                </h3>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  A engenharia para pontos de abastecimento e sistemas de armazenamento de combustível exige conformidade rigorosa com normas ambientais e de segurança contra incêndio:
+                </p>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4" /> Resolução CONAMA 273 & ABNT
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Sistemas de contenção de vazamentos, piso impermeável estanque, canaletas de contenção e caixas separadoras de água e óleo (SAO).
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                    <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4" /> NR-20 & Atmosferas Explosivas (Ex)
+                    </span>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      Dimensionamento de instalações elétricas blindadas e à prova de explosão (Zoneamento Ex), aterramento e SPDA homologado.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Bloco 3: Escopo Técnico (Fachadas) */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
@@ -163,7 +199,44 @@ export default function ServiceDetailPage() {
               </div>
             )}
 
-            {/* Bloco 4: Galeria Fotográfica */}
+            {/* Bloco 3: Escopo Técnico (Postos de Abastecimento) */}
+            {isPosto && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+                <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                  <Layers className="w-5 h-5 text-red-600" />
+                  Engenharia e Implantação Executada no Case Transtassi
+                </h3>
+                
+                <ul className="space-y-3 text-xs text-gray-700 leading-relaxed">
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Piso Blindado em Concreto Armado:</strong> Execução de laje em concreto usinado de alto FCK com dupla armadura de aço, dimensionada para cargas e tráfego intenso de frotas pesadas.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Ilha de Abastecimento & Bombas Industriais:</strong> Instalação de ilha em nível elevado com bordas de proteção, bombas eletrônicas de alto fluxo e filtros coalescentes.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Drenagem e Sistema Separador (SAO):</strong> Canaletas periféricas gradeadas com direcionamento exclusivo de efluentes oleosos para Caixa Separadora de Água e Óleo.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Cobertura Metálica Estruturada:</strong> Cobertura em balanço em perfis metálicos galvanizados com testeira personalizada, iluminação LED blindada e calhas de drenagem pluvial.</div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0" />
+                    <div><strong>Sinalização Técnica e Proteção Mecânica:</strong> Pintura epóxi demarcatória de segurança, balizadores mecânicos contra colisão e sinalização normativa de combate a incêndio.</div>
+                  </li>
+                </ul>
+
+                <p className="pt-2 text-xs text-gray-500 italic border-t border-slate-100">
+                  A coordenação técnica foi conduzida diretamente pelo <strong>Eng. Christian Gomes</strong>, com emissão de Anotações de Responsabilidade Técnica (ART) registradas no CREA-SP.
+                </p>
+              </div>
+            )}
+
+            {/* Bloco 4: Galeria Fotográfica (Fachadas) */}
             {isFachada && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
@@ -200,6 +273,49 @@ export default function ServiceDetailPage() {
                     </div>
                     <p className="text-[11px] text-center text-gray-500 font-medium">
                       Visão noturna: Valorização da iluminação arquitetônica e volumetria predial.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Bloco 4: Galeria Fotográfica (Postos de Abastecimento) */}
+            {isPosto && (
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+                    <Camera className="w-5 h-5 text-red-600" />
+                    Galeria Fotográfica &bull; Obra Transtassi (Guarulhos/SP)
+                  </h3>
+                  <span className="text-[11px] text-gray-400 font-medium">Registros da Implantação</span>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4 pt-2">
+                  <div className="space-y-2">
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={fotoPostoAerea}
+                        alt="Posto Transtassi - Vista Aérea"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="text-[11px] text-center text-gray-500 font-medium">
+                      Vista aérea: Cobertura metálica, pátio em concreto armado e tanques aéreos integrados.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={fotoPostoFrontal}
+                        alt="Posto Transtassi - Vista Frontal da Bomba"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="text-[11px] text-center text-gray-500 font-medium">
+                      Vista frontal: Ilha de bombas industriais, piso antiderrapante e área de operação.
                     </p>
                   </div>
                 </div>
@@ -250,7 +366,7 @@ export default function ServiceDetailPage() {
               <div className="relative h-64 w-full bg-slate-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={isFachada ? fotoFachadaDia : service.image}
+                  src={isFachada ? fotoFachadaDia : isPosto ? fotoPostoAerea : service.image}
                   alt={service.title}
                   className="w-full h-full object-cover"
                 />
