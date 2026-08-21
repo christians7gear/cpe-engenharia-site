@@ -79,7 +79,7 @@ export default function ProjetosArquitetonicosPage() {
               </div>
             </div>
 
-            {/* Galeria Fotográfica • Ortega's Adega Litoral (Bertioga/SP) com 3 IMAGENS */}
+            {/* Galeria Fotográfica • Ortega's Adega Litoral (Bertioga/SP) com Nomes Corrigidos */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
                 <div className="flex items-center gap-2 text-red-600 font-bold">
@@ -101,7 +101,7 @@ export default function ProjetosArquitetonicosPage() {
                   <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/images/adega-fachada.jpg"
+                      src="/images/adega-litoral-fachada.jpg"
                       alt="Fachada Externa - Ortega's Adega Litoral"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -116,7 +116,7 @@ export default function ProjetosArquitetonicosPage() {
                   <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/images/adega-interna.jpg"
+                      src="/images/adega-litoral-interior.jpg"
                       alt="Design de Interiores - Ortega's Adega Litoral"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
