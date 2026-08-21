@@ -1,326 +1,227 @@
-"use client";
+="use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  Award,
-  Target,
-  Eye,
-  Heart,
-  CheckCircle,
-  ArrowRight,
-  Phone,
-  Mail,
-  MapPin,
-  Building2,
+import { 
+  ShieldCheck, 
+  Award, 
+  CheckCircle2, 
+  ArrowRight, 
+  Phone, 
+  Building2, 
+  Layers, 
+  HardHat, 
+  FileCheck2,
+  Sparkles
 } from "lucide-react";
-import { companyData, differentials } from "@/lib/company-data";
-import { AnimatedCounter } from "@/components/animated-counter";
+import { companyData } from "@/lib/company-data";
 
 export default function SobrePage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
   return (
-    <>
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-gray-900">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src={companyData?.images?.hero ?? ""}
-            alt="CPE Engenharia"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="relative max-w-[1200px] mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center text-white"
-          >
-            <span className="inline-block bg-red-600 px-4 py-1 rounded-full text-sm font-medium mb-4">
-              Quem Somos
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Sobre a CPE Engenharia</h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Conheça nossa história, valores e a equipe que transforma projetos em realidade.
-            </p>
-          </motion.div>
+    <div className="bg-slate-50 min-h-screen pt-28 pb-20">
+      
+      {/* Banner Principal */}
+      <section className="bg-slate-950 text-white py-16 mb-12 border-b border-slate-800">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 text-center">
+          <span className="inline-block bg-red-600/90 text-white px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
+            Institucional &bull; CPE Engenharia
+          </span>
+          <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
+            Construindo <span className="text-red-600">Qualidade de Vida</span> com Rigor Técnico
+          </h1>
+          <p className="text-gray-400 mt-3 max-w-2xl mx-auto text-sm sm:text-base">
+            Engenharia de alta performance, projetos técnicos executivos e soluções completas em construção civil e engenharia diagnóstica.
+          </p>
         </div>
       </section>
 
-      {/* About Content */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                <span className="text-red-600">Construindo</span> Qualidade de Vida
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Coluna Principal */}
+          <div className="lg:col-span-8 space-y-8">
+            
+            {/* Bloco 1: Quem Somos & Vídeo Institucional 3D */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-2.5">
+                <span className="w-2.5 h-6 bg-red-600 rounded-full inline-block" />
+                Solidez, Inovação e Compromisso Técnico
               </h2>
-              <div className="space-y-4 text-gray-600">
-                <p>
-                  A CPE Engenharia nasceu da paixão por transformar sonhos em estruturas
-                  concretas. Com sede na Avenida Paulista, no coração financeiro de
-                  São Paulo, oferecemos soluções completas em engenharia civil para
-                  clientes de todo o Brasil.
-                </p>
-                <p>
-                  Nossa expertise abrange desde projetos arquitetônicos e complementares
-                  até a execução de obras residenciais, comerciais e industriais.
-                  Trabalhamos com compromisso, transparência e dedicação para entregar
-                  resultados que superam expectativas.
-                </p>
-                <p>
-                  Com um engenheiro civil registrado no CREA/SP à frente de cada projeto,
-                  garantimos responsabilidade técnica e segurança em todas as etapas,
-                  desde a concepção até a entrega final.
-                </p>
-              </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src={companyData?.images?.engineer ?? ""}
-                  alt="Equipe CPE Engenharia"
-                  fill
-                  className="object-cover"
+              {/* Player do Vídeo 3D */}
+              <div className="relative w-full rounded-2xl overflow-hidden bg-slate-900 border border-slate-200 shadow-md aspect-video">
+                <video
+                  src="/logo-3d.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-8 -right-8 bg-red-600 text-white p-8 rounded-2xl shadow-xl">
-                <div className="text-4xl font-bold mb-1">
-                  <AnimatedCounter end={10} suffix="+" />
-                </div>
-                <p className="text-red-100">Anos de Experiência</p>
+
+              <div className="space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+                <p>
+                  A <strong className="text-red-600 font-bold">CPE ENGENHARIA</strong> é uma empresa consolidada no mercado de engenharia civil, projetos e gestão executiva de obras. Nosso propósito é transformar demandas construtivas em empreendimentos seguros, duráveis e esteticamente impecáveis, sempre guiados pelas melhores práticas da engenharia moderna.
+                </p>
+                <p>
+                  Atuamos de forma integrada em todas as etapas de um empreendimento: desde a concepção arquitetônica autoral em metodologia BIM, passando pelo cálculo estrutural e aprovações regulatórias nos órgãos competentes, até a execução completa no canteiro de obras.
+                </p>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* Mission, Vision, Values */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Target,
-                title: "Missão",
-                description:
-                  "Oferecer soluções de engenharia civil com excelência, transformando projetos em realidade com qualidade, segurança e compromisso com prazos e orçamentos.",
-              },
-              {
-                icon: Eye,
-                title: "Visão",
-                description:
-                  "Ser referência em engenharia civil no Brasil, reconhecida pela qualidade dos projetos, inovação em soluções e satisfação dos clientes.",
-              },
-              {
-                icon: Heart,
-                title: "Valores",
-                description:
-                  "Ética, transparência, comprometimento com a qualidade, respeito ao cliente, responsabilidade técnica e busca contínua por inovação.",
-              },
-            ]?.map?.((item, index) => {
-              const Icon = item?.icon ?? Target;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (index ?? 0) * 0.1 }}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  <div className="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-6">
-                    <Icon className="w-8 h-8 text-red-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {item?.title ?? ""}
-                  </h3>
-                  <p className="text-gray-600">{item?.description ?? ""}</p>
-                </motion.div>
-              );
-            }) ?? []}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="text-red-600 font-semibold">Nossa Equipe</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
-              Profissionais Qualificados
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Engineer */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-gray-50 rounded-2xl p-8 text-center"
-            >
-              <div className="w-32 h-32 bg-red-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <Building2 className="w-16 h-16 text-red-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-1">
-                {companyData?.team?.engineer?.name ?? ""}
+            {/* Bloco 2: Liderança Técnica & Governança */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
+                <HardHat className="w-5 h-5 text-red-600" />
+                Responsabilidade Técnica Direta
               </h3>
-              <p className="text-red-600 font-medium mb-2">
-                {companyData?.team?.engineer?.role ?? ""}
-              </p>
-              <p className="text-gray-600 text-sm mb-4">
-                {companyData?.team?.engineer?.crea ?? ""}
-              </p>
-              <div className="flex items-center justify-center gap-2 text-gray-600">
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">{companyData?.team?.engineer?.phone ?? ""}</span>
+              
+              <div className="p-5 rounded-xl bg-slate-950 text-white border-l-4 border-red-600 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
+                  <Award className="w-4 h-4" />
+                  Coordenação Geral: Eng. Christian Gomes (CREA/SP)
+                </div>
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                  Todas as obras e laudos técnicos são coordenados e supervisionados diretamente pelo responsável técnico, garantindo rigor na conformidade de projetos, emissão de ARTs (Anotação de Responsabilidade Técnica) registradas no CREA-SP e gestão transparente do início à entrega formal.
+                </p>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Admin */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-gray-50 rounded-2xl p-8 text-center"
-            >
-              <div className="w-32 h-32 bg-red-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                <Award className="w-16 h-16 text-red-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-1">
-                {companyData?.team?.admin?.name ?? ""}
+            {/* Bloco 3: Pilares & Normas Regulamentadoras */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-red-600" />
+                Conformidade com Normas ABNT & Normas Regulamentadoras (NRs)
               </h3>
-              <p className="text-red-600 font-medium mb-2">
-                {companyData?.team?.admin?.role ?? ""}
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                Nossa atuação é estritamente pautada pela segurança operacional, ambiental e normativa em todos os segmentos da construção civil:
               </p>
-              <p className="text-gray-600 text-sm mb-4">Atendimento e Gestão</p>
-              <div className="flex items-center justify-center gap-2 text-gray-600">
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">{companyData?.team?.admin?.phone ?? ""}</span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
-      {/* Certifications */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-red-500 font-semibold">Certificações</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">
-                Responsabilidade Técnica Garantida
-              </h2>
-              <p className="text-gray-400 mb-8">
-                Todos os nossos projetos e obras contam com Anotação de
-                Responsabilidade Técnica (ART) emitida por engenheiro civil
-                devidamente registrado no CREA/SP, garantindo segurança jurídica
-                e técnica para nossos clientes.
-              </p>
-              <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
-                <div className="flex items-center gap-4 mb-4">
-                  <Award className="w-12 h-12 text-red-500" />
-                  <div>
-                    <p className="font-bold text-xl">CREA/SP</p>
-                    <p className="text-gray-400">Conselho Regional de Engenharia e Agronomia</p>
-                  </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                  <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                    <FileCheck2 className="w-4 h-4" /> ABNT NBR 16280 & NBR 6118
+                  </span>
+                  <p className="text-[11px] text-gray-600 leading-relaxed">
+                    Gestão técnica de reformas prediais, projetos de estruturas de concreto armado e inspeções periciais completas.
+                  </p>
                 </div>
-                <div className="border-t border-white/20 pt-4">
-                  <p className="text-sm text-gray-400">Registro Ativo</p>
-                  <p className="font-bold text-lg">{companyData?.team?.engineer?.crea ?? ""}</p>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                  <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                    <Sparkles className="w-4 h-4" /> ABNT NBR 5419 & NBR 6492
+                  </span>
+                  <p className="text-[11px] text-gray-600 leading-relaxed">
+                    Proteção contra descargas atmosféricas (SPDA) com gerenciamento de risco e representação precisa de projetos arquitetônicos.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                  <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4" /> NR-10 & NR-20 (Postos & Indústrias)
+                  </span>
+                  <p className="text-[11px] text-gray-600 leading-relaxed">
+                    Instalações elétricas seguras, zoneamento à prova de explosão (Ex) e conformidade ambiental rigorosa (Resolução CONAMA 273).
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                  <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
+                    <Layers className="w-4 h-4" /> NR-35 & NR-18 (Trabalho em Altura)
+                  </span>
+                  <p className="text-[11px] text-gray-600 leading-relaxed">
+                    Linhas de vida certificadas, andaimes dimensionados e equipe 100% habilitada para revitalização de fachadas e coberturas industriais.
+                  </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="grid grid-cols-2 gap-4">
+            {/* Bloco 4: Diferenciais Estratégicos */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
+                <Building2 className="w-5 h-5 text-red-600" />
+                Por Que Escolher a CPE Engenharia?
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-3 pt-2">
                 {[
-                  { value: 150, suffix: "+", label: "Projetos" },
-                  { value: 50, suffix: "+", label: "Obras" },
-                  { value: 98, suffix: "%", label: "Satisfação" },
-                  { value: 10, suffix: "+", label: "Anos" },
-                ]?.map?.((stat, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/5 rounded-xl p-6 text-center backdrop-blur-sm"
-                  >
-                    <div className="text-3xl font-bold text-red-500 mb-1">
-                      <AnimatedCounter
-                        end={stat?.value ?? 0}
-                        suffix={stat?.suffix ?? ""}
-                      />
-                    </div>
-                    <p className="text-gray-400 text-sm">{stat?.label ?? ""}</p>
+                  "Projetos desenvolvidos em BIM (Autodesk Revit) para zero incompatibilidade.",
+                  "Planejamento físico-financeiro com controle orçamentário rigoroso.",
+                  "Emissão formal de ART registrada no CREA para todos os serviços.",
+                  "Equipe técnica especializada com treinamento constante em NRs.",
+                  "Atendimento consultivo e suporte direto com o corpo de engenharia.",
+                  "Compromisso absoluto com cumprimento de prazos contratuais."
+                ].map((item, idx) => (
+                  <div key={idx} className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 flex items-start gap-2.5">
+                    <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-xs text-gray-700 leading-relaxed font-medium">{item}</span>
                   </div>
-                )) ?? []}
+                ))}
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* CTA */}
-      <section className="py-20 bg-red-600">
-        <div className="max-w-[1200px] mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Vamos construir juntos?
-            </h2>
-            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
-              Entre em contato e descubra como podemos ajudar no seu projeto.
-            </p>
-            <Link
-              href="/orcamento"
-              className="inline-flex items-center gap-2 bg-white text-red-600 font-semibold px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              Solicitar Orçamento
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </motion.div>
+          </div>
+
+          {/* Coluna Lateral */}
+          <div className="lg:col-span-4 space-y-6">
+            
+            {/* Card Institucional */}
+            <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-black">
+                  CPE
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-sm">CPE Engenharia & Construtora</h4>
+                  <span className="text-[11px] text-gray-500">CNPJ: 62.979.414/0001-94</span>
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Referência em excelência executiva, soluções corporativas, projetos residenciais de alto padrão e infraestrutura logística no Estado de São Paulo e em todo o território nacional.
+              </p>
+            </div>
+
+            {/* Card de Atendimento Imediato */}
+            <div className="bg-slate-950 text-white p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+              <div className="space-y-1">
+                <span className="text-[11px] font-bold text-red-500 uppercase tracking-wider block">Atendimento Imediato</span>
+                <h4 className="text-lg font-bold">Inicie seu projeto com a CPE</h4>
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  Fale com nossos engenheiros para receber um estudo de viabilidade técnica e proposta personalizada para a sua obra.
+                </p>
+              </div>
+
+              <div className="space-y-2.5">
+                <Link
+                  href="/orcamento"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl text-xs transition-all shadow-md"
+                >
+                  <span>Solicitar Orçamento</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+
+                <a
+                  href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? "5511989320917"}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl text-xs transition-all shadow-md"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Falar no WhatsApp</span>
+                </a>
+              </div>
+
+              <div className="pt-4 border-t border-slate-800 space-y-1.5 text-[11px] text-gray-400">
+                <p>&bull; Projetos em todo o Brasil &bull; Obras em SP</p>
+                <p>&bull; Responsabilidade: Eng. Christian Gomes (CREA/SP)</p>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-      </section>
-    </>
+      </div>
+
+    </div>
   );
 }
