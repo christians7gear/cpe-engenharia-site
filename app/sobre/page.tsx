@@ -11,11 +11,19 @@ import {
   Layers, 
   HardHat, 
   FileCheck,
-  Sparkles
+  Sparkles,
+  Target,
+  Eye,
+  Heart,
+  Compass,
+  AlertTriangle,
+  Briefcase
 } from "lucide-react";
 import { companyData } from "@/lib/company-data";
 
 export default function SobrePage() {
+  const engineerImg = "/images/engineer.png";
+
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
       
@@ -29,7 +37,7 @@ export default function SobrePage() {
             Construindo <span className="text-red-600">Qualidade de Vida</span> com Rigor Técnico
           </h1>
           <p className="text-gray-400 mt-3 max-w-2xl mx-auto text-sm sm:text-base">
-            Engenharia de alta performance, projetos técnicos executivos e soluções completas em construção civil e engenharia diagnóstica.
+            Engenharia de alta performance, projetos técnicos executivos, gestão de riscos estruturais e soluções completas em construção civil.
           </p>
         </div>
       </section>
@@ -70,25 +78,172 @@ export default function SobrePage() {
               </div>
             </div>
 
-            {/* Bloco 2: Liderança Técnica & Governança */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
-                <HardHat className="w-5 h-5 text-red-600" />
-                Responsabilidade Técnica Direta
-              </h3>
-              
-              <div className="p-5 rounded-xl bg-slate-950 text-white border-l-4 border-red-600 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-red-500 uppercase tracking-wider">
-                  <Award className="w-4 h-4" />
-                  Coordenação Geral: Eng. Christian Gomes (CREA/SP)
+            {/* Bloco 2: Experiência Prática & Acervo Executivo */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+              <div className="space-y-2">
+                <span className="text-xs font-bold text-red-600 uppercase tracking-wider flex items-center gap-1.5">
+                  <Briefcase className="w-4 h-4" /> Portfólio de Atuação e Experiência Comprovada
+                </span>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Projetos, Obras e Engenharia Diagnóstica de Alta Complexidade
+                </h3>
+              </div>
+
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                Nossa trajetória é marcada por uma sólida atuação em múltiplos setores da engenharia, englobando desde o desenvolvimento conceitual até a execução e recuperação de patrimônios edificados:
+              </p>
+
+              {/* Grid 2x2 com os setores de atuação */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div className="flex items-center gap-2 text-red-600 font-bold text-sm">
+                    <Building2 className="w-4 h-4" />
+                    <span>Obras Públicas e Infraestrutura</span>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Elaboração de projetos executivos e acompanhamento rigoroso de obras públicas, com foco no cumprimento irrestrito do caderno de encargos, normas licitatórias e prazos institucionais.
+                  </p>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                  Todas as obras e laudos técnicos são coordenados e supervisionados diretamente pelo responsável técnico, garantindo rigor na conformidade de projetos, emissão de ARTs (Anotação de Responsabilidade Técnica) registradas no CREA-SP e gestão transparente do início à entrega formal.
-                </p>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div className="flex items-center gap-2 text-red-600 font-bold text-sm">
+                    <Layers className="w-4 h-4" />
+                    <span>Setor Comercial e Industrial</span>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Execução de galpões, adequações operacionais, reforços estruturais e instalações técnicas para indústrias, postos de combustíveis e edifícios empresariais.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div className="flex items-center gap-2 text-red-600 font-bold text-sm">
+                    <HardHat className="w-4 h-4" />
+                    <span>Projetos e Obras Residenciais</span>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Construção de residências de alto padrão e reformas completas em condomínios fechados, priorizando funcionalidade, estética refinada e otimização de custos.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div className="flex items-center gap-2 text-red-600 font-bold text-sm">
+                    <AlertTriangle className="w-4 h-4" />
+                    <span>Laudos Críticos e Risco Estrutural</span>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Inspeções periciais profundas, laudos de intervenção emergencial e planos de mitigação para edificações com patologias e comprometimento de estrutura.
+                  </p>
+                </div>
+
               </div>
             </div>
 
-            {/* Bloco 3: Pilares & Normas Regulamentadoras */}
+            {/* Bloco 3: Por Que Fazemos o Que Fazemos & Nossa Essência */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+              <div className="space-y-2">
+                <span className="text-xs font-bold text-red-600 uppercase tracking-wider flex items-center gap-1.5">
+                  <Compass className="w-4 h-4" /> Por Que Fazemos o Que Fazemos
+                </span>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Transformando Espaços para Elevar a Qualidade de Vida
+                </h3>
+              </div>
+
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                Acreditamos que a engenharia vai muito além de cálculos, estruturas e tijolos. Cada projeto que desenvolvemos e cada obra que executamos afeta diretamente a rotina, o bem-estar e a segurança de pessoas e famílias. Nosso compromisso fundamental é criar ambientes funcionais, seguros e inspiradores, trazendo mais conforto e qualidade de vida para residências, condomínios e espaços comerciais.
+              </p>
+
+              {/* Grid: Missão, Visão e Valores */}
+              <div className="grid sm:grid-cols-3 gap-4 pt-2">
+                
+                {/* Missão */}
+                <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div className="w-9 h-9 rounded-lg bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                    <Target className="w-5 h-5" />
+                  </div>
+                  <h4 className="font-bold text-gray-900 text-sm">Nossa Missão</h4>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Entregar soluções de engenharia e arquitetura com excelência técnica, eficiência e total transparência, promovendo a satisfação, segurança e qualidade de vida de nossos clientes.
+                  </p>
+                </div>
+
+                {/* Visão */}
+                <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div className="w-9 h-9 rounded-lg bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                    <Eye className="w-5 h-5" />
+                  </div>
+                  <h4 className="font-bold text-gray-900 text-sm">Nossa Visão</h4>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Ser reconhecida como referência regional e nacional em gestão técnica, rigor normativo e inovação em projetos executivos e construção civil pesada e residencial.
+                  </p>
+                </div>
+
+                {/* Valores */}
+                <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div className="w-9 h-9 rounded-lg bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                    <Heart className="w-5 h-5" />
+                  </div>
+                  <h4 className="font-bold text-gray-900 text-sm">Nossos Valores</h4>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Ética inegociável, rigor com normas regulamentadoras, valorização da vida, precisão orçamentária e busca constante por aperfeiçoamento tecnológico.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Bloco 4: Foto & Perfil do Engenheiro Christian Gomes */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
+                <HardHat className="w-5 h-5 text-red-600" />
+                Liderança & Responsabilidade Técnica
+              </h3>
+
+              <div className="grid md:grid-cols-12 gap-6 items-center">
+                {/* Foto do Engenheiro */}
+                <div className="md:col-span-4">
+                  <div className="relative h-72 sm:h-80 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={engineerImg}
+                      alt="Engenheiro Christian Gomes da Silva - CPE Engenharia"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                </div>
+
+                {/* Descrição do Engenheiro */}
+                <div className="md:col-span-8 space-y-3">
+                  <div>
+                    <span className="text-xs font-bold text-red-600 uppercase tracking-wider block">
+                      Responsável Técnico / CREA-SP
+                    </span>
+                    <h4 className="text-xl font-black text-gray-900">
+                      Eng. Christian Gomes da Silva
+                    </h4>
+                    <p className="text-xs text-gray-500 font-medium">
+                      Engenheiro Civil & Diretor Executivo da CPE Engenharia
+                    </p>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
+                    Com ampla experiência na liderança de projetos complexos, reformas prediais, obras de infraestrutura e consultoria pericial, o Eng. Christian Gomes conduz a CPE Engenharia com foco absoluto em qualidade executiva, estabilidade estrutural e atendimento humanizado.
+                  </p>
+
+                  <div className="p-3.5 rounded-xl bg-slate-950 text-white border-l-4 border-red-600 text-xs space-y-1">
+                    <span className="font-bold text-red-500 uppercase tracking-wider block">
+                      Garantia de Qualidade & CREA-SP
+                    </span>
+                    <p className="text-gray-300 leading-relaxed">
+                      Todas as obras, perícias e laudos emitidos contam com a supervisão direta do Eng. Christian Gomes, com emissão formal de Anotação de Responsabilidade Técnica (ART/CREA-SP).
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bloco 5: Pilares & Normas Regulamentadoras */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-red-600" />
@@ -137,7 +292,7 @@ export default function SobrePage() {
               </div>
             </div>
 
-            {/* Bloco 4: Diferenciais Estratégicos */}
+            {/* Bloco 6: Diferenciais Estratégicos */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
                 <Building2 className="w-5 h-5 text-red-600" />
