@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { 
@@ -178,12 +177,11 @@ export default function ServiceDetailPage() {
                 <div className="grid sm:grid-cols-2 gap-4 pt-2">
                   <div className="space-y-2">
                     <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
-                      <Image
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
                         src={fotoFachadaDia}
                         alt="Condomínio Atlanta - Perspectiva Diurna"
-                        fill
-                        className="object-cover"
-                        unoptimized
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <p className="text-[11px] text-center text-gray-500 font-medium">
@@ -193,12 +191,11 @@ export default function ServiceDetailPage() {
 
                   <div className="space-y-2">
                     <div className="relative h-64 rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
-                      <Image
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
                         src={fotoFachadaNoite}
                         alt="Condomínio Atlanta - Perspectiva Noturna"
-                        fill
-                        className="object-cover"
-                        unoptimized
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <p className="text-[11px] text-center text-gray-500 font-medium">
@@ -251,12 +248,11 @@ export default function ServiceDetailPage() {
             {/* Card Lateral */}
             <div className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
               <div className="relative h-64 w-full bg-slate-100">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={isFachada ? fotoFachadaDia : service.image}
                   alt={service.title}
-                  fill
-                  className="object-cover"
-                  unoptimized
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center gap-2 text-[11px] text-gray-600">
