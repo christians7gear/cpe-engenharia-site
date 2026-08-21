@@ -40,13 +40,13 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "3",
-    title: "Projetos SDA (Detecção & Alarme)",
+    title: "Projetos SPDA (Para-raios)",
     category: "projetos",
-    location: "Guarulhos, SP",
+    location: "São Paulo, SP",
     year: "2024",
-    image: "https://cdn.abacus.ai/images/4a275068-3c84-403b-ba10-5e628a12d6ef.png",
-    linkUrl: "/servicos/projetos-sda",
-    badge: "Sistemas Especiais",
+    image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=1200&q=80",
+    linkUrl: "/servicos/projetos-spda",
+    badge: "Proteção Atmosférica (NBR 5419)",
   },
   {
     id: "4",
