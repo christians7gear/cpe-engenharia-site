@@ -1,4 +1,4 @@
-="use client";
+"use client";
 
 import Link from "next/link";
 import { 
@@ -10,7 +10,7 @@ import {
   Building2, 
   Layers, 
   HardHat, 
-  FileCheck2,
+  FileCheck,
   Sparkles
 } from "lucide-react";
 import { companyData } from "@/lib/company-data";
@@ -101,7 +101,7 @@ export default function SobrePage() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
                   <span className="text-xs font-bold text-red-600 flex items-center gap-1.5">
-                    <FileCheck2 className="w-4 h-4" /> ABNT NBR 16280 & NBR 6118
+                    <FileCheck className="w-4 h-4" /> ABNT NBR 16280 & NBR 6118
                   </span>
                   <p className="text-[11px] text-gray-600 leading-relaxed">
                     Gestão técnica de reformas prediais, projetos de estruturas de concreto armado e inspeções periciais completas.
