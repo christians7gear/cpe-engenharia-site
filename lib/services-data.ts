@@ -31,7 +31,7 @@ export const services: Service[] = [
       "Criação do Projeto Executivo detalhado para a obra, incluindo especificações de materiais e acabamentos.",
       "Emissão da Anotação de Responsabilidade Técnica (ART)."
     ],
-    image: "/images/architectural.png",
+    image: "/images/adega-litoral-fachada.jpg",
     icon: "Ruler",
     category: "projetos"
   },
