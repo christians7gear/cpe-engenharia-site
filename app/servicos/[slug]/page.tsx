@@ -1,15 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useParams, notFound } from "next/navigation";
+import { useParams } from "next/navigation";
 import { 
   CheckCircle2, 
   ArrowRight, 
   Phone, 
   Ruler, 
   Sparkles, 
-  Camera,
-  ShieldCheck
+  Camera 
 } from "lucide-react";
 import { companyData } from "@/lib/company-data";
 import { servicesData } from "@/lib/services-data";
@@ -18,20 +17,19 @@ export default function ServicoPage() {
   const params = useParams();
   const slug = params?.slug as string;
 
-  // Busca os dados dinâmicos do serviço com base no slug da URL
-  const service = servicesData.find((s) => s.slug === slug);
+  // Garante a leitura correta caso servicesData venha como array ou objeto
+  const allServices = Array.isArray(servicesData) 
+    ? servicesData 
+    : (servicesData as any)?.services || [];
 
-  // Se o serviço não existir na lista, retorna página não encontrada
-  if (!service) {
-    return (
-      <div className="min-h-screen pt-32 text-center text-gray-800">
-        <h1 className="text-2xl font-bold">Serviço não encontrado.</h1>
-        <Link href="/servicos" className="text-red-600 underline mt-4 inline-block">
-          Voltar para a lista de serviços
-        </Link>
-      </div>
-    );
-  }
+  const service = allServices.find((s: any) => s.slug === slug || s.id === slug);
+
+  // Fallback seguro de dados para evitar tela branca caso algum campo seja nulo
+  const title = service?.title || service?.name || "Serviços de Engenharia";
+  const category = service?.category || "Projetos Técnicos Executivos • CPE Engenharia";
+  const description = service?.description || service?.shortDescription || "Soluções completas com responsabilidade técnica e conformidade ABNT.";
+  const fullDesc = service?.fullDescription || service?.longDescription || description;
+  const features = service?.features || service?.items || [];
 
   return (
     <div className="bg-slate-50 min-h-screen pt-28 pb-20">
@@ -40,13 +38,13 @@ export default function ServicoPage() {
       <section className="bg-slate-950 text-white py-16 mb-12 border-b border-slate-800">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 text-center">
           <span className="inline-block bg-red-600/90 text-white px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
-            {service.category || "Projetos Técnicos Executivos • CPE Engenharia"}
+            {category}
           </span>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight">
-            {service.title}
+            {title}
           </h1>
           <p className="text-gray-400 mt-3 max-w-2xl mx-auto text-sm sm:text-base">
-            {service.shortDescription || service.description}
+            {description}
           </p>
         </div>
       </section>
@@ -57,19 +55,18 @@ export default function ServicoPage() {
           {/* Coluna Principal */}
           <div className="lg:col-span-8 space-y-8">
             
-            {/* Bloco Detalhamento Técnico Dinâmico */}
+            {/* Bloco Detalhamento Técnico */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-2.5">
                 <span className="w-2.5 h-6 bg-red-600 rounded-full inline-block" />
-                {service.subtitle || `Detalhamento Técnico de ${service.title}`}
+                Especificações e Detalhes Técnicos
               </h2>
 
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                {service.fullDescription || service.description}
+                {fullDesc}
               </p>
 
-              {/* Etapas ou Recursos do Serviço */}
-              {service.features && service.features.length > 0 && (
+              {features.length > 0 && (
                 <div className="space-y-4 pt-2">
                   <h3 className="font-bold text-gray-900 text-base flex items-center gap-2">
                     <Ruler className="w-5 h-5 text-red-600" />
@@ -77,10 +74,10 @@ export default function ServicoPage() {
                   </h3>
 
                   <ul className="space-y-3 text-xs sm:text-sm text-gray-700">
-                    {service.features.map((feature, idx) => (
+                    {features.map((item: any, idx: number) => (
                       <li key={idx} className="flex items-start gap-2.5">
                         <CheckCircle2 className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                        <span>{feature}</span>
+                        <span>{typeof item === "string" ? item : item.title || item.text}</span>
                       </li>
                     ))}
                   </ul>
@@ -92,7 +89,7 @@ export default function ServicoPage() {
               </div>
             </div>
 
-            {/* Galeria Exibida EXCLUSIVAMENTE para Projetos Arquitetônicos */}
+            {/* Galeria Exibida APENAS na página de Projetos Arquitetônicos */}
             {slug === "projetos-arquitetonicos" && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
@@ -153,7 +150,7 @@ export default function ServicoPage() {
               </div>
             )}
 
-            {/* Diferenciais da CPE */}
+            {/* Diferenciais */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
               <h3 className="text-lg font-bold text-gray-900 flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-red-600" />
@@ -176,7 +173,7 @@ export default function ServicoPage() {
 
           </div>
 
-          {/* Coluna Lateral Dinâmica */}
+          {/* Coluna Lateral */}
           <div className="lg:col-span-4 space-y-6">
             
             {/* Card Institucional */}
@@ -195,13 +192,13 @@ export default function ServicoPage() {
               </p>
             </div>
 
-            {/* Card de Atendimento Dinâmico */}
+            {/* Card de Atendimento */}
             <div className="bg-slate-950 text-white p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
               <div className="space-y-1">
                 <span className="text-[11px] font-bold text-red-500 uppercase tracking-wider block">Atendimento Imediato</span>
                 <h4 className="text-lg font-bold">Solicite seu Orçamento</h4>
                 <p className="text-xs text-gray-400 leading-relaxed">
-                  Fale diretamente com nossa equipe para sanar dúvidas ou solicitar uma proposta sobre {service.title}.
+                  Fale com nossos engenheiros para receber uma proposta técnica detalhada sobre {title}.
                 </p>
               </div>
 
