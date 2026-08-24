@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +11,6 @@ import {
   Award,
   Building2,
   Briefcase,
-  Clock,
   CheckCircle,
   Phone,
   Mail,
@@ -27,7 +27,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Award,
   Building2,
   Briefcase,
-  Clock,
 };
 
 export default function HomePage() {
@@ -45,7 +44,7 @@ export default function HomePage() {
     );
   }
 
-  // Todos os 10 serviços exibidos sem cortes
+  // Todos os serviços exibidos sem cortes
   const allServices = services ?? [];
 
   return (
@@ -273,7 +272,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Section - Todos os 10 serviços completos */}
+      {/* Services Section */}
       <section className="py-20 bg-white border-t">
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
