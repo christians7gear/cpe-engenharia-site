@@ -70,13 +70,14 @@ export default function RootLayout({
     <html lang="pt-BR">
       <head>
         <script src="https://apps.abacus.ai/chatllm/appllm-lib.js" />
-        {/* Google tag (gtag.js) GA4 */}
+        
+        {/* Google Tag (gtag.js) GA4 e Google Ads */}
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-Z8WXWR1J0H"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18313928028"
         />
         <Script
-          id="google-analytics"
+          id="google-analytics-and-ads"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
@@ -84,6 +85,7 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-Z8WXWR1J0H');
+              gtag('config', 'AW-18313928028');
             `,
           }}
         />
