@@ -34,12 +34,6 @@ export function Navbar() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  const whatsappNumber = companyData?.team?.admin?.whatsapp ?? "5511989320917";
-  const whatsappMessage = encodeURIComponent(
-    "Olá, Priscila! Acessei o site da CPE Engenharia e gostaria de solicitar um orçamento."
-  );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -51,7 +45,6 @@ export function Navbar() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6">
         <nav className="flex items-center justify-between h-14 sm:h-16">
           <Link href="/" className="relative z-10 flex items-center gap-3 group">
-            {/* Box com o logotipo oficial sem distorções */}
             <div className="bg-white p-1 rounded-xl shadow-md flex items-center justify-center transition-transform group-hover:scale-105 w-12 h-12 flex-shrink-0 border border-slate-100">
               <Image
                 src="/images/logo.png"
@@ -63,7 +56,6 @@ export function Navbar() {
               />
             </div>
 
-            {/* Texto Oficial da Marca */}
             <div className="flex flex-col justify-center">
               <span
                 className={`text-lg sm:text-xl font-black tracking-wider leading-none ${
@@ -99,18 +91,14 @@ export function Navbar() {
                 {link?.label ?? ""}
               </Link>
             )) ?? []}
-
             <a
-              href={whatsappUrl}
+              href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? ""}?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20CPE%20Engenharia.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-3 flex items-center gap-2.5 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-sm transition-all hover:scale-[1.02]"
+              className="ml-2 flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm"
             >
-              <Phone className="w-4 h-4 flex-shrink-0" />
-              <div className="flex flex-col text-left leading-tight">
-                <span className="text-xs font-bold uppercase tracking-wide">Solicitar Orçamento</span>
-                <span className="text-[10px] text-green-100 font-normal">Falar com Priscila</span>
-              </div>
+              <Phone className="w-4 h-4" />
+              Solicitar Orçamento
             </a>
           </div>
 
@@ -153,18 +141,14 @@ export function Navbar() {
                   {link?.label ?? ""}
                 </Link>
               )) ?? []}
-
               <a
-                href={whatsappUrl}
+                href={`https://wa.me/${companyData?.team?.admin?.whatsapp ?? ""}?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20CPE%20Engenharia.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-medium transition-colors mt-2"
+                className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors"
               >
                 <Phone className="w-4 h-4" />
-                <div className="flex flex-col text-center leading-tight">
-                  <span className="text-sm font-bold">Solicitar Orçamento</span>
-                  <span className="text-xs text-green-100 font-normal">Falar com Priscila</span>
-                </div>
+                Solicitar Orçamento
               </a>
             </div>
           </motion.div>
